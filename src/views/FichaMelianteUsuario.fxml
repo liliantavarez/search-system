@@ -253,11 +253,23 @@
             </AnchorPane>
          </content>
       </ScrollPane>
-      <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
+      <HBox alignment="TOP_CENTER" prefHeight="91.0" prefWidth="1080.0">
+         <children>
+            <Button mnemonicParsing="false" prefWidth="127.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Gerar PDF">
+               <HBox.margin>
+                  <Insets right="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Imprimir">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Button>
+         </children>
          <VBox.margin>
-            <Insets top="39.0" />
+            <Insets top="30.0" />
          </VBox.margin>
-      </Button>
+      </HBox>
       <HBox alignment="CENTER">
          <children>
             <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">
