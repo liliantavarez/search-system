@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdministradorController">
    <children>
       <Label style="-fx-font-size: 40; -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080); -fx-background-radius: 5;" text="Search System ">
          <padding>
@@ -24,29 +24,29 @@
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
          </padding>
       </Label>
-      <Button maxWidth="128.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Cadastro Meliante">
+      <Button fx:id="btCadMeliante" maxWidth="128.0" mnemonicParsing="false" onAction="#onBtCadMelianteAcction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Cadastro Meliante">
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
       </Button>
-      <Button maxWidth="128.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Cadastro Úsuario">
+      <Button fx:id="btCadUsuario" maxWidth="128.0" mnemonicParsing="false" onAction="#onBtCadUsuarioAcction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Cadastro Úsuario">
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
       </Button>
-      <Button maxWidth="128.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Buscar Meliante">
+      <Button fx:id="btBuscMeliante" maxWidth="128.0" mnemonicParsing="false" onAction="#onBtBuscMelianteAcction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Buscar Meliante">
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
       </Button>
-      <Button maxWidth="128.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Buscar Úsuario">
+      <Button fx:id="btBuscUsuario" maxWidth="128.0" mnemonicParsing="false" onAction="#onBtBuscUsuarioAcction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Buscar Úsuario">
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
       </Button>
       <HBox alignment="BASELINE_RIGHT" prefHeight="91.0" prefWidth="1080.0">
          <children>
-            <Button mnemonicParsing="false" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+            <Button fx:id="btSair" mnemonicParsing="false" onAction="#onBtSairAcction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
                <HBox.margin>
                   <Insets bottom="45.0" right="45.0" />
                </HBox.margin>

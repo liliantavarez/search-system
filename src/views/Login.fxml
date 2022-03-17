@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.LoginController">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
       <Label style="-fx-font-size: 40; -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080); -fx-background-radius: 5;" text="Search System ">
          <padding>
@@ -19,7 +19,7 @@
             <Insets top="100.0" />
          </VBox.margin>
       </Label>
-      <TextField fx:id="txtUsuario" maxWidth="150.0">
+      <TextField fx:id="txtUsuario" alignment="CENTER" maxWidth="150.0" onKeyReleased="#txtUsuarioKeyReleased">
          <VBox.margin>
             <Insets bottom="20.0" top="10.0" />
          </VBox.margin>
