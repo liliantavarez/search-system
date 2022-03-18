@@ -6,22 +6,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.utils.Load;
 
-public class RecSenhaController {
+public class BuscaMelianteAdmController {
 	
-	@FXML 
-	private TextField txtEmail;
+	@FXML
+	private TextField txtMelianteBusca;
 	@FXML
 	private Button btConfirmar;
+	@FXML
+	private Button btSair;
 	@FXML
 	private Button btVoltar;
 	
 	Load lv = new Load();
 	
 	@FXML
-	public void onBtConfirmarAcction() {
-		String email = txtEmail.getText();
-		Validate.valida(txtEmail);
-		
+	public void onBtBuscarAcction() {
+		String melianteBusca = txtMelianteBusca.getText();
+		Validate.valida(txtMelianteBusca);
 	}
 	
 	@FXML
@@ -29,5 +30,9 @@ public class RecSenhaController {
 		lv.loadview("/views/Login.fxml");		
 	}
 	
+	@FXML
+	public void ontBtVoltarAcction() {
+		lv.loadview("/views/Administrador.fxml");				
+	}
 
 }

@@ -1,5 +1,6 @@
 package controllers;
 
+import Validation.Validate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -45,16 +46,49 @@ public class CadMelianteController {
 	public void onBtSalvarAcction() {
 		
 		String nome = txtNome.getText();
+		if(Validate.valida(txtNome) != true) {
+			nome = "Informação não inserida";
+		}
 		String apelido = txtApelido.getText();
+		if(Validate.valida(txtApelido) != true) {
+			apelido = "Informação não inserida";
+		}
 		String cpf = txtCPF.getText();
+		if(Validate.valida(txtCPF) != true) {
+			cpf = "Informação não inserida";
+		}
 		String caracFisicas = txtCaracFisicas.getText();
+		if(Validate.valida(txtCaracFisicas) != true) {
+			caracFisicas = "Informação não inserida";
+		}
 		String telefone = txtTelefone.getText();
+		if(Validate.valida(txtTelefone) != true) {
+			telefone = "Informação não inserida";
+		}
 		String cidade = txtCidade.getText();
+		if(Validate.valida(txtCidade) != true) {
+			cidade = "Informação não inserida";
+		}
 		String uf = txtUF.getText();
+		if(Validate.valida(txtUF) != true) {
+			uf = "Informação não inserida";
+		}
 		String bairro = txtBairro.getText();
+		if(Validate.valida(txtBairro) != true) {
+			bairro = "Informação não inserida";
+		}
 		String numero = txtNumero.getText();
+		if(Validate.valida(txtNumero) != true) {
+			numero = "Informação não inserida";
+		}
 		String delitos = txtDelitos.getText();
+		if(Validate.valida(txtDelitos) != true) {
+			delitos = "Informação não inserida";
+		}
 		String faccao = txtFaccao.getText();
+		if(Validate.valida(txtFaccao) != true) {
+			faccao = "Informação não inserida";
+		}
 	}
 		
 	@FXML

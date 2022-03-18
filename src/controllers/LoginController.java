@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Validation.Validate;
 import db.DB;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -29,7 +30,9 @@ public class LoginController {
 	public void onBtEntrarAcction() throws NoSuchAlgorithmException {
 		
 		String usuario = txtUsuario.getText();
+		Validate.valida(txtUsuario);
 		String senha = txtSenha.getText();
+		Validate.valida(txtSenha);
 		System.out.println(usuario);
 		Connection conn = DB.getConnection();
 		PreparedStatement pst = null;

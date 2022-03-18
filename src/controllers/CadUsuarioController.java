@@ -1,5 +1,6 @@
 package controllers;
 
+import Validation.Validate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -36,10 +37,15 @@ public class CadUsuarioController {
 	public void onBtSalvarAcction() {
 		
 		String nome = txtNome.getText();
+		Validate.valida(txtNome);
 		String usuario = txtUsuario.getText();
+		Validate.valida(txtUsuario);
 		String senha = txtSenha.getText();
+		Validate.valida(txtSenha);
 		String cofSenha = txtConfsenha.getText();
+		Validate.valida(txtConfsenha);
 		String email = txtEmail.getText();
+		Validate.valida(txtEmail);
 		RadioButton radio = (RadioButton) tipousuario.getSelectedToggle();
 	
 		

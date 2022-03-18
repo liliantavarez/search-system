@@ -6,22 +6,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.utils.Load;
 
-public class RecSenhaController {
+public class BuscaController {
 	
-	@FXML 
-	private TextField txtEmail;
+	@FXML
+	private TextField txtMelianteBusca;
 	@FXML
 	private Button btConfirmar;
 	@FXML
-	private Button btVoltar;
+	private Button btSair;
 	
 	Load lv = new Load();
 	
 	@FXML
 	public void onBtConfirmarAcction() {
-		String email = txtEmail.getText();
-		Validate.valida(txtEmail);
-		
+		String melianteBusca = txtMelianteBusca.getText();
+		Validate.valida(txtMelianteBusca);
 	}
 	
 	@FXML
