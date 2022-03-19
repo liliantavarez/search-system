@@ -1,5 +1,6 @@
 package controllers;
 
+import Validation.Validate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -19,7 +20,7 @@ public class BuscaController {
 	@FXML
 	public void onBtConfirmarAcction() {
 		String melianteBusca = txtMelianteBusca.getText();
-		
+		Validate.valida(txtMelianteBusca);
 	}
 	
 	@FXML

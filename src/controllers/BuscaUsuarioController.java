@@ -1,5 +1,6 @@
 package controllers;
 
+import Validation.Validate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,6 +28,7 @@ public class BuscaUsuarioController {
 	@FXML
 	public void onBtBuscarAcction() {
 		String email = txtEmailOuUsu.getText();
+		Validate.valida(txtEmailOuUsu);
 		
 	}
 		
