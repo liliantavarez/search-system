@@ -1,9 +1,18 @@
 package controllers;
 
-import Validation.Validate;
+import validation.Validate;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import db.DB;
+import db.DbException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
 
@@ -39,94 +48,110 @@ public class CadMelianteController {
 	private Button btSair;
 	@FXML
 	private TextField txtTelefone;
-	
-	Load lv = new Load();
-	
 	@FXML
-	public void onBtSalvarAcction() {
-		
-		String nome = txtNome.getText();
-		if(Validate.valida(txtNome) != true) {
-			nome = "Informação não inserida";
-		}
-		String apelido = txtApelido.getText();
-		if(Validate.valida(txtApelido) != true) {
-			apelido = "Informação não inserida";
-		}
-		String cpf = txtCPF.getText();
-		if(Validate.valida(txtCPF) != true) {
-			cpf = "Informação não inserida";
-		}
-		String caracFisicas = txtCaracFisicas.getText();
-		if(Validate.valida(txtCaracFisicas) != true) {
-			caracFisicas = "Informação não inserida";
-		}
-		String telefone = txtTelefone.getText();
-		if(Validate.valida(txtTelefone) != true) {
-			telefone = "Informação não inserida";
-		}
-		String cidade = txtCidade.getText();
-		if(Validate.valida(txtCidade) != true) {
-			cidade = "Informação não inserida";
-		}
-		String uf = txtUF.getText();
-		if(Validate.valida(txtUF) != true) {
-			uf = "Informação não inserida";
-		}
-		String bairro = txtBairro.getText();
-		if(Validate.valida(txtBairro) != true) {
-			bairro = "Informação não inserida";
-		}
-		String numero = txtNumero.getText();
-		if(Validate.valida(txtNumero) != true) {
-			numero = "Informação não inserida";
-		}
-		String delitos = txtDelitos.getText();
-		if(Validate.valida(txtDelitos) != true) {
-			delitos = "Informação não inserida";
-		}
-		String faccao = txtFaccao.getText();
-		if(Validate.valida(txtFaccao) != true) {
-			faccao = "Informação não inserida";
+	Label lblStatus;
+
+	Load lv = new Load();
+
+	@FXML
+	public void onBtSalvarAction() {
+
+		try {
+			salvarDados();
+		} catch (DbException e) {
+			System.out.println(e.getMessage());
+			lblStatus.setTextFill(Color.TOMATO);
+			lblStatus.setText(e.getMessage());
 		}
 	}
-		
+
+	private String salvarDados() {
+
+		Connection conn = DB.getConnection();
+		PreparedStatement pst = null;
+
+		try {
+			pst = conn.prepareStatement(
+					"INSERT INTO meliantes ( nome, apelido, cpf, caracfisicas, cidade, uf, bairro, rua, numero, delitos,faccao) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+
+			pst.setString(1, txtNome.getText());
+			pst.setString(2, txtApelido.getText());
+			pst.setString(3, txtCPF.getText());
+			pst.setString(4, txtCaracFisicas.getText());
+			pst.setString(5, txtCidade.getText());
+			pst.setString(6, txtUF.getText());
+			pst.setString(7, txtBairro.getText());
+			pst.setString(8, txtRua.getText());
+			pst.setString(9, txtNumero.getText());
+			pst.setString(10, txtDelitos.getText());
+			pst.setString(11, txtFaccao.getText());
+
+			pst.executeUpdate();
+
+			lblStatus.setTextFill(Color.GREEN);
+			lblStatus.setText("Cadastro realizado com sucesso!");
+			limparCampos();
+
+			return "Success";
+
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+			lblStatus.setTextFill(Color.TOMATO);
+			lblStatus.setText(ex.getMessage());
+			return "Exception";
+		}
+	}
+
+	private void limparCampos() {
+		txtNome.clear();
+		txtApelido.clear();
+		txtCPF.clear();
+		txtCaracFisicas.clear();
+		txtCidade.clear();
+		txtUF.clear();
+		txtBairro.clear();
+		txtRua.clear();
+		txtNumero.clear();
+		txtDelitos.clear();
+		txtFaccao.clear();
+	}
+
 	@FXML
-	public void onBtVoltarAcction() {
+	public void onBtVoltarAction() {
 		lv.loadview("/views/Administrador.fxml");
 	}
+
 	@FXML
-	public void onBtSairAcction() {
-		lv.loadview("/views/Login.fxml");		
+	public void onBtSairAction() {
+		lv.loadview("/views/Login.fxml");
 	}
-	
-	@FXML 
-	private void txtCPFKeyReleased(){
+
+	@FXML
+	private void txtCPFKeyReleased() {
 		TextFieldFormatter tff = new TextFieldFormatter();
 		tff.setMask("###.###.###-##");
 		tff.setCaracteresValidos("0123456789");
 		tff.setTf(txtCPF);
 		tff.formatter();
 	}
-	@FXML 
-	private void txtTelefoneKeyReleased(){
+
+	@FXML
+	private void txtTelefoneKeyReleased() {
 		TextFieldFormatter tff = new TextFieldFormatter();
-		tff.setMask("(##) #####-####");
+		tff.setMask("(##)#####-####");
 		tff.setCaracteresValidos("0123456789");
 		tff.setTf(txtTelefone);
 		tff.formatter();
 	}
 
-	@FXML 
-	private void txtNumeroKeyReleased(){
+	@FXML
+	private void txtNumeroKeyReleased() {
 		TextFieldFormatter tff = new TextFieldFormatter();
 		tff.setMask("#######");
 		tff.setCaracteresValidos("0123456789");
 		tff.setTf(txtNumero);
 		tff.formatter();
-		
-	}
-	
 
+	}
 
 }

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CadMelianteController">
    <children>
       <Label style="-fx-font-size: 40; -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080); -fx-background-radius: 5;" text="Search System ">
          <padding>
@@ -32,7 +32,7 @@
       </Label>
       <ScrollPane maxWidth="650.0" prefHeight="350.0" style="-fx-background-radius: 5; -fx-background-color: gainsboro; -fx-padding: 10;">
          <VBox.margin>
-            <Insets top="5.0" />
+            <Insets bottom="20.0" top="5.0" />
          </VBox.margin>
          <content>
             <AnchorPane prefHeight="550.0" prefWidth="620.0" style="-fx-background-color: gainsboro; -fx-background-radius: 5; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5;">
@@ -58,7 +58,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="5.0" prefWidth="289.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-insets: 1; -fx-border-style: solid; -fx-text-fill: #3c3c3c; -fx-border-color: #494949;">
+                                          <TextField fx:id="txtNome" prefHeight="5.0" prefWidth="289.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-insets: 1; -fx-border-style: solid; -fx-text-fill: #3c3c3c; -fx-border-color: #494949;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -74,7 +74,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="9.0" prefWidth="281.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-color: #494949;">
+                                          <TextField fx:id="txtApelido" prefHeight="9.0" prefWidth="281.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-color: #494949;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -90,7 +90,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="15.0" prefWidth="301.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-insets: 1; -fx-border-color: #494949;">
+                                          <TextField fx:id="txtCPF" onKeyReleased="#txtCPFKeyReleased" prefHeight="15.0" prefWidth="301.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-insets: 1; -fx-border-color: #494949;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -106,7 +106,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="26.0" prefWidth="177.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-insets: 1; -fx-border-color: #494949;">
+                                          <TextField fx:id="txtCaracFisicas" prefHeight="26.0" prefWidth="177.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-insets: 1; -fx-border-color: #494949;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -122,7 +122,15 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
+<<<<<<< Updated upstream
+                                          <TextField fx:id="txtTelefone" onKeyReleased="#txtTelefoneKeyReleased" prefHeight="26.0" prefWidth="272.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 0 0; -fx-border-insets: 1; -fx-border-color: #494949;">
+=======
+<<<<<<< Updated upstream
                                           <TextField prefHeight="26.0" prefWidth="272.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 0 0; -fx-border-insets: 1; -fx-border-color: #494949;">
+=======
+                                          <TextField fx:id="txtTelefone" alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" onKeyReleased="#txtTelefoneKeyReleased" prefHeight="26.0" prefWidth="272.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 0 0; -fx-border-insets: 1; -fx-border-color: #494949;">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -160,13 +168,13 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="28.0" prefWidth="296.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
+                                    <TextField fx:id="txtCidade" prefHeight="28.0" prefWidth="296.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
                                     <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="UF:">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="28.0" prefWidth="50.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
+                                    <TextField fx:id="txtUF" prefHeight="28.0" prefWidth="50.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
                                  </children>
                                  <VBox.margin>
                                     <Insets top="5.0" />
@@ -179,7 +187,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="5.0" prefWidth="373.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
+                                    <TextField fx:id="txtBairro" prefHeight="5.0" prefWidth="373.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
                                  </children>
                                  <VBox.margin>
                                     <Insets top="5.0" />
@@ -192,13 +200,13 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="28.0" prefWidth="296.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
+                                    <TextField fx:id="txtRua" prefHeight="28.0" prefWidth="296.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
                                     <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="Nº">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="28.0" prefWidth="77.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
+                                    <TextField fx:id="txtNumero" onKeyReleased="#txtNumeroKeyReleased" prefHeight="28.0" prefWidth="77.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
                                  </children>
                                  <VBox.margin>
                                     <Insets top="5.0" />
@@ -223,7 +231,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="28.0" prefWidth="368.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0;" />
+                                    <TextField fx:id="txtDelitos" prefHeight="28.0" prefWidth="368.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0;" />
                                  </children>
                                  <VBox.margin>
                                     <Insets top="5.0" />
@@ -236,7 +244,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="28.0" prefWidth="367.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0;" />
+                                    <TextField fx:id="txtFaccao" prefHeight="28.0" prefWidth="367.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0;" />
                                  </children>
                                  <VBox.margin>
                                     <Insets top="5.0" />
@@ -253,16 +261,43 @@
             </AnchorPane>
          </content>
       </ScrollPane>
+<<<<<<< Updated upstream
+      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
+=======
+<<<<<<< Updated upstream
       <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
+=======
+      <Label fx:id="lblStatus">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
          <VBox.margin>
-            <Insets top="39.0" />
+            <Insets top="5.0" />
+         </VBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+         <VBox.margin>
+            <Insets top="50.0" />
          </VBox.margin>
       </Button>
       <HBox alignment="CENTER">
          <children>
             <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">
                <children>
+<<<<<<< Updated upstream
+                  <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#onBtVoltarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
+=======
+<<<<<<< Updated upstream
                   <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
+=======
+                  <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#onBtVoltarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                      <HBox.margin>
                         <Insets left="45.0" />
                      </HBox.margin>
@@ -271,7 +306,15 @@
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="0.0" prefWidth="540.0">
                <children>
+<<<<<<< Updated upstream
+                  <Button fx:id="btSair" mnemonicParsing="false" onAction="#onBtSairAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+=======
+<<<<<<< Updated upstream
                   <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+=======
+                  <Button fx:id="btSair" mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                      <HBox.margin>
                         <Insets right="45.0" />
                      </HBox.margin>

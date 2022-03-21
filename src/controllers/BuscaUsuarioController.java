@@ -1,11 +1,11 @@
 package controllers;
 
-import Validation.Validate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.utils.Load;
+import validation.Validate;
 
 public class BuscaUsuarioController {
 	

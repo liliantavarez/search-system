@@ -6,14 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Validation.Validate;
 import db.DB;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import model.utils.Criptografar;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
+import validation.Validate;
 
 public class LoginController {
 	
@@ -23,7 +25,8 @@ public class LoginController {
 	private TextField txtSenha;
 	@FXML
 	private Button btEntrar;
-	
+	@FXML 
+	private Label lblStatus;
 	Load lv = new Load();
 	
 	@FXML
@@ -55,7 +58,8 @@ public class LoginController {
 			}
 			
 		}catch(SQLException e) {
-			e.printStackTrace();
+			lblStatus.setTextFill(Color.TOMATO);
+			lblStatus.setText(e.getMessage());
 		}
 		
 	}

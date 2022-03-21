@@ -1,4 +1,4 @@
-package Validation;
+package validation;
 
 import javafx.scene.control.TextField;
 
@@ -11,6 +11,8 @@ public class Validate {
 			return false;
 		}
 	}
+	
+	
 
 
 }
