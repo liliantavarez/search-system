@@ -1,15 +1,11 @@
 package controllers;
 
-<<<<<<< Updated upstream
-=======
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import db.DB;
 import db.DbException;
->>>>>>> Stashed changes
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,11 +13,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
-import javafx.util.Callback;
-import model.utils.Criptografar;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
-import validation.Validate;
 
 public class CadUsuarioController {
 
@@ -50,11 +43,15 @@ public class CadUsuarioController {
 
 	@FXML
 	public void onBtSalvarAcction() {
-		if(confereSenha(txtSenha, txtConfsenha)) {
+
+		try {
+			if (salvarDados() == "Success") {
+				salvarDados();
+			}
+		} catch (DbException e) {
+			System.out.println(e.getMessage());
 			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText("Insira senhas iguais");
-		}else {
-			salvarDados();
+			lblStatus.setText(e.getMessage());
 		}
 	}
 
@@ -62,41 +59,29 @@ public class CadUsuarioController {
 
 		Connection conn = DB.getConnection();
 		PreparedStatement pst = null;
-		
-<<<<<<< Updated upstream
-		String nome = txtNome.getText();
-		String usuario = txtUsuario.getText();
-		String senha = txtSenha.getText();
-		String cofSenha = txtConfsenha.getText();
-		String email = txtEmail.getText();
-=======
+
 		try {
-			pst = conn.prepareStatement("INSERT INTO usuarios ( nome, cpf, senha, email, nivel) VALUES (?,?,?,?,?)");
-			
-				String senhaEnc = Criptografar.cripografar(txtSenha.getText(),"SHA1");
-				pst.setString(1, txtNome.getText());
-				pst.setString(2, txtUsuario.getText());
-				pst.setString(3, senhaEnc);
-				pst.setString(4, txtEmail.getText());
-				pst.setInt(5, nivelDeAcesso(tipousuario));
-				pst.executeUpdate();
+			pst = conn.prepareStatement(
+					"INSERT INTO usuario ( CPFUsuario, usuario, senha, email, fnivel) VALUES (?,?,?,?,?)");
+			RadioButton radio = (RadioButton) tipousuario.getSelectedToggle();
+			// String senhaEnc = Criptografar.cripografar(txtSenha.getText(), "SHA1");
+			pst.setString(1, txtUsuario.getText());
+			pst.setString(2, txtNome.getText());
+			pst.setString(3, txtSenha.getText());
+			pst.setString(4, txtEmail.getText());
+			pst.setString(5, radio.getText());
+			pst.executeUpdate();
 
-				lblStatus.setTextFill(Color.GREEN);
-				lblStatus.setText("Cadastro realizado com sucesso!");
-				limparCampos();
+			lblStatus.setTextFill(Color.GREEN);
+			lblStatus.setText("Cadastro realizado com sucesso!");
+			limparCampos();
 
-				return "Success";
-		 
-
+			return "Success";
 
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 			lblStatus.setTextFill(Color.TOMATO);
 			lblStatus.setText(ex.getMessage());
-			return "Exception";
-		} catch (NoSuchAlgorithmException e) {
-			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText(e.getMessage());
 			return "Exception";
 		}
 	}
@@ -118,7 +103,6 @@ public class CadUsuarioController {
 	}
 
 	private int nivelDeAcesso(ToggleGroup tipousuario) {
->>>>>>> Stashed changes
 		RadioButton radio = (RadioButton) tipousuario.getSelectedToggle();
 		if (radio.getText().equals("Usuario")) {
 			return 1;

@@ -12,72 +12,91 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import model.utils.Criptografar;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
-import validation.Validate;
 
 public class LoginController {
-	
+
 	@FXML
 	private TextField txtUsuario;
 	@FXML
 	private TextField txtSenha;
 	@FXML
 	private Button btEntrar;
-	@FXML 
+	@FXML
+	private Label lblErrors;
+	@FXML
 	private Label lblStatus;
+
 	Load lv = new Load();
-	
+
+	Connection conn = DB.getConnection();
+	PreparedStatement preparedStatement = null;
+	ResultSet resultSet = null;
+
 	@FXML
 	public void onBtEntrarAcction() throws NoSuchAlgorithmException {
-		
-		String usuario = txtUsuario.getText();
-		String senha = txtSenha.getText();
-		System.out.println(usuario);
-		Connection conn = DB.getConnection();
-		PreparedStatement pst = null;
-		ResultSet rs = null;
-		
-		try {
-			pst = conn.prepareStatement("SELECT * FROM USUARIOS WHERE USUARIO = ? AND SENHA = ?");
-			pst.setString(1, usuario);
-			String senhaEnc = Criptografar.cripografar(senha, "SHA1");
-			pst.setString(2, senhaEnc);
-			
-			rs = pst.executeQuery();
 
-			if (rs.next()) {
-				if(rs.getInt("nivel") == 2) {
-					lv.loadview("/views/Administrador.fxml");					
-				}else {
-					lv.loadview("/views/Busca.fxml");
-				}
-			}
-			
-		}catch(SQLException e) {
-			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText(e.getMessage());
-		}
-		
+		logIn();
+
 	}
-	
+
+	private String logIn() {
+		String status = "Success";
+		String email = txtUsuario.getText();
+		String password = txtSenha.getText();
+		if (email.isEmpty() || password.isEmpty()) {
+			setLblError(Color.TOMATO, "Insira os dados");
+			status = "Error";
+		} else {
+			// query
+			String sql = "SELECT * FROM usuario Where CPFusuario = ? and senha = ?";
+			try {
+				preparedStatement = conn.prepareStatement(sql);
+				preparedStatement.setString(1, email);
+				preparedStatement.setString(2, password);
+				resultSet = preparedStatement.executeQuery();
+				if (!resultSet.next()) {
+					setLblError(Color.TOMATO, "Erro de Usuario/Senha");
+					status = "Error";
+				} else {
+					setLblError(Color.GREEN, "Login realizado com sucesso");
+					if (resultSet.getString("fnivel") == "Usuario") {
+						lv.loadview("/views/Busca.fxml");
+					} else {
+						lv.loadview("/views/Administrador.fxml");
+					}
+
+				}
+			} catch (SQLException ex) {
+				System.err.println(ex.getMessage());
+				status = "Exception";
+			}
+		}
+
+		return status;
+	}
+
 	@FXML
-	private void txtUsuarioKeyReleased(){
+	private void txtUsuarioKeyReleased() {
 		TextFieldFormatter tff = new TextFieldFormatter();
 		tff.setMask("###.###.###-##");
 		tff.setCaracteresValidos("0123456789");
 		tff.setTf(txtUsuario);
 		tff.formatter();
 	}
-	//@FXML 
-	// void 
-	
-	@FXML 
+	// @FXML
+	// void
+
+	@FXML
 	public void onLabelRecSenhaMouseClicked() {
 		lv.loadview("/views/RecSenha.fxml");
 	}
-	
-	
+
+	private void setLblError(Color color, String text) {
+		lblErrors.setTextFill(color);
+		lblErrors.setText(text);
+		System.out.println(text);
+	}
 
 }

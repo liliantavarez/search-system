@@ -7,26 +7,26 @@ import model.utils.Load;
 import validation.Validate;
 
 public class RecSenhaController {
-	
-	@FXML 
+
+	@FXML
 	private TextField txtEmail;
 	@FXML
 	private Button btConfirmar;
 	@FXML
 	private Button btVoltar;
-	
+
 	Load lv = new Load();
-	
+
 	@FXML
 	public void onBtConfirmarAcction() {
 		String email = txtEmail.getText();
-		
+		Validate.valida(txtEmail);
+
 	}
-	
+
 	@FXML
-	public void onBtSairAcction() {
-		lv.loadview("/views/Login.fxml");		
+	public void onBtVoltarAction() {
+		lv.loadview("/views/Login.fxml");
 	}
-	
 
 }
