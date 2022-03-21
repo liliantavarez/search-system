@@ -96,6 +96,7 @@
                      </VBox.margin>
                   </TextField>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                   <TextField fx:id="txtSenha" style="-fx-padding: 0; -fx-font-size: 16;">
 =======
 <<<<<<< Updated upstream
@@ -115,6 +116,8 @@
 =======
                   <TextField style="-fx-padding: 0; -fx-font-size: 16;">
 =======
+=======
+>>>>>>> Stashed changes
                   <PasswordField fx:id="txtSenha" style="-fx-padding: 0; -fx-font-size: 16;">
                      <VBox.margin>
                         <Insets bottom="10.0" />
@@ -126,7 +129,10 @@
                      </VBox.margin>
                   </PasswordField>
                   <TextField fx:id="txtEmail" style="-fx-padding: 0; -fx-font-size: 16;">
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                      <VBox.margin>
                         <Insets bottom="10.0" />
@@ -156,11 +162,14 @@
          </VBox.margin>
       </HBox>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
 =======
 <<<<<<< Updated upstream
       <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
 =======
+=======
+>>>>>>> Stashed changes
       <Label fx:id="lblStatus">
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -173,7 +182,10 @@
          </font>
       </Label>
       <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
          <VBox.margin>
             <Insets top="30.0" />
