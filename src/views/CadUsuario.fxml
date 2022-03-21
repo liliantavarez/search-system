@@ -29,6 +29,17 @@
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
          </padding>
       </Label>
+      <Label fx:id="lblStatus">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="50.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </Label>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <VBox alignment="TOP_RIGHT">
@@ -95,39 +106,15 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </TextField>
-<<<<<<< Updated upstream
-                  <TextField fx:id="txtSenha" style="-fx-padding: 0; -fx-font-size: 16;">
-=======
-<<<<<<< Updated upstream
-                  <TextField style="-fx-padding: 0; -fx-font-size: 16;">
->>>>>>> Stashed changes
+                  <PasswordField fx:id="txtSenha" maxHeight="20.0" minHeight="20.0" prefHeight="20.0" style="-fx-padding: 0; -fx-font-size: 16;">
                      <VBox.margin>
                         <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="txtConfsenha" style="-fx-padding: 0; -fx-font-size: 16;">
+                     </VBox.margin></PasswordField>
+                  <PasswordField fx:id="txtConfsenha" minHeight="20.0" prefHeight="20.0" prefWidth="263.0" style="-fx-padding: 0; -fx-font-size: 16;">
                      <VBox.margin>
                         <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </TextField>
-<<<<<<< Updated upstream
+                     </VBox.margin></PasswordField>
                   <TextField fx:id="txtEmail" style="-fx-padding: 0; -fx-font-size: 16;">
-=======
-                  <TextField style="-fx-padding: 0; -fx-font-size: 16;">
-=======
-                  <PasswordField fx:id="txtSenha" style="-fx-padding: 0; -fx-font-size: 16;">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </PasswordField>
-                  <PasswordField fx:id="txtConfsenha" style="-fx-padding: 0; -fx-font-size: 16;">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </PasswordField>
-                  <TextField fx:id="txtEmail" style="-fx-padding: 0; -fx-font-size: 16;">
->>>>>>> Stashed changes
->>>>>>> Stashed changes
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
@@ -138,8 +125,14 @@
                            <toggleGroup>
                               <ToggleGroup fx:id="tipousuario" />
                            </toggleGroup>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" style="-fx-text-fill: whitesmoke; -fx-font-weight: bold; -fx-font-size: 16;" text="Administrador" toggleGroup="$tipousuario" />
+                        <RadioButton mnemonicParsing="false" style="-fx-text-fill: whitesmoke; -fx-font-weight: bold; -fx-font-size: 16;" text="Administrador" toggleGroup="$tipousuario">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding></RadioButton>
                      </children>
                      <VBox.margin>
                         <Insets top="5.0" />
@@ -155,26 +148,7 @@
             <Insets bottom="5.0" />
          </VBox.margin>
       </HBox>
-<<<<<<< Updated upstream
       <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
-=======
-<<<<<<< Updated upstream
-      <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
-=======
-      <Label fx:id="lblStatus">
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
->>>>>>> Stashed changes
->>>>>>> Stashed changes
          <VBox.margin>
             <Insets top="30.0" />
          </VBox.margin>
