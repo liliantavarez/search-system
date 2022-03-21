@@ -122,7 +122,15 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
+<<<<<<< Updated upstream
                                           <TextField fx:id="txtTelefone" onKeyReleased="#txtTelefoneKeyReleased" prefHeight="26.0" prefWidth="272.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 0 0; -fx-border-insets: 1; -fx-border-color: #494949;">
+=======
+<<<<<<< Updated upstream
+                                          <TextField prefHeight="26.0" prefWidth="272.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 0 0; -fx-border-insets: 1; -fx-border-color: #494949;">
+=======
+                                          <TextField fx:id="txtTelefone" alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" onKeyReleased="#txtTelefoneKeyReleased" prefHeight="26.0" prefWidth="272.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 0 0; -fx-border-insets: 1; -fx-border-color: #494949;">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -253,7 +261,26 @@
             </AnchorPane>
          </content>
       </ScrollPane>
+<<<<<<< Updated upstream
       <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
+=======
+<<<<<<< Updated upstream
+      <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
+=======
+      <Label fx:id="lblStatus">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
          <VBox.margin>
             <Insets top="50.0" />
          </VBox.margin>
@@ -262,7 +289,15 @@
          <children>
             <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">
                <children>
+<<<<<<< Updated upstream
                   <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#onBtVoltarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
+=======
+<<<<<<< Updated upstream
+                  <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
+=======
+                  <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#onBtVoltarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                      <HBox.margin>
                         <Insets left="45.0" />
                      </HBox.margin>
@@ -271,7 +306,15 @@
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="0.0" prefWidth="540.0">
                <children>
+<<<<<<< Updated upstream
                   <Button fx:id="btSair" mnemonicParsing="false" onAction="#onBtSairAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+=======
+<<<<<<< Updated upstream
+                  <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+=======
+                  <Button fx:id="btSair" mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                      <HBox.margin>
                         <Insets right="45.0" />
                      </HBox.margin>

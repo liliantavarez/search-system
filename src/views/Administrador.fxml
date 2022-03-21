@@ -29,7 +29,15 @@
             <Insets top="25.0" />
          </VBox.margin>
       </Button>
+<<<<<<< Updated upstream
       <Button fx:id="btCadUsuario" maxWidth="128.0" mnemonicParsing="false" onAction="#onBtCadUsuarioAcction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Cadastro Úsuario">
+=======
+<<<<<<< Updated upstream
+      <Button maxWidth="128.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Cadastro Úsuario">
+=======
+      <Button fx:id="btCadUsuario" maxWidth="128.0" mnemonicParsing="false" onAction="#onBtCadUsuarioAcction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Cadastro Usuário">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
@@ -39,7 +47,15 @@
             <Insets top="25.0" />
          </VBox.margin>
       </Button>
+<<<<<<< Updated upstream
       <Button fx:id="btBuscUsuario" maxWidth="128.0" mnemonicParsing="false" onAction="#onBtBuscUsuarioAcction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Buscar Úsuario">
+=======
+<<<<<<< Updated upstream
+      <Button maxWidth="128.0" mnemonicParsing="false" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Buscar Úsuario">
+=======
+      <Button fx:id="btBuscUsuario" maxWidth="128.0" mnemonicParsing="false" onAction="#onBtBuscUsuarioAcction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Buscar Usuário">
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
