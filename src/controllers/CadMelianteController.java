@@ -1,8 +1,20 @@
 package controllers;
 
+<<<<<<< Updated upstream
+=======
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import db.DB;
+import db.DbException;
+>>>>>>> Stashed changes
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
 
@@ -38,12 +50,14 @@ public class CadMelianteController {
 	private Button btSair;
 	@FXML
 	private TextField txtTelefone;
+	@FXML Label lblStatus;
 	
 	Load lv = new Load();
 	
 	@FXML
-	public void onBtSalvarAcction() {
+	public void onBtSalvarAction() {
 		
+<<<<<<< Updated upstream
 		String nome = txtNome.getText();
 		String apelido = txtApelido.getText();
 		String cpf = txtCPF.getText();
@@ -55,14 +69,74 @@ public class CadMelianteController {
 		String numero = txtNumero.getText();
 		String delitos = txtDelitos.getText();
 		String faccao = txtFaccao.getText();
+=======
+		try {
+			salvarDados();				
+		}catch(DbException e) {
+	           System.out.println(e.getMessage());
+	            lblStatus.setTextFill(Color.TOMATO);
+	            lblStatus.setText(e.getMessage());
+		}
+>>>>>>> Stashed changes
 	}
+	
+    private String salvarDados() {
+    	
+    	Connection conn = DB.getConnection();
+		PreparedStatement pst = null;	
+    
+        try {
+        	pst = conn.prepareStatement("INSERT INTO meliantes ( nome, apelido, cpf, caracfisicas, cidade, uf, bairro, rua, numero, delitos,faccao) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            
+            pst.setString(1, txtNome.getText());
+            pst.setString(2, txtApelido.getText());
+            pst.setString(3, txtCPF.getText());
+            pst.setString(4, txtCaracFisicas.getText());
+            pst.setString(5, txtCidade.getText());
+            pst.setString(6, txtUF.getText());
+            pst.setString(7, txtBairro.getText());
+            pst.setString(8, txtRua.getText());
+            pst.setString(9, txtNumero.getText());
+            pst.setString(10, txtDelitos.getText());
+            pst.setString(11, txtFaccao.getText());
+
+            pst.executeUpdate();
+            
+            lblStatus.setTextFill(Color.GREEN);
+            lblStatus.setText("Cadastro realizado com sucesso!");
+            limparCampos();
+
+            
+            return "Success";
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText(ex.getMessage());
+            return "Exception";
+        }
+    }
+    
+    private void limparCampos() {
+        txtNome.clear();
+        txtApelido.clear();
+        txtCPF.clear();
+        txtCaracFisicas.clear();
+        txtCidade.clear();
+        txtUF.clear();
+        txtBairro.clear();
+        txtRua.clear();
+        txtNumero.clear();
+        txtDelitos.clear();
+        txtFaccao.clear();
+    }
 		
 	@FXML
-	public void onBtVoltarAcction() {
+	public void onBtVoltarAction() {
 		lv.loadview("/views/Administrador.fxml");
 	}
 	@FXML
-	public void onBtSairAcction() {
+	public void onBtSairAction() {
 		lv.loadview("/views/Login.fxml");		
 	}
 	
@@ -77,7 +151,7 @@ public class CadMelianteController {
 	@FXML 
 	private void txtTelefoneKeyReleased(){
 		TextFieldFormatter tff = new TextFieldFormatter();
-		tff.setMask("(##) #####-####");
+		tff.setMask("(##)#####-####");
 		tff.setCaracteresValidos("0123456789");
 		tff.setTf(txtTelefone);
 		tff.formatter();

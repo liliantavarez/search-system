@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.utils.Load;
+import validation.Validate;
 
 public class BuscaController {
 	
@@ -19,6 +20,10 @@ public class BuscaController {
 	@FXML
 	public void onBtConfirmarAcction() {
 		String melianteBusca = txtMelianteBusca.getText();
+<<<<<<< Updated upstream
+=======
+		Validate.valida(txtMelianteBusca);
+>>>>>>> Stashed changes
 		
 	}
 	
