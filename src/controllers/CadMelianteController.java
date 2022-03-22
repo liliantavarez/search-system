@@ -27,6 +27,8 @@ public class CadMelianteController {
 	@FXML
 	private TextField txtCaracFisicas;
 	@FXML
+	private TextField txtTelefone;
+	@FXML
 	private TextField txtCidade;
 	@FXML
 	private TextField txtUF;
@@ -47,9 +49,7 @@ public class CadMelianteController {
 	@FXML
 	private Button btSair;
 	@FXML
-	private TextField txtTelefone;
-	@FXML
-	Label lblStatus;
+	private Label lblStatus;
 
 	Load lv = new Load();
 

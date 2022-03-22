@@ -17,7 +17,7 @@
             <Insets top="50.0" />
          </VBox.margin>
       </Label>
-      <Label style="-fx-font-size: 20;" text="Usuário">
+      <Label style="-fx-font-size: 20;" text="Buscar">
          <VBox.margin>
             <Insets top="23.0" />
          </VBox.margin>
@@ -26,7 +26,7 @@
          </padding>
       </Label>
       <TextField fx:id="txtMelianteBusca" maxWidth="150.0" />
-      <Button fx:id="btConfirmar" mnemonicParsing="false" onAction="#onBtBuscarAcction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Buscar">
+      <Button fx:id="btConfirmar" mnemonicParsing="false" onAction="#onBtConfirmarAction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Confirmar">
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
@@ -35,7 +35,7 @@
          <children>
             <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">
                <children>
-                  <Button fx:id="btVoltar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ontBtVoltarAcction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
+                  <Button fx:id="btVoltar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ontBtVoltarAction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
                      <HBox.margin>
                         <Insets left="45.0" />
                      </HBox.margin>
@@ -44,7 +44,7 @@
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefWidth="540.0">
                <children>
-                  <Button fx:id="btSair" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtSairAcction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+                  <Button fx:id="btSair" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
                      <HBox.margin>
                         <Insets right="45.0" />
                      </HBox.margin>

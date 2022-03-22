@@ -32,16 +32,16 @@
       </Label>
       <ScrollPane maxWidth="650.0" prefHeight="350.0" style="-fx-background-radius: 5; -fx-background-color: gainsboro; -fx-padding: 10;">
          <VBox.margin>
-            <Insets bottom="20.0" top="5.0" />
+            <Insets top="5.0" />
          </VBox.margin>
          <content>
-            <AnchorPane prefHeight="550.0" prefWidth="620.0" style="-fx-background-color: gainsboro; -fx-background-radius: 5; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5;">
+            <AnchorPane prefHeight="550.0" prefWidth="615.0" style="-fx-background-color: gainsboro; -fx-background-radius: 5; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5;">
                <children>
                   <VBox>
                      <children>
-                        <HBox prefHeight="201.0" prefWidth="449.0">
+                        <HBox prefHeight="201.0" prefWidth="507.0">
                            <children>
-                              <VBox prefHeight="183.0" prefWidth="333.0">
+                              <VBox>
                                  <children>
                                     <Label style="-fx-border-color: black; -fx-background-color: white; -fx-border-radius: 3; -fx-font-size: 18;" text="Dados Pessoais">
                                        <VBox.margin>
@@ -51,14 +51,14 @@
                                           <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                        </padding>
                                     </Label>
-                                    <HBox prefHeight="12.0" prefWidth="333.0">
+                                    <HBox>
                                        <children>
-                                          <Label prefHeight="24.0" prefWidth="42.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="Nome:">
+                                          <Label prefHeight="24.0" prefWidth="42.0" style="-fx-font-size: 14;" text="Nome:">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtNome" prefHeight="5.0" prefWidth="289.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-insets: 1; -fx-border-style: solid; -fx-text-fill: #3c3c3c; -fx-border-color: #494949;">
+                                          <TextField fx:id="txtNome" prefHeight="24.0" prefWidth="289.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -67,14 +67,14 @@
                                           <Insets top="5.0" />
                                        </VBox.margin>
                                     </HBox>
-                                    <HBox prefHeight="11.0" prefWidth="333.0">
+                                    <HBox>
                                        <children>
-                                          <Label prefHeight="24.0" prefWidth="51.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="Apelido:">
+                                          <Label prefHeight="24.0" prefWidth="51.0" style="-fx-font-size: 14;" text="Apelido:">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtApelido" prefHeight="9.0" prefWidth="281.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-color: #494949;">
+                                          <TextField fx:id="txtApelido" prefHeight="11.0" prefWidth="281.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -83,14 +83,14 @@
                                           <Insets top="5.0" />
                                        </VBox.margin>
                                     </HBox>
-                                    <HBox maxHeight="38.0" prefHeight="9.0" prefWidth="333.0">
+                                    <HBox maxHeight="24.0" prefHeight="24.0">
                                        <children>
-                                          <Label prefHeight="26.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="CPF: ">
+                                          <Label prefHeight="24.0" style="-fx-font-size: 14;" text="CPF: ">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtCPF" onKeyReleased="#txtCPFKeyReleased" prefHeight="15.0" prefWidth="301.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-insets: 1; -fx-border-color: #494949;">
+                                          <TextField fx:id="txtCPF" prefHeight="24.0" prefWidth="300.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -99,14 +99,14 @@
                                           <Insets top="5.0" />
                                        </VBox.margin>
                                     </HBox>
-                                    <HBox prefHeight="0.0" prefWidth="333.0">
+                                    <HBox prefHeight="24.0">
                                        <children>
-                                          <Label prefHeight="31.0" prefWidth="156.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="Características Físiscas: ">
+                                          <Label prefHeight="24.0" style="-fx-font-size: 14;" text="Características Físiscas: ">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtCaracFisicas" prefHeight="26.0" prefWidth="177.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0; -fx-border-insets: 1; -fx-border-color: #494949;">
+                                          <TextField fx:id="txtCaracFisicas" prefHeight="24.0" prefWidth="174.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -115,22 +115,14 @@
                                           <Insets top="5.0" />
                                        </VBox.margin>
                                     </HBox>
-                                    <HBox prefHeight="6.0" prefWidth="333.0">
+                                    <HBox prefHeight="24.0" prefWidth="200.0">
                                        <children>
-                                          <Label prefHeight="30.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="Telefone: ">
+                                          <Label prefHeight="24.0" style="-fx-font-size: 14;" text="Telefone: ">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-<<<<<<< Updated upstream
-                                          <TextField fx:id="txtTelefone" onKeyReleased="#txtTelefoneKeyReleased" prefHeight="26.0" prefWidth="272.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 0 0; -fx-border-insets: 1; -fx-border-color: #494949;">
-=======
-<<<<<<< Updated upstream
-                                          <TextField prefHeight="26.0" prefWidth="272.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 0 0; -fx-border-insets: 1; -fx-border-color: #494949;">
-=======
-                                          <TextField fx:id="txtTelefone" alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" onKeyReleased="#txtTelefoneKeyReleased" prefHeight="26.0" prefWidth="272.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 0 0; -fx-border-insets: 1; -fx-border-color: #494949;">
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+                                          <TextField fx:id="txtTelefone" prefHeight="24.0" prefWidth="268.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -141,13 +133,13 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@SeekPng.com_personas-png_1305038.png" />
-                                 </image>
+                              <ImageView accessibleRole="BUTTON" fitHeight="116.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
                                  <HBox.margin>
                                     <Insets left="50.0" top="50.0" />
                                  </HBox.margin>
+                                 <image>
+                                    <Image url="@SeekPng.com_personas-png_1305038.png" />
+                                 </image>
                               </ImageView>
                            </children>
                         </HBox>
@@ -161,56 +153,47 @@
                                     <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                  </padding>
                               </Label>
-                              <HBox prefHeight="10.0">
+                              <HBox maxHeight="30.0" prefHeight="30.0" prefWidth="700.0">
                                  <children>
-                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="Cidade:">
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14;" text="Cidade:">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtCidade" prefHeight="28.0" prefWidth="296.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
-                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="UF:">
+                                    <TextField fx:id="txtCidade" prefHeight="28.0" prefWidth="296.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14;" text="UF:">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtUF" prefHeight="28.0" prefWidth="50.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
+                                    <TextField fx:id="txtUF" prefHeight="28.0" prefWidth="50.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
                                  </children>
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
                               </HBox>
-                              <HBox prefHeight="13.0" prefWidth="507.0">
+                              <HBox prefWidth="200.0">
                                  <children>
-                                    <Label alignment="BOTTOM_CENTER" prefHeight="41.0" prefWidth="41.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="Bairro:">
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14;" text="Bairro:">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtBairro" prefHeight="5.0" prefWidth="373.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
+                                    <TextField fx:id="txtBairro" prefHeight="28.0" prefWidth="373.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
                                  </children>
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
                               </HBox>
-                              <HBox maxHeight="13.0" prefHeight="30.0" prefWidth="700.0">
+                              <HBox maxHeight="30.0" prefHeight="30.0" prefWidth="700.0">
                                  <children>
-                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="Rua:">
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14;" text="Rua:">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtRua" prefHeight="28.0" prefWidth="296.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
-                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="Nº">
+                                    <TextField fx:id="txtRua" prefHeight="28.0" prefWidth="296.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14;" text="Nº">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtNumero" onKeyReleased="#txtNumeroKeyReleased" prefHeight="28.0" prefWidth="77.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-insets: 1;" />
+                                    <TextField fx:id="txtNumero" prefHeight="28.0" prefWidth="77.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
                                  </children>
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
                               </HBox>
                            </children>
                         </VBox>
@@ -224,31 +207,25 @@
                                     <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                  </padding>
                               </Label>
-                              <HBox maxHeight="30.0" prefHeight="10.0" prefWidth="507.0">
+                              <HBox maxHeight="30.0" prefHeight="30.0" prefWidth="700.0">
                                  <children>
-                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="Delitos:">
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14;" text="Delitos:">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtDelitos" prefHeight="28.0" prefWidth="368.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0;" />
+                                    <TextField fx:id="txtDelitos" prefHeight="28.0" prefWidth="368.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
                                  </children>
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
                               </HBox>
-                              <HBox prefHeight="3.0" prefWidth="507.0">
+                              <HBox prefWidth="200.0">
                                  <children>
-                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14; -fx-text-fill: #494949;" text="Facção:">
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14;" text="Facção:">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtFaccao" prefHeight="28.0" prefWidth="367.0" style="-fx-font-size: 14; -fx-background-color: gainsboro; -fx-padding: 0; -fx-border-color: #494949; -fx-border-style: solid; -fx-border-width: 0 0 1 0;" />
+                                    <TextField fx:id="txtFaccao" prefHeight="28.0" prefWidth="367.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
                                  </children>
-                                 <VBox.margin>
-                                    <Insets top="5.0" />
-                                 </VBox.margin>
                               </HBox>
                            </children>
                         </VBox>
@@ -261,60 +238,36 @@
             </AnchorPane>
          </content>
       </ScrollPane>
-<<<<<<< Updated upstream
-      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
-=======
-<<<<<<< Updated upstream
-      <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
-=======
       <Label fx:id="lblStatus">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
-         <VBox.margin>
-            <Insets top="5.0" />
-         </VBox.margin>
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
->>>>>>> Stashed changes
->>>>>>> Stashed changes
          <VBox.margin>
-            <Insets top="50.0" />
+            <Insets bottom="30.0" top="30.0" />
          </VBox.margin>
       </Button>
-      <HBox alignment="CENTER">
+      <HBox alignment="TOP_CENTER">
          <children>
             <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">
                <children>
-<<<<<<< Updated upstream
-                  <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#onBtVoltarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
-=======
-<<<<<<< Updated upstream
-                  <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
-=======
                   <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#onBtVoltarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
->>>>>>> Stashed changes
->>>>>>> Stashed changes
                      <HBox.margin>
                         <Insets left="45.0" />
                      </HBox.margin>
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="0.0" prefWidth="540.0">
+            <HBox alignment="BOTTOM_RIGHT" prefWidth="540.0">
                <children>
-<<<<<<< Updated upstream
-                  <Button fx:id="btSair" mnemonicParsing="false" onAction="#onBtSairAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
-=======
-<<<<<<< Updated upstream
-                  <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
-=======
                   <Button fx:id="btSair" mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
->>>>>>> Stashed changes
->>>>>>> Stashed changes
                      <HBox.margin>
                         <Insets right="45.0" />
                      </HBox.margin>
@@ -322,6 +275,9 @@
                </children>
             </HBox>
          </children>
+         <VBox.margin>
+            <Insets bottom="100.0" />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>

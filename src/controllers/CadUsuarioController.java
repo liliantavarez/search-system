@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import db.DB;
-import db.DbException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,7 +13,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
-import javafx.util.Callback;
 import model.utils.Criptografar;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
@@ -46,12 +44,17 @@ public class CadUsuarioController {
 	Load lv = new Load();
 
 	@FXML
-	public void onBtSalvarAcction() {
-		if (confereSenha(txtSenha, txtConfsenha)) {
-			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText("Insira senhas iguais");
-		} else {
-			salvarDados();
+	public void onBtSalvarAction() {
+		if (Validate.validaUsuario(txtNome, txtUsuario, txtSenha, txtConfsenha, txtEmail)) {
+			if (!confereSenha(txtSenha, txtConfsenha)) {
+				lblStatus.setTextFill(Color.TOMATO);
+				lblStatus.setText("Insira senhas iguais");
+			} else {
+				salvarDados();
+			}
+		}else {
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Insira todos os dados!");
 		}
 	}
 
@@ -61,14 +64,15 @@ public class CadUsuarioController {
 		PreparedStatement pst = null;
 
 		try {
-			pst = conn.prepareStatement("INSERT INTO usuarios ( nome, cpf, senha, email, nivel) VALUES (?,?,?,?,?)");
-
+			pst = conn.prepareStatement(
+					"INSERT INTO usuario ( CPFUsuario, usuario, senha, email, fnivel) VALUES (?,?,?,?,?)");
+			RadioButton radio = (RadioButton) tipousuario.getSelectedToggle();
 			String senhaEnc = Criptografar.cripografar(txtSenha.getText(), "SHA1");
-			pst.setString(1, txtNome.getText());
-			pst.setString(2, txtUsuario.getText());
+			pst.setString(1, txtUsuario.getText());
+			pst.setString(2, txtNome.getText());
 			pst.setString(3, senhaEnc);
 			pst.setString(4, txtEmail.getText());
-			pst.setInt(5, nivelDeAcesso(tipousuario));
+			pst.setString(5, radio.getText());
 			pst.executeUpdate();
 
 			lblStatus.setTextFill(Color.GREEN);
@@ -90,7 +94,7 @@ public class CadUsuarioController {
 	}
 
 	private boolean confereSenha(TextField Senha, TextField ConfSenha) {
-		if (txtSenha.getText() == txtConfsenha.getText()) {
+		if (txtSenha.getText().equals(txtConfsenha.getText())) {
 			return true;
 		} else {
 			return false;
@@ -105,21 +109,13 @@ public class CadUsuarioController {
 		txtEmail.clear();
 	}
 
-	private int nivelDeAcesso(ToggleGroup tipousuario) {
-		RadioButton radio = (RadioButton) tipousuario.getSelectedToggle();
-		if (radio.getText().equals("Usuario")) {
-			return 1;
-		}
-		return 2;
-	}
-
 	@FXML
-	public void onBtVoltarAcction() {
+	public void onBtVoltarAction() {
 		lv.loadview("/views/Administrador.fxml");
 	}
 
 	@FXML
-	public void onBtSairAcction() {
+	public void onBtSairAction() {
 		lv.loadview("/views/Login.fxml");
 	}
 

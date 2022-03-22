@@ -20,28 +20,28 @@ public class AdministradorController {
 	Load lv = new Load();
 	
 	@FXML
-	public void onBtCadMelianteAcction() {
+	public void onBtCadMelianteAction() {
 		lv.loadview("/views/CadMeliante.fxml");
 	}
 	
 	@FXML
-	public void onBtCadUsuarioAcction() {
+	public void onBtCadUsuarioAction() {
 		lv.loadview("/views/CadUsuario.fxml");		
 	}
 	
 	@FXML
-	public void onBtBuscMelianteAcction() {
+	public void onBtBuscMelianteAction() {
 		lv.loadview("/views/BuscaMelianteAdm.fxml");
 	}
 	
 	@FXML
-	public void onBtBuscUsuarioAcction() {
+	public void onBtBuscUsuarioAction() {
 		lv.loadview("/views/BuscaUsuario.fxml");		
 	}
 
 	@FXML
-	public void onBtSairAcction() {
+	public void onBtSairAction() {
 		lv.loadview("/views/Login.fxml");				
 	}
-
+	
 }

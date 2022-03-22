@@ -20,18 +20,18 @@ public class BuscaMelianteAdmController {
 	Load lv = new Load();
 	
 	@FXML
-	public void onBtBuscarAcction() {
+	public void onBtConfirmarAction() {
 		String melianteBusca = txtMelianteBusca.getText();
 		Validate.valida(txtMelianteBusca);
 	}
 	
 	@FXML
-	public void onBtSairAcction() {
+	public void onBtSairAction() {
 		lv.loadview("/views/Login.fxml");		
 	}
 	
 	@FXML
-	public void ontBtVoltarAcction() {
+	public void ontBtVoltarAction() {
 		lv.loadview("/views/Administrador.fxml");				
 	}
 

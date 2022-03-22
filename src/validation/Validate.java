@@ -1,6 +1,8 @@
 package validation;
 
+import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 public class Validate {
 	public static boolean valida(TextField texto) {
@@ -12,7 +14,12 @@ public class Validate {
 		}
 	}
 	
-	
+	public static boolean validaUsuario(TextField txtNome, TextField txtUsuario,TextField txtSenha, TextField txtConfsenha, TextField txtEmail) {
+		if(txtNome.getText().isEmpty() || txtUsuario.getText().isEmpty() || txtSenha.getText().isEmpty() || txtConfsenha.getText().isEmpty() || txtEmail.getText().isEmpty()) {
+			return false;			
+		}
+		return true;
+	}
 
 
 }

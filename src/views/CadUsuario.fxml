@@ -29,11 +29,22 @@
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
          </padding>
       </Label>
+      <Label fx:id="lblStatus">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="50.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </Label>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <VBox alignment="TOP_RIGHT">
                <children>
-                  <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" style="-fx-text-fill: whitesmoke; -fx-font-size: 16; -fx-font-weight: bold;" text="Nome:" textAlignment="RIGHT">
+                  <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" minHeight="27.0" style="-fx-text-fill: whitesmoke; -fx-font-size: 16; -fx-font-weight: bold;" text="Nome:" textAlignment="RIGHT">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -41,7 +52,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label style="-fx-text-fill: whitesmoke; -fx-font-size: 16; -fx-font-weight: bold;" text="Usuário:" textAlignment="RIGHT">
+                  <Label minHeight="27.0" style="-fx-text-fill: whitesmoke; -fx-font-size: 16; -fx-font-weight: bold;" text="Usuário:" textAlignment="RIGHT">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -49,7 +60,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label style="-fx-text-fill: whitesmoke; -fx-font-size: 16; -fx-font-weight: bold;" text="Senha:" textAlignment="RIGHT">
+                  <Label minHeight="27.0" style="-fx-text-fill: whitesmoke; -fx-font-size: 16; -fx-font-weight: bold;" text="Senha:" textAlignment="RIGHT">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -57,7 +68,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label style="-fx-text-fill: whitesmoke; -fx-font-size: 16; -fx-font-weight: bold;" text="Confirmar Senha:" textAlignment="RIGHT">
+                  <Label minHeight="27.0" style="-fx-text-fill: whitesmoke; -fx-font-size: 16; -fx-font-weight: bold;" text="Confirmar Senha:" textAlignment="RIGHT">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -65,7 +76,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label style="-fx-text-fill: whitesmoke; -fx-font-size: 16; -fx-font-weight: bold;" text="E-mail:" textAlignment="RIGHT">
+                  <Label minHeight="27.0" style="-fx-text-fill: whitesmoke; -fx-font-size: 16; -fx-font-weight: bold;" text="E-mail:" textAlignment="RIGHT">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -75,7 +86,7 @@
                   </Label>
                   <HBox alignment="CENTER">
                      <children>
-                        <Label style="-fx-text-fill: whitesmoke; -fx-font-weight: bold; -fx-font-size: 16;" text="Nível de acesso:" />
+                        <Label minHeight="27.0" style="-fx-text-fill: whitesmoke; -fx-font-weight: bold; -fx-font-size: 16;" text="Nível de acesso:" />
                      </children>
                      <VBox.margin>
                         <Insets top="5.0" />
@@ -85,49 +96,25 @@
             </VBox>
             <VBox>
                <children>
-                  <TextField fx:id="txtNome" alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="263.0" style="-fx-padding: 0; -fx-font-size: 16;">
+                  <TextField fx:id="txtNome" alignment="BOTTOM_LEFT" maxHeight="-Infinity" minHeight="27.0" prefHeight="27.0" style="-fx-padding: 0; -fx-font-size: 16;">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="txtUsuario" onKeyReleased="#txtUsuarioKeyReleased" style="-fx-padding: 0; -fx-font-size: 16;">
+                  <TextField fx:id="txtUsuario" maxHeight="-Infinity" minHeight="27.0" onKeyReleased="#txtUsuarioKeyReleased" prefHeight="27.0" style="-fx-padding: 0; -fx-font-size: 16;">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </TextField>
-<<<<<<< Updated upstream
-                  <TextField fx:id="txtSenha" style="-fx-padding: 0; -fx-font-size: 16;">
-=======
-<<<<<<< Updated upstream
-                  <TextField style="-fx-padding: 0; -fx-font-size: 16;">
->>>>>>> Stashed changes
+                  <PasswordField fx:id="txtSenha" maxHeight="-Infinity" minHeight="27.0" prefHeight="27.0" style="-fx-padding: 0; -fx-font-size: 16;">
                      <VBox.margin>
                         <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="txtConfsenha" style="-fx-padding: 0; -fx-font-size: 16;">
+                     </VBox.margin></PasswordField>
+                  <PasswordField fx:id="txtConfsenha" maxHeight="-Infinity" minHeight="27.0" prefHeight="27.0" style="-fx-padding: 0; -fx-font-size: 16;">
                      <VBox.margin>
                         <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </TextField>
-<<<<<<< Updated upstream
-                  <TextField fx:id="txtEmail" style="-fx-padding: 0; -fx-font-size: 16;">
-=======
-                  <TextField style="-fx-padding: 0; -fx-font-size: 16;">
-=======
-                  <PasswordField fx:id="txtSenha" style="-fx-padding: 0; -fx-font-size: 16;">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </PasswordField>
-                  <PasswordField fx:id="txtConfsenha" style="-fx-padding: 0; -fx-font-size: 16;">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </PasswordField>
-                  <TextField fx:id="txtEmail" style="-fx-padding: 0; -fx-font-size: 16;">
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+                     </VBox.margin></PasswordField>
+                  <TextField fx:id="txtEmail" maxHeight="-Infinity" minHeight="27.0" prefHeight="27.0" style="-fx-padding: 0; -fx-font-size: 16;">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
@@ -138,8 +125,14 @@
                            <toggleGroup>
                               <ToggleGroup fx:id="tipousuario" />
                            </toggleGroup>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" style="-fx-text-fill: whitesmoke; -fx-font-weight: bold; -fx-font-size: 16;" text="Administrador" toggleGroup="$tipousuario" />
+                        <RadioButton mnemonicParsing="false" style="-fx-text-fill: whitesmoke; -fx-font-weight: bold; -fx-font-size: 16;" text="Administrador" toggleGroup="$tipousuario">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding></RadioButton>
                      </children>
                      <VBox.margin>
                         <Insets top="5.0" />
@@ -155,35 +148,16 @@
             <Insets bottom="5.0" />
          </VBox.margin>
       </HBox>
-<<<<<<< Updated upstream
-      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
-=======
-<<<<<<< Updated upstream
-      <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
-=======
-      <Label fx:id="lblStatus">
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
+      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
          <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-         <VBox.margin>
-            <Insets top="30.0" />
+            <Insets bottom="50.0" top="30.0" />
          </VBox.margin>
       </Button>
-      <HBox alignment="TOP_CENTER" prefHeight="91.0" prefWidth="1080.0">
+      <HBox alignment="TOP_CENTER">
          <children>
             <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">
                <children>
-                  <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#onBtVoltarAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
+                  <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#onBtVoltarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
                      <HBox.margin>
                         <Insets left="45.0" />
                      </HBox.margin>
@@ -192,7 +166,7 @@
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefWidth="540.0">
                <children>
-                  <Button fx:id="btSair" mnemonicParsing="false" onAction="#onBtSairAcction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+                  <Button fx:id="btSair" mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
                      <HBox.margin>
                         <Insets right="45.0" />
                      </HBox.margin>
@@ -200,6 +174,9 @@
                </children>
             </HBox>
          </children>
+         <VBox.margin>
+            <Insets bottom="100.0" />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>

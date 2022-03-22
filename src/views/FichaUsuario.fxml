@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FichaUsuarioController">
    <children>
       <Label style="-fx-font-size: 40; -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080); -fx-background-radius: 5;" text="Search System ">
          <padding>
@@ -91,7 +91,7 @@
                   </HBox>
                </children>
                <padding>
-                  <Insets left="20.0" />
+                  <Insets bottom="50.0" left="30.0" top="5.0" />
                </padding>
             </VBox>
          </children>
@@ -99,28 +99,28 @@
             <Insets top="23.0" />
          </VBox.margin>
       </AnchorPane>
-      <HBox alignment="TOP_CENTER" prefHeight="91.0" prefWidth="1080.0">
+      <HBox alignment="TOP_CENTER">
          <children>
-            <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Editar">
+            <Button mnemonicParsing="false" onAction="#onBtEditarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Editar">
                <HBox.margin>
                   <Insets right="100.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Excluir">
+            <Button mnemonicParsing="false" onAction="#onBtExcluirAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Excluir">
                <HBox.margin>
                   <Insets left="100.0" />
                </HBox.margin>
             </Button>
          </children>
          <VBox.margin>
-            <Insets top="30.0" />
+            <Insets bottom="30.0" top="30.0" />
          </VBox.margin>
       </HBox>
       <HBox alignment="CENTER">
          <children>
             <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">
                <children>
-                  <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
+                  <Button mnemonicParsing="false" onAction="#onBtVoltarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
                      <HBox.margin>
                         <Insets left="45.0" />
                      </HBox.margin>
@@ -129,7 +129,7 @@
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="0.0" prefWidth="540.0">
                <children>
-                  <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+                  <Button mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
                      <HBox.margin>
                         <Insets right="45.0" />
                      </HBox.margin>
@@ -137,6 +137,9 @@
                </children>
             </HBox>
          </children>
+         <VBox.margin>
+            <Insets bottom="100.0" />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>
