@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.BuscaController">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BuscaController">
    <children>
       <Label style="-fx-font-size: 40; -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080); -fx-background-radius: 5;" text="Search System ">
          <padding>
@@ -26,7 +26,7 @@
          </padding>
       </Label>
       <TextField fx:id="txtMelianteBusca" maxWidth="150.0" />
-      <Button fx:id="btConfirmar" mnemonicParsing="false" onAction="#onBtConfirmarAcction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Confirmar">
+      <Button fx:id="btConfirmar" mnemonicParsing="false" onAction="#onBtConfirmarAction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Confirmar">
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
@@ -36,7 +36,7 @@
             <Insets top="50.0" />
          </VBox.margin>
          <children>
-            <Button fx:id="btSair" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtSairAcction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+            <Button fx:id="btSair" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
                <HBox.margin>
                   <Insets right="45.0" />
                </HBox.margin>

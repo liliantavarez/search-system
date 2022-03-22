@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="600.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BuscaUsuarioController">
    <children>
@@ -17,6 +18,17 @@
             <Insets top="50.0" />
          </VBox.margin>
       </Label>
+      <Label fx:id="lblStatus">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </Label>
       <Label style="-fx-font-size: 20;" text="Informe o usuário ou e-mail:">
          <VBox.margin>
             <Insets top="23.0" />
@@ -26,7 +38,7 @@
          </padding>
       </Label>
       <TextField fx:id="txtEmailOuUsu" maxWidth="150.0" />
-      <Button fx:id="btBuscar" mnemonicParsing="false" onAction="#onBtBuscarAcction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Buscar">
+      <Button fx:id="btBuscar" mnemonicParsing="false" onAction="#onBtBuscarAction" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Buscar">
          <VBox.margin>
             <Insets top="25.0" />
          </VBox.margin>
@@ -36,30 +48,33 @@
             <Insets top="30.0" />
          </VBox.margin>
       </Label>
-      <HBox alignment="CENTER">
+      <HBox fx:id="HBoxResultado" alignment="CENTER" style="visibility: false;">
          <children>
             <Label maxHeight="30.0" minHeight="30.0" prefHeight="30.0" style="-fx-background-color: white; -fx-background-radius: 5 0 0 5; -fx-font-size: 16;" text="Usuário: ">
                <padding>
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <TextField fx:id="lbUsuario" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: white; -fx-font-size: 16;" />
+            <Label fx:id="lblUsuario" minHeight="30.0" minWidth="200.0" prefHeight="30.0" style="-fx-background-color: white; -fx-font-size: 16;" />
             <Label maxHeight="30.0" minHeight="30.0" prefHeight="30.0" style="-fx-background-color: white; -fx-font-size: 16;" text="E-mail:">
                <padding>
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <TextField fx:id="lbEmail" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 0 5 5 0; -fx-font-size: 16;" />
+            <Label fx:id="lblEmail" minHeight="30.0" minWidth="200.0" prefHeight="30.0" style="-fx-background-color: white; -fx-font-size: 16; -fx-background-radius: 0 5 5 0;">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
          </children>
          <VBox.margin>
             <Insets bottom="100.0" top="20.0" />
          </VBox.margin>
       </HBox>
-      <HBox>
+      <HBox alignment="CENTER">
          <children>
             <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">
                <children>
-                  <Button fx:id="BtVoltar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtVoltarAcction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
+                  <Button fx:id="BtVoltar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtVoltarAction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
                      <HBox.margin>
                         <Insets left="45.0" />
                      </HBox.margin>
@@ -68,7 +83,7 @@
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefWidth="540.0">
                <children>
-                  <Button fx:id="btSair" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtSairAcction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+                  <Button fx:id="btSair" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
                      <HBox.margin>
                         <Insets right="45.0" />
                      </HBox.margin>

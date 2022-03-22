@@ -35,7 +35,7 @@
             <Insets top="5.0" />
          </VBox.margin>
          <content>
-            <AnchorPane prefHeight="550.0" prefWidth="620.0" style="-fx-background-color: gainsboro; -fx-background-radius: 5; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5;">
+            <AnchorPane prefHeight="550.0" prefWidth="615.0" style="-fx-background-color: gainsboro; -fx-background-radius: 5; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5;">
                <children>
                   <VBox>
                      <children>
@@ -58,7 +58,11 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
+<<<<<<< Updated upstream
                                           <TextField prefHeight="24.0" prefWidth="289.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
+=======
+                                          <TextField fx:id="txtNome" prefHeight="24.0" prefWidth="289.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
+>>>>>>> Stashed changes
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -74,7 +78,11 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
+<<<<<<< Updated upstream
                                           <TextField prefHeight="11.0" prefWidth="281.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
+=======
+                                          <TextField fx:id="txtApelido" prefHeight="11.0" prefWidth="281.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
+>>>>>>> Stashed changes
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -90,7 +98,11 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
+<<<<<<< Updated upstream
                                           <TextField prefHeight="24.0" prefWidth="300.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
+=======
+                                          <TextField fx:id="txtCPF" prefHeight="24.0" prefWidth="300.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
+>>>>>>> Stashed changes
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -106,7 +118,11 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
+<<<<<<< Updated upstream
                                           <TextField prefHeight="24.0" prefWidth="174.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
+=======
+                                          <TextField fx:id="txtCaracFisicas" prefHeight="24.0" prefWidth="174.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
+>>>>>>> Stashed changes
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -122,7 +138,11 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
+<<<<<<< Updated upstream
                                           <TextField prefHeight="24.0" prefWidth="268.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
+=======
+                                          <TextField fx:id="txtTelefone" prefHeight="24.0" prefWidth="268.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;">
+>>>>>>> Stashed changes
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -160,13 +180,21 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
+<<<<<<< Updated upstream
                                     <TextField prefHeight="28.0" prefWidth="296.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+=======
+                                    <TextField fx:id="txtCidade" prefHeight="28.0" prefWidth="296.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+>>>>>>> Stashed changes
                                     <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14;" text="UF:">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
+<<<<<<< Updated upstream
                                     <TextField prefHeight="28.0" prefWidth="50.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+=======
+                                    <TextField fx:id="txtUF" prefHeight="28.0" prefWidth="50.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+>>>>>>> Stashed changes
                                  </children>
                               </HBox>
                               <HBox prefWidth="200.0">
@@ -176,7 +204,11 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
+<<<<<<< Updated upstream
                                     <TextField prefHeight="28.0" prefWidth="373.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+=======
+                                    <TextField fx:id="txtBairro" prefHeight="28.0" prefWidth="373.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+>>>>>>> Stashed changes
                                  </children>
                               </HBox>
                               <HBox maxHeight="30.0" prefHeight="30.0" prefWidth="700.0">
@@ -186,13 +218,21 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
+<<<<<<< Updated upstream
                                     <TextField prefHeight="28.0" prefWidth="296.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+=======
+                                    <TextField fx:id="txtRua" prefHeight="28.0" prefWidth="296.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+>>>>>>> Stashed changes
                                     <Label alignment="BOTTOM_CENTER" prefHeight="28.0" style="-fx-font-size: 14;" text="Nº">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
+<<<<<<< Updated upstream
                                     <TextField prefHeight="28.0" prefWidth="77.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+=======
+                                    <TextField fx:id="txtNumero" prefHeight="28.0" prefWidth="77.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+>>>>>>> Stashed changes
                                  </children>
                               </HBox>
                            </children>
@@ -214,7 +254,11 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
+<<<<<<< Updated upstream
                                     <TextField prefHeight="28.0" prefWidth="368.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+=======
+                                    <TextField fx:id="txtDelitos" prefHeight="28.0" prefWidth="368.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+>>>>>>> Stashed changes
                                  </children>
                               </HBox>
                               <HBox prefWidth="200.0">
@@ -224,7 +268,11 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
+<<<<<<< Updated upstream
                                     <TextField prefHeight="28.0" prefWidth="367.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+=======
+                                    <TextField fx:id="txtFaccao" prefHeight="28.0" prefWidth="367.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 2 0;" />
+>>>>>>> Stashed changes
                                  </children>
                               </HBox>
                            </children>
@@ -238,16 +286,34 @@
             </AnchorPane>
          </content>
       </ScrollPane>
-      <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
+      <Label fx:id="lblStatus">
          <VBox.margin>
+<<<<<<< Updated upstream
             <Insets top="30.0" />
          </VBox.margin>
       </Button>
       <HBox alignment="TOP_CENTER" prefHeight="91.0" prefWidth="1080.0">
+=======
+            <Insets top="20.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
+         <VBox.margin>
+            <Insets bottom="30.0" top="30.0" />
+         </VBox.margin>
+      </Button>
+      <HBox alignment="TOP_CENTER">
+>>>>>>> Stashed changes
          <children>
             <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">
                <children>
-                  <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
+                  <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#onBtVoltarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
                      <HBox.margin>
                         <Insets left="45.0" />
                      </HBox.margin>
@@ -256,7 +322,7 @@
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefWidth="540.0">
                <children>
-                  <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+                  <Button fx:id="btSair" mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
                      <HBox.margin>
                         <Insets right="45.0" />
                      </HBox.margin>
@@ -264,6 +330,9 @@
                </children>
             </HBox>
          </children>
+         <VBox.margin>
+            <Insets bottom="100.0" />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>
