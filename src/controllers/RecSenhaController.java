@@ -10,23 +10,19 @@ public class RecSenhaController {
 
 	@FXML
 	private TextField txtEmail;
-	@FXML
-	private Button btConfirmar;
-	@FXML
-	private Button btVoltar;
-
+	
 	Load lv = new Load();
 
 	@FXML
-	public void onBtConfirmarAcction() {
+	public void onBtConfirmarAction() {
 		String email = txtEmail.getText();
 		Validate.valida(txtEmail);
 
 	}
 
 	@FXML
-	public void onBtVoltarAction() {
-		lv.loadview("/views/Login.fxml");
+	public void onBtSairAction() {
+		lv.loadview("/views/Login.fxml");		
 	}
 
 }

@@ -1,13 +1,16 @@
 package controllers;
 
+import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import db.DB;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -15,7 +18,7 @@ import javafx.scene.paint.Color;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
 
-public class LoginController {
+public class LoginController implements Initializable {
 
 	@FXML
 	private TextField txtUsuario;
@@ -25,50 +28,55 @@ public class LoginController {
 	private Button btEntrar;
 	@FXML
 	private Label lblErrors;
-	@FXML
-	private Label lblStatus;
-
 	Load lv = new Load();
-
-	Connection conn = DB.getConnection();
-	PreparedStatement preparedStatement = null;
-	ResultSet resultSet = null;
-
-	@FXML
+	
+    Connection con = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
+	
+    @FXML
 	public void onBtEntrarAcction() throws NoSuchAlgorithmException {
+		
+		if (logIn().equals("Success")) {
+            try {
+            	if(resultSet.getString("fnivel").equals("Administrador")) {
+            		lv.loadview("/views/Administrador.fxml");
+            	}else {
+            		lv.loadview("/views/Busca.fxml");            		
+            	}
 
-		logIn();
+            }catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+            }
 
+        }
+		
 	}
 
 	private String logIn() {
 		String status = "Success";
-		String email = txtUsuario.getText();
-		String password = txtSenha.getText();
-		if (email.isEmpty() || password.isEmpty()) {
-			setLblError(Color.TOMATO, "Insira os dados");
+		String usuario = txtUsuario.getText();
+		String senha = txtSenha.getText();
+		if (usuario.isEmpty() || senha.isEmpty()) {
+			setLblError(Color.TOMATO, "Credenciais vazias");
 			status = "Error";
 		} else {
 			// query
-			String sql = "SELECT * FROM usuario Where CPFusuario = ? and senha = ?";
+			String sql = "SELECT * FROM usuario Where CPFUsuario = ? and senha = ?";
 			try {
-				preparedStatement = conn.prepareStatement(sql);
-				preparedStatement.setString(1, email);
-				preparedStatement.setString(2, password);
+				String senhaEnc = Criptografar.cripografar(senha, "SHA1");
+				
+				preparedStatement = con.prepareStatement(sql);
+				preparedStatement.setString(1, usuario);
+				preparedStatement.setString(2, senhaEnc);
 				resultSet = preparedStatement.executeQuery();
 				if (!resultSet.next()) {
-					setLblError(Color.TOMATO, "Erro de Usuario/Senha");
+					setLblError(Color.TOMATO, "Entre com Usuario/Senha corretos!");
 					status = "Error";
 				} else {
-					setLblError(Color.GREEN, "Login realizado com sucesso");
-					if (resultSet.getString("fnivel") == "Usuario") {
-						lv.loadview("/views/Busca.fxml");
-					} else {
-						lv.loadview("/views/Administrador.fxml");
-					}
-
+					setLblError(Color.GREEN, "Login Successful..Redirecting..");
 				}
-			} catch (SQLException ex) {
+			} catch (SQLException | NoSuchAlgorithmException ex) {
 				System.err.println(ex.getMessage());
 				status = "Exception";
 			}
@@ -76,6 +84,26 @@ public class LoginController {
 
 		return status;
 	}
+
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		// TODO
+		if (con == null) {
+			lblErrors.setTextFill(Color.TOMATO);
+			lblErrors.setText("X Erro ao conecatar servidor X");
+		} else {
+			lblErrors.setTextFill(Color.GREEN);
+			lblErrors.setText("Servidor conectado!");
+		}
+	}
+
+	private void setLblError(Color color, String text) {
+		lblErrors.setTextFill(color);
+		lblErrors.setText(text);
+	}
+    public LoginController() {
+    	con = DB.getConnection();
+    }
 
 	@FXML
 	private void txtUsuarioKeyReleased() {
@@ -85,18 +113,10 @@ public class LoginController {
 		tff.setTf(txtUsuario);
 		tff.formatter();
 	}
-	// @FXML
-	// void
 
 	@FXML
 	public void onLabelRecSenhaMouseClicked() {
 		lv.loadview("/views/RecSenha.fxml");
-	}
-
-	private void setLblError(Color color, String text) {
-		lblErrors.setTextFill(color);
-		lblErrors.setText(text);
-		System.out.println(text);
 	}
 
 }
