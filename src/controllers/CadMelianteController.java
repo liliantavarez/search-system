@@ -1,7 +1,5 @@
 package controllers;
 
-<<<<<<< Updated upstream
-=======
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +7,6 @@ import java.sql.SQLException;
 
 import db.DB;
 import db.DbException;
->>>>>>> Stashed changes
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,6 +25,8 @@ public class CadMelianteController {
 	private TextField txtCPF;
 	@FXML
 	private TextField txtCaracFisicas;
+	@FXML
+	private TextField txtTelefone;
 	@FXML
 	private TextField txtCidade;
 	@FXML
@@ -49,27 +48,13 @@ public class CadMelianteController {
 	@FXML
 	private Button btSair;
 	@FXML
-	private TextField txtTelefone;
-	@FXML Label lblStatus;
-	
+	private Label lblStatus;
+
 	Load lv = new Load();
 	
 	@FXML
 	public void onBtSalvarAction() {
 		
-<<<<<<< Updated upstream
-		String nome = txtNome.getText();
-		String apelido = txtApelido.getText();
-		String cpf = txtCPF.getText();
-		String caracFisicas = txtCaracFisicas.getText();
-		String telefone = txtTelefone.getText();
-		String cidade = txtCidade.getText();
-		String uf = txtUF.getText();
-		String bairro = txtBairro.getText();
-		String numero = txtNumero.getText();
-		String delitos = txtDelitos.getText();
-		String faccao = txtFaccao.getText();
-=======
 		try {
 			salvarDados();				
 		}catch(DbException e) {
@@ -77,7 +62,6 @@ public class CadMelianteController {
 	            lblStatus.setTextFill(Color.TOMATO);
 	            lblStatus.setText(e.getMessage());
 		}
->>>>>>> Stashed changes
 	}
 	
     private String salvarDados() {
