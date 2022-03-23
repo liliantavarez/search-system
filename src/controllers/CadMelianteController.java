@@ -1,18 +1,15 @@
 package controllers;
 
-import validation.Validate;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import db.DB;
+import DAO.EnderecoDao;
+import DAO.MelianteDao;
 import db.DbException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import model.entites.Endereco;
+import model.entites.Meliante;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
 
@@ -55,7 +52,8 @@ public class CadMelianteController {
 
 	@FXML
 	public void onBtSalvarAction() {
-
+		
+		if(!txtCPF.getText().isEmpty()) {
 		try {
 			salvarDados();
 		} catch (DbException e) {
@@ -63,42 +61,47 @@ public class CadMelianteController {
 			lblStatus.setTextFill(Color.TOMATO);
 			lblStatus.setText(e.getMessage());
 		}
+		}else {
+			lblStatus.setTextFill(Color.TOMATO);
+			lblStatus.setText("Erro da realização do cadastro... Informe o CPF do meliante!");		
+		}
 	}
 
-	private String salvarDados() {
+	private void salvarDados() {
 
-		Connection conn = DB.getConnection();
-		PreparedStatement pst = null;
-
+		String CPFMeliante = txtCPF.getText(), 
+				apelido = txtApelido.getText(),
+				caracteristicasFisicas = txtCaracFisicas.getText(), 
+				delitos = txtDelitos.getText(),
+				faccao = txtFaccao.getText(), 
+				telefone = txtTelefone.getText(),
+				cidade = txtCidade.getText(),
+				bairro = txtBairro.getText(),
+				rua = txtRua.getText(),
+				estado = txtUF.getText(),
+				numero = txtNumero.getText();
+		
 		try {
-			pst = conn.prepareStatement(
-					"INSERT INTO meliantes ( nome, apelido, cpf, caracfisicas, cidade, uf, bairro, rua, numero, delitos,faccao) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
-			pst.setString(1, txtNome.getText());
-			pst.setString(2, txtApelido.getText());
-			pst.setString(3, txtCPF.getText());
-			pst.setString(4, txtCaracFisicas.getText());
-			pst.setString(5, txtCidade.getText());
-			pst.setString(6, txtUF.getText());
-			pst.setString(7, txtBairro.getText());
-			pst.setString(8, txtRua.getText());
-			pst.setString(9, txtNumero.getText());
-			pst.setString(10, txtDelitos.getText());
-			pst.setString(11, txtFaccao.getText());
+			Meliante m = new Meliante(CPFMeliante, apelido, caracteristicasFisicas, delitos, faccao, telefone);
+			Endereco en = new Endereco(CPFMeliante,cidade,bairro,rua,estado,numero);
+			MelianteDao dao = new MelianteDao();
+			EnderecoDao daoEn = new EnderecoDao();
+			
+			if (dao.add(m) && daoEn.add(en)) {
+				lblStatus.setTextFill(Color.GREEN);
+				lblStatus.setText("Cadastro realizado com sucesso!");
+				limparCampos();
+			} else {
+				lblStatus.setTextFill(Color.TOMATO);
+				lblStatus.setText("Erro da realização do cadastro...");
+			}
+			
 
-			pst.executeUpdate();
-
-			lblStatus.setTextFill(Color.GREEN);
-			lblStatus.setText("Cadastro realizado com sucesso!");
-			limparCampos();
-
-			return "Success";
-
-		} catch (SQLException ex) {
+		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			lblStatus.setTextFill(Color.TOMATO);
 			lblStatus.setText(ex.getMessage());
-			return "Exception";
 		}
 	}
 

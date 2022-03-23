@@ -1,100 +1,81 @@
 package model.entites;
 
 public class Meliante {
-	
-	private String fisicas;
-	private String cidade;
-	private String uf;
-	private String bairro;
-	private String rua;
-	private String numero;
+
+	private String CPFMeliante;
+	private String apelido;
+	private String caracteristicasFisicas;
 	private String delitos;
 	private String faccao;
+	private byte[] imagem;
 	private String telefone;
+
 	public Meliante() {
-		super();
+
 	}
-	public Meliante(String fisicas, String cidade, String uf, String bairro, String rua, String numero, String delitos,
-			String faccao, String telefone) {
-		this.fisicas = fisicas;
-		this.cidade = cidade;
-		this.uf = uf;
-		this.bairro = bairro;
-		this.rua = rua;
-		this.numero = numero;
+
+	public Meliante(String cPFMeliante, String apelido, String caracteristicasFisicas, String delitos, String faccao, String telefone) {
+	
+		this.CPFMeliante = cPFMeliante;
+		this.apelido = apelido;
+		this.caracteristicasFisicas = caracteristicasFisicas;
 		this.delitos = delitos;
 		this.faccao = faccao;
 		this.telefone = telefone;
 	}
-	
-	public String getFisicas() {
-		return fisicas;
+
+	public String getCPFMeliante() {
+		return CPFMeliante;
 	}
-	
-	public void setFisicas(String fisicas) {
-		this.fisicas = fisicas;
+
+	public void setCPFMeliante(String cPFMeliante) {
+		CPFMeliante = cPFMeliante;
 	}
-	
-	public String getCidade() {
-		return cidade;
+
+	public String getApelido() {
+		return apelido;
 	}
-	
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+
+	public void setApelido(String apelido) {
+		this.apelido = apelido;
 	}
-	
-	public String getUf() {
-		return uf;
+
+	public String getCaracteristicasFisicas() {
+		return caracteristicasFisicas;
 	}
-	
-	public void setUf(String uf) {
-		this.uf = uf;
+
+	public void setCaracteristicasFisicas(String caracteristicasFisicas) {
+		this.caracteristicasFisicas = caracteristicasFisicas;
 	}
-	
-	public String getBairro() {
-		return bairro;
-	}
-	
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-	
-	public String getRua() {
-		return rua;
-	}
-	
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-	
-	public String getNumero() {
-		return numero;
-	}
-	
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-	
+
 	public String getDelitos() {
 		return delitos;
 	}
-	
+
 	public void setDelitos(String delitos) {
 		this.delitos = delitos;
 	}
-	
+
 	public String getFaccao() {
 		return faccao;
 	}
-	
+
 	public void setFaccao(String faccao) {
 		this.faccao = faccao;
 	}
-	
+
+	public byte[] getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(byte[] imagem) {
+		this.imagem = imagem;
+	}
+
 	public String getTelefone() {
 		return telefone;
 	}
-	
+
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}

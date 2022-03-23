@@ -4,8 +4,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Criptografar {
-	public static String cripografar(String input, String tipoAlgoritmo) throws NoSuchAlgorithmException {
-		MessageDigest mDigest = MessageDigest.getInstance(tipoAlgoritmo);
+	public static String cripografar(String input, String tipoAlgoritmo)  {
+		MessageDigest mDigest = null;
+		try {
+			mDigest = MessageDigest.getInstance(tipoAlgoritmo);
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		byte[] result = mDigest.digest(input.getBytes());
 		StringBuffer sb = new StringBuffer();
 		for (int i = 0; i < result.length; i++) {

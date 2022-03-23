@@ -17,8 +17,8 @@ public class Main extends Application {
 			Parent parent = FXMLLoader.load(getClass().getResource("/views/Login.fxml"));
 			mainScene = new Scene(parent);
 			
-			stage.setScene(mainScene);
 			stage.setTitle("Search System");
+			stage.setScene(mainScene);
 			stage.show();
 		} catch (IOException e) {
 			e.printStackTrace();

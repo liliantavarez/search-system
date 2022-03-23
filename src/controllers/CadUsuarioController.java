@@ -1,11 +1,6 @@
 package controllers;
 
-import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-import db.DB;
+import DAO.UsuariaDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,6 +8,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
+import model.entites.Usuario;
 import model.utils.Criptografar;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
@@ -46,51 +42,37 @@ public class CadUsuarioController {
 	@FXML
 	public void onBtSalvarAction() {
 		if (Validate.validaUsuario(txtNome, txtUsuario, txtSenha, txtConfsenha, txtEmail)) {
-			if (!confereSenha(txtSenha, txtConfsenha)) {
-				lblStatus.setTextFill(Color.TOMATO);
-				lblStatus.setText("Insira senhas iguais");
-			} else {
-				salvarDados();
-			}
-		}else {
-            lblStatus.setTextFill(Color.TOMATO);
-            lblStatus.setText("Insira todos os dados!");
+			salvarDados();
+		} else {
+			lblStatus.setTextFill(Color.TOMATO);
+			lblStatus.setText("Insira todos os dados!");
 		}
 	}
 
-	private String salvarDados() {
+	private void salvarDados() {
+		RadioButton radio = (RadioButton) tipousuario.getSelectedToggle();
+		String senhaEnc = Criptografar.cripografar(txtSenha.getText(), "SHA1");
 
-		Connection conn = DB.getConnection();
-		PreparedStatement pst = null;
+		String CPFUsuario = txtUsuario.getText(), nome = txtNome.getText(), senha = senhaEnc,
+				email = txtEmail.getText(), fNivel = radio.getText();
 
-		try {
-			pst = conn.prepareStatement(
-					"INSERT INTO usuario ( CPFUsuario, usuario, senha, email, fnivel) VALUES (?,?,?,?,?)");
-			RadioButton radio = (RadioButton) tipousuario.getSelectedToggle();
-			String senhaEnc = Criptografar.cripografar(txtSenha.getText(), "SHA1");
-			pst.setString(1, txtUsuario.getText());
-			pst.setString(2, txtNome.getText());
-			pst.setString(3, senhaEnc);
-			pst.setString(4, txtEmail.getText());
-			pst.setString(5, radio.getText());
-			pst.executeUpdate();
+		if (confereSenha(txtSenha, txtConfsenha)) {
+			Usuario u = new Usuario(CPFUsuario, nome, senha, email, fNivel);
+			UsuariaDao dao = new UsuariaDao();
+			if (dao.add(u)) {
+				limparCampos();
+				lblStatus.setTextFill(Color.GREEN);
+				lblStatus.setText("Usuário Cadastrado!");
+			} else {
+				lblStatus.setTextFill(Color.TOMATO);
+				lblStatus.setText("Erro ao cadastrar usuario...");
+			}
 
-			lblStatus.setTextFill(Color.GREEN);
-			lblStatus.setText("Cadastro realizado com sucesso!");
-			limparCampos();
-
-			return "Success";
-
-		} catch (SQLException ex) {
-			System.out.println(ex.getMessage());
+		} else {
 			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText(ex.getMessage());
-			return "Exception";
-		} catch (NoSuchAlgorithmException e) {
-			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText(e.getMessage());
-			return "Exception";
+			lblStatus.setText("Insira senhas iguais");
 		}
+
 	}
 
 	private boolean confereSenha(TextField Senha, TextField ConfSenha) {

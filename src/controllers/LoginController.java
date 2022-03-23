@@ -77,7 +77,7 @@ public class LoginController implements Initializable {
 				} else {
 					setLblError(Color.GREEN, "Login Successful..Redirecting..");
 				}
-			} catch (SQLException | NoSuchAlgorithmException ex) {
+			} catch (SQLException ex) {
 				System.err.println(ex.getMessage());
 				status = "Exception";
 			}
