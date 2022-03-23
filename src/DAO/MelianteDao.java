@@ -1,5 +1,11 @@
 package DAO;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,11 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import db.DB;
+import javafx.scene.image.Image;
 import model.entites.Meliante;
 
 public class MelianteDao {
 
 	private Connection con;
+	private Image image;
+
 
 	public MelianteDao() {
 		this.con = DB.getConnection();
@@ -28,7 +37,7 @@ public class MelianteDao {
 			pst.setString(3, m.getCaracteristicasFisicas());
 			pst.setString(4, m.getDelitos());
 			pst.setString(5, m.getFaccao());
-			pst.setBytes(6, m.getImagem());
+			pst.setBinaryStream(6, m.getImagem());
 			pst.setString(7, m.getTelefone());
 
 			pst.execute();
@@ -55,7 +64,7 @@ public class MelianteDao {
 			pst.setString(3, m.getCaracteristicasFisicas());
 			pst.setString(4, m.getDelitos());
 			pst.setString(5, m.getFaccao());
-			pst.setBytes(6, m.getImagem());
+			pst.setBinaryStream(6, m.getImagem());
 			pst.setString(7, m.getTelefone());
 			pst.setString(8, m.getCPFMeliante());
 
@@ -101,7 +110,7 @@ public class MelianteDao {
 
 			while (rs.next()) {
 				Meliante u = new Meliante(rs.getString("CPFMeliante"), rs.getString("apelido"),
-						rs.getString("caracteristicasFisicas"), rs.getString("delitos"), rs.getString("faccao"),
+						rs.getString("caracteristicasFisicas"), rs.getString("delitos"), rs.getString("faccao"), rs.getBinaryStream("imagem"),
 						rs.getString("telefone"));
 				Meliantes.add(u);
 			}
@@ -116,6 +125,46 @@ public class MelianteDao {
 		}
 
 		return Meliantes;
+	}
+	
+	public Image visualizar(Meliante m) {
+
+		String sql = "select * from meliante where CPFMeliante = ?";
+		
+		try {
+			
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, m.getCPFMeliante());
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+							
+				InputStream is = rs.getBinaryStream("imagem");
+				OutputStream os = new FileOutputStream(new File("photo.jpg"));
+				
+				byte[] content = new byte[1024];
+				int size = 0;
+				
+				while ((size = is.read(content)) != -1) {
+					os.write(content, 0, size);
+				}
+				os.close();
+				is.close();
+				
+				image = new Image("file:photo.jpg", true);
+			}
+			
+			pst.close();
+			rs.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return image;
 	}
 
 }

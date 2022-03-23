@@ -37,7 +37,7 @@
          <content>
             <AnchorPane prefHeight="550.0" prefWidth="615.0" style="-fx-background-color: gainsboro; -fx-background-radius: 5; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5;">
                <children>
-                  <VBox>
+                  <VBox prefHeight="467.0" prefWidth="612.0">
                      <children>
                         <HBox prefHeight="201.0" prefWidth="507.0">
                            <children>
@@ -133,14 +133,23 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <ImageView accessibleRole="BUTTON" fitHeight="116.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <ImageView fx:id="imgviewFoto" accessibleRole="BUTTON" fitHeight="133.0" fitWidth="133.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@SeekPng.com_personas-png_1305038.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="btSelecionarFoto" mnemonicParsing="false" onAction="#onBtSelecionarFotoAction" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Selecionar Foto">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
                                  <HBox.margin>
-                                    <Insets left="50.0" top="50.0" />
+                                    <Insets left="100.0" />
                                  </HBox.margin>
-                                 <image>
-                                    <Image url="@SeekPng.com_personas-png_1305038.png" />
-                                 </image>
-                              </ImageView>
+                              </VBox>
                            </children>
                         </HBox>
                         <VBox prefWidth="507.0">

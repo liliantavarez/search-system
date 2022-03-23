@@ -14,7 +14,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) {
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/views/Login.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("/views/CadMeliante.fxml"));
 			mainScene = new Scene(parent);
 			
 			stage.setTitle("Search System");

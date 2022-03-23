@@ -1,5 +1,7 @@
 package model.entites;
 
+import java.io.InputStream;
+
 public class Meliante {
 
 	private String CPFMeliante;
@@ -7,22 +9,28 @@ public class Meliante {
 	private String caracteristicasFisicas;
 	private String delitos;
 	private String faccao;
-	private byte[] imagem;
+	private InputStream imagem;
 	private String telefone;
 
 	public Meliante() {
 
 	}
 
-	public Meliante(String cPFMeliante, String apelido, String caracteristicasFisicas, String delitos, String faccao, String telefone) {
-	
-		this.CPFMeliante = cPFMeliante;
+
+
+	public Meliante(String cPFMeliante, String apelido, String caracteristicasFisicas, String delitos, String faccao,
+			InputStream imagem, String telefone) {
+		
+		CPFMeliante = cPFMeliante;
 		this.apelido = apelido;
 		this.caracteristicasFisicas = caracteristicasFisicas;
 		this.delitos = delitos;
 		this.faccao = faccao;
+		this.imagem = imagem;
 		this.telefone = telefone;
 	}
+
+
 
 	public String getCPFMeliante() {
 		return CPFMeliante;
@@ -64,11 +72,11 @@ public class Meliante {
 		this.faccao = faccao;
 	}
 
-	public byte[] getImagem() {
+	public InputStream getImagem() {
 		return imagem;
 	}
 
-	public void setImagem(byte[] imagem) {
+	public void setImagem(InputStream imagem) {
 		this.imagem = imagem;
 	}
 
