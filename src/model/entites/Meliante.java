@@ -4,6 +4,7 @@ import java.io.InputStream;
 
 public class Meliante {
 
+	private String nome;
 	private String CPFMeliante;
 	private String apelido;
 	private String caracteristicasFisicas;
@@ -18,9 +19,9 @@ public class Meliante {
 
 
 
-	public Meliante(String cPFMeliante, String apelido, String caracteristicasFisicas, String delitos, String faccao,
+	public Meliante(String nome, String cPFMeliante, String apelido, String caracteristicasFisicas, String delitos, String faccao,
 			InputStream imagem, String telefone) {
-		
+		this.nome = nome;
 		CPFMeliante = cPFMeliante;
 		this.apelido = apelido;
 		this.caracteristicasFisicas = caracteristicasFisicas;
@@ -28,6 +29,18 @@ public class Meliante {
 		this.faccao = faccao;
 		this.imagem = imagem;
 		this.telefone = telefone;
+	}
+
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 

@@ -28,17 +28,18 @@ public class MelianteDao {
 	}
 
 	public boolean add(Meliante m) {
-		String sql = "INSERT INTO meliante ( CPFMeliante, apelido, caracteristicasFisicas, delitos, faccao, imagem, telefone) VALUES (?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO meliante ( nome, CPFMeliante, apelido, caracteristicasFisicas, delitos, faccao, imagem, telefone) VALUES (?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
-			pst.setString(1, m.getCPFMeliante());
-			pst.setString(2, m.getApelido());
-			pst.setString(3, m.getCaracteristicasFisicas());
-			pst.setString(4, m.getDelitos());
-			pst.setString(5, m.getFaccao());
-			pst.setBinaryStream(6, m.getImagem());
-			pst.setString(7, m.getTelefone());
+			pst.setString(1, m.getNome());
+			pst.setString(2, m.getCPFMeliante());
+			pst.setString(3, m.getApelido());
+			pst.setString(4, m.getCaracteristicasFisicas());
+			pst.setString(5, m.getDelitos());
+			pst.setString(6, m.getFaccao());
+			pst.setBinaryStream(7, m.getImagem());
+			pst.setString(8, m.getTelefone());
 
 			pst.execute();
 
@@ -54,7 +55,8 @@ public class MelianteDao {
 	}
 
 	public boolean update(Meliante m) {
-		String sql = "UPDATE meliante SET CPFMeliante = ?, " + "apelido =? , " + "caracteristicasFisicas = ?, "
+		String sql = "UPDATE meliante SET nome = ?, "
+				+ "CPFMeliante = ?, " + "apelido = ?, " + "caracteristicasFisicas = ?, "
 				+ "delitos = ?, " + "faccao = ?, " + "imagem = ?, " + "telefone = ? WHERE CPFMeliante = ?";
 
 		try {
@@ -101,15 +103,19 @@ public class MelianteDao {
 
 	}
 
-	public List<Meliante> getList() {
+	public List<Meliante> getList(String busca) {
 		List<Meliante> Meliantes = new ArrayList<Meliante>();
-		String sql = "SELECT * FROM meliante";
+		String sql = "SELECT * FROM meliante WHERE CPFMeliante = ? OR apelido = ? OR telefone = ? OR nome = ?";
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, busca);
+			pst.setString(2, busca);
+			pst.setString(3, busca);
+			pst.setString(4, busca);
 			ResultSet rs = pst.executeQuery();
 
 			while (rs.next()) {
-				Meliante u = new Meliante(rs.getString("CPFMeliante"), rs.getString("apelido"),
+				Meliante u = new Meliante(rs.getString("nome"),rs.getString("CPFMeliante"), rs.getString("apelido"),
 						rs.getString("caracteristicasFisicas"), rs.getString("delitos"), rs.getString("faccao"), rs.getBinaryStream("imagem"),
 						rs.getString("telefone"));
 				Meliantes.add(u);

@@ -86,7 +86,7 @@ public class CadMelianteController {
 
 	private void salvarDados() {
 
-		String CPFMeliante = txtCPF.getText(), apelido = txtApelido.getText(),
+		String nome = txtNome.getText(), CPFMeliante = txtCPF.getText(), apelido = txtApelido.getText(),
 				caracteristicasFisicas = txtCaracFisicas.getText(), delitos = txtDelitos.getText(),
 				faccao = txtFaccao.getText(), telefone = txtTelefone.getText(), cidade = txtCidade.getText(),
 				bairro = txtBairro.getText(), rua = txtRua.getText(), estado = txtUF.getText(),
@@ -96,7 +96,7 @@ public class CadMelianteController {
 
 			fis = new FileInputStream(file);
 
-			Meliante m = new Meliante(CPFMeliante, apelido, caracteristicasFisicas, delitos, faccao, fis, telefone);
+			Meliante m = new Meliante(nome, CPFMeliante, apelido, caracteristicasFisicas, delitos, faccao, fis, telefone);
 			Endereco en = new Endereco(CPFMeliante, cidade, bairro, rua, estado, numero);
 
 			MelianteDao dao = new MelianteDao();

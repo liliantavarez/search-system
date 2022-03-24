@@ -14,14 +14,12 @@ public class UsuariaDao {
 
 	private Connection con;
 
-
-
 	public UsuariaDao() {
 		this.con = DB.getConnection();
 	}
 
 	public boolean add(Usuario u) {
-		String sql = "INSERT INTO usuario ( CPFUsuario, usuario, senha, email, fnivel) VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO usuario ( CPFUsuario, nome, senha, email, fnivel) VALUES (?,?,?,?,?)";
 
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
@@ -33,8 +31,8 @@ public class UsuariaDao {
 
 			pst.execute();
 
-			pst.close();
-			con.close();
+//			pst.close();
+			// con.close();
 
 			return true;
 		} catch (SQLException e) {
@@ -45,21 +43,19 @@ public class UsuariaDao {
 	}
 
 	public boolean update(Usuario u) {
-		String sql = "UPDATE usuario SET CPFUsuario = ?, usuario = ?, senha = ?, email = ?, fnivel = ? WHERE CPFUsuario = ?";
+		String sql = "UPDATE usuario SET nome = ?, CPFUsuario = ?, email = ? WHERE IdUsuario = ?;";
 
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
-			pst.setString(1, u.getCPFUsuario());
-			pst.setString(2, u.getNome());
-			pst.setString(3, u.getSenha());
-			pst.setString(4, u.getEmail());
-			pst.setString(5, u.getfNivel());
-			pst.setString(6, u.getCPFUsuario());
+			pst.setString(1, u.getNome());
+			pst.setString(2, u.getCPFUsuario());
+			pst.setString(3, u.getEmail());
+			pst.setInt(4, u.getIdUsuario());
 
 			pst.execute();
 
-			pst.close();
-			con.close();
+			//pst.close();
+			// con.close();
 
 			return true;
 		} catch (SQLException e) {
@@ -70,16 +66,17 @@ public class UsuariaDao {
 	}
 
 	public boolean delete(Usuario u) {
-		String sql = "DELETE FROM usuario WHERE CPFUsuario = ?";
+
+		String sql = "DELETE FROM usuario WHERE IdUsuario = ?";
 
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
-			pst.setString(1, u.getCPFUsuario());
+			pst.setInt(1, u.getIdUsuario());
 
 			pst.execute();
 
-			pst.close();
-			con.close();
+			// pst.close();
+			// con.close();
 
 			return true;
 		} catch (SQLException e) {
@@ -89,11 +86,13 @@ public class UsuariaDao {
 
 	}
 
-	public List<Usuario> getList() {
+	public List<Usuario> getList(String busca) {
 		List<Usuario> usuarios = new ArrayList<Usuario>();
-		String sql = "SELECT * FROM usuario";
+		String sql = "SELECT * FROM usuario where CPFUsuario = ? or email = ?";
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, busca);
+			pst.setString(2, busca);
 			ResultSet rs = pst.executeQuery();
 
 			while (rs.next()) {
@@ -101,16 +100,16 @@ public class UsuariaDao {
 						rs.getString("email"), rs.getString("fnivel"));
 				usuarios.add(u);
 			}
-			
-			pst.close();
-			con.close();
-			
+
+			// pst.close();
+			// con.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Erro, lista não retornada");
 			return null;
 		}
-		
+
 		return usuarios;
 	}
 

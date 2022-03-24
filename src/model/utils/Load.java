@@ -18,6 +18,7 @@ public class Load {
 			Scene mainScene = Main.getMainScene();
 			VBox mainVBox = (VBox) mainScene.getRoot();
 
+		
 			mainVBox.getChildren().clear();
 			mainVBox.getChildren().addAll(newVbox.getChildren());
 
