@@ -19,12 +19,12 @@ public class UsuariaDao {
 	}
 
 	public boolean add(Usuario u) {
-		String sql = "INSERT INTO usuario ( CPFUsuario, nome, senha, email, fnivel) VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO usuario ( nome, CPFUsuario, senha, email, fnivel) VALUES (?,?,?,?,?)";
 
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
-			pst.setString(1, u.getCPFUsuario());
-			pst.setString(2, u.getNome());
+			pst.setString(1, u.getNome());
+			pst.setString(2, u.getCPFUsuario());
 			pst.setString(3, u.getSenha());
 			pst.setString(4, u.getEmail());
 			pst.setString(5, u.getfNivel());
@@ -67,7 +67,7 @@ public class UsuariaDao {
 
 	public boolean delete(Usuario u) {
 
-		String sql = "DELETE FROM usuario WHERE IdUsuario = ?";
+		String sql = "DELETE FROM usuario WHERE CPFUsuario = ?";
 
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
@@ -96,7 +96,7 @@ public class UsuariaDao {
 			ResultSet rs = pst.executeQuery();
 
 			while (rs.next()) {
-				Usuario u = new Usuario(rs.getString("CPFUsuario"), rs.getString("nome"), rs.getString("senha"),
+				Usuario u = new Usuario(rs.getString("nome"), rs.getString("CPFUsuario"), rs.getString("senha"),
 						rs.getString("email"), rs.getString("fnivel"));
 				usuarios.add(u);
 			}

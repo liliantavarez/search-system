@@ -3,8 +3,8 @@ package model.entites;
 public class Usuario {
 
 	
-	private String CPFUsuario;
 	private String nome;
+	private String CPFUsuario;
 	private String senha;
 	private String confSenha;
 	private String email;
@@ -14,9 +14,9 @@ public class Usuario {
 
 	}
 	
-	public Usuario(String CPFUsuario, String nome, String senha, String email, String fNivel) {
-		this.CPFUsuario = CPFUsuario;
+	public Usuario(String nome, String CPFUsuario, String senha, String email, String fNivel) {
 		this.nome = nome;
+		this.CPFUsuario = CPFUsuario;
 		this.senha = senha;
 		this.email = email;
 		this.fNivel = fNivel;

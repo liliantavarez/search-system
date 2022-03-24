@@ -37,6 +37,7 @@ public class FichaUsuarioController implements Initializable {
 
 	@FXML
 	public void onBtSalvarAction() {
+		btSalvar.setVisible(false);
 		atualiza();
 	}
 	
@@ -57,11 +58,13 @@ public class FichaUsuarioController implements Initializable {
 	public void ativaTxt() {
 		txtNome.setEditable(true);
 		txtUsuario.setEditable(true);
-		txtEmail.setEditable(false);
+		txtEmail.setEditable(true);
 	}
 	
 	public void desativaTxt() {
 		txtNome.setEditable(false);		
+		txtUsuario.setEditable(false);
+		txtEmail.setEditable(false);
 	}
 
 	@FXML
