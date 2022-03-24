@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CadMelianteController">
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FichaMelianteUsuarioController">
    <children>
       <Label style="-fx-font-size: 40; -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080); -fx-background-radius: 5;" text="Search System ">
          <padding>
@@ -327,11 +327,20 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
-         <VBox.margin>
-            <Insets bottom="30.0" top="30.0" />
-         </VBox.margin>
-      </Button>
+      <HBox alignment="TOP_CENTER">
+         <children>
+            <Button fx:id="btGerarPDF" mnemonicParsing="false" onAction="#onBtGerarPDFAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Gerar PDF">
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btImprimir" mnemonicParsing="false" onAction="#onBtImprimirAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Imprimir">
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
       <HBox alignment="TOP_CENTER">
          <children>
             <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">

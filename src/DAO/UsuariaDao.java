@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import db.DB;
+import db.ConnectionFactory;
 import model.entites.Usuario;
 
 public class UsuariaDao {
@@ -15,7 +15,7 @@ public class UsuariaDao {
 	private Connection con;
 
 	public UsuariaDao() {
-		this.con = DB.getConnection();
+		this.con = new ConnectionFactory().getConnection();
 	}
 
 	public boolean add(Usuario u) {
@@ -31,8 +31,8 @@ public class UsuariaDao {
 
 			pst.execute();
 
-//			pst.close();
-			// con.close();
+			pst.close();
+			con.close();
 
 			return true;
 		} catch (SQLException e) {
@@ -43,19 +43,19 @@ public class UsuariaDao {
 	}
 
 	public boolean update(Usuario u) {
-		String sql = "UPDATE usuario SET nome = ?, CPFUsuario = ?, email = ? WHERE CPFUsuario = ?;";
+		String sql = "UPDATE usuario SET nome = ?, CPFUsuario = ?, email = ? WHERE id = ?;";
 
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
 			pst.setString(1, u.getNome());
 			pst.setString(2, u.getCPFUsuario());
 			pst.setString(3, u.getEmail());
-			pst.setString(4, u.getCPFUsuario());
+			pst.setInt(4, u.getId());
 
 			pst.execute();
 
-			//pst.close();
-			// con.close();
+			pst.close();
+			con.close();
 
 			return true;
 		} catch (SQLException e) {
@@ -75,8 +75,8 @@ public class UsuariaDao {
 
 			pst.execute();
 
-			// pst.close();
-			// con.close();
+			pst.close();
+			con.close();
 
 			return true;
 		} catch (SQLException e) {
@@ -101,8 +101,8 @@ public class UsuariaDao {
 				usuarios.add(u);
 			}
 
-			// pst.close();
-			// con.close();
+			pst.close();
+			con.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();

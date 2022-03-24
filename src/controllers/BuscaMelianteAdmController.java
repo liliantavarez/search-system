@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.utils.Load;
-import validation.Validate;
 
 public class BuscaMelianteAdmController {
 	
@@ -21,8 +20,7 @@ public class BuscaMelianteAdmController {
 	
 	@FXML
 	public void onBtConfirmarAction() {
-		String melianteBusca = txtMelianteBusca.getText();
-		Validate.valida(txtMelianteBusca);
+
 	}
 	
 	@FXML

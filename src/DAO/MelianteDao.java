@@ -10,10 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import db.DB;
+import db.ConnectionFactory;
 import javafx.scene.image.Image;
 import model.entites.Meliante;
 
@@ -24,7 +22,7 @@ public class MelianteDao {
 
 
 	public MelianteDao() {
-		this.con = DB.getConnection();
+		this.con = new ConnectionFactory().getConnection();
 	}
 
 	public boolean add(Meliante m) {
@@ -44,7 +42,7 @@ public class MelianteDao {
 			pst.execute();
 
 			pst.close();
-			//con.close();
+			con.close();
 
 			return true;
 		} catch (SQLException e) {
@@ -103,8 +101,8 @@ public class MelianteDao {
 
 	}
 
-	public List<Meliante> getList(String busca) {
-		List<Meliante> Meliantes = new ArrayList<Meliante>();
+	public Meliante buscaMeliante(String busca) {
+		Meliante meliante = null;
 		String sql = "SELECT * FROM meliante WHERE CPFMeliante = ? OR apelido = ? OR telefone = ? OR nome = ?";
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
@@ -115,10 +113,10 @@ public class MelianteDao {
 			ResultSet rs = pst.executeQuery();
 
 			while (rs.next()) {
-				Meliante u = new Meliante(rs.getString("nome"),rs.getString("CPFMeliante"), rs.getString("apelido"),
+				meliante = new Meliante(rs.getString("nome"),rs.getString("CPFMeliante"), rs.getString("apelido"),
 						rs.getString("caracteristicasFisicas"), rs.getString("delitos"), rs.getString("faccao"), rs.getBinaryStream("imagem"),
 						rs.getString("telefone"));
-				Meliantes.add(u);
+				
 			}
 
 			pst.close();
@@ -130,7 +128,7 @@ public class MelianteDao {
 			return null;
 		}
 
-		return Meliantes;
+		return meliante;
 	}
 	
 	public Image visualizar(Meliante m) {

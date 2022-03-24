@@ -13,7 +13,7 @@ import javafx.scene.paint.Color;
 import model.entites.Usuario;
 import model.utils.Load;
 
-public class BuscaUsuarioController  {
+public class BuscaUsuarioController {
 
 	public static Usuario user;
 	@FXML
@@ -40,18 +40,17 @@ public class BuscaUsuarioController  {
 
 	@FXML
 	public void onBtBuscarAction() {
-			try {
-				if(buscarBD()) {
-					exibir();					
-				}
-			
-	
-			} catch (RuntimeException e) {
-				//e.printStackTrace();
-				lblStatus.setTextFill(Color.TOMATO);
-				lblStatus.setText("Usuário não cadastrado!");
+		try {
+			if (buscarBD()) {
+				exibir();
 			}
-		
+
+		} catch (RuntimeException e) {
+			// e.printStackTrace();
+			lblStatus.setTextFill(Color.TOMATO);
+			lblStatus.setText("Usuário não cadastrado!");
+		}
+
 	}
 
 	public boolean buscarBD() {
@@ -68,7 +67,7 @@ public class BuscaUsuarioController  {
 			user = usuarios.get(0);
 			return true;
 		}
-		
+
 	}
 
 	private void exibir() {
@@ -97,6 +96,5 @@ public class BuscaUsuarioController  {
 	public void onBtSairAction() {
 		lv.loadview("/views/Login.fxml");
 	}
-	
 
 }

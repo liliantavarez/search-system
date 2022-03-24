@@ -14,7 +14,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) {
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/views/BuscaUsuario.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("/views/Busca.fxml"));
 			mainScene = new Scene(parent);
 			
 			stage.setTitle("Search System");

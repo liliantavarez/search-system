@@ -139,15 +139,14 @@ public class CadMelianteController {
 		imagePadrao = imgviewFoto.getImage();
 
 		fileChooser = new FileChooser();
-		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("imagens", "*.jpg", "*.png"));
+		fileChooser.getExtensionFilters().add(new ExtensionFilter("Imagens", "*.jpg", "*.png"));
 
 		file = fileChooser.showOpenDialog(null);
 
 		if (file != null) {
 			caminhoFoto = file.getAbsolutePath();
 			image = new Image(file.toURI().toString());
-			System.out.println(image.getUrl());
-
+			
 			imgviewFoto.setImage(image);
 			try {
 				fis = new FileInputStream(file);
