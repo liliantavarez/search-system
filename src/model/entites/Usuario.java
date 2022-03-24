@@ -2,7 +2,7 @@ package model.entites;
 
 public class Usuario {
 
-	private int IdUsuario;
+	
 	private String CPFUsuario;
 	private String nome;
 	private String senha;
@@ -21,8 +21,7 @@ public class Usuario {
 		this.email = email;
 		this.fNivel = fNivel;
 	}
-	public Usuario(int IdUsuario, String CPFUsuario, String nome, String email) {
-		this.IdUsuario = IdUsuario;
+	public Usuario(String CPFUsuario, String nome, String email) {
 		this.CPFUsuario = CPFUsuario;
 		this.nome = nome;
 		this.email = email;
@@ -77,12 +76,6 @@ public class Usuario {
 		this.fNivel = fNivel;
 	}
 	
-	public int getIdUsuario() {
-		return IdUsuario;
-	}
 
-	public void setIdUsuario(int idUsuario) {
-		IdUsuario = idUsuario;
-	}
 
 }

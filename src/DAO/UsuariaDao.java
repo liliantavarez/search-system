@@ -43,14 +43,14 @@ public class UsuariaDao {
 	}
 
 	public boolean update(Usuario u) {
-		String sql = "UPDATE usuario SET nome = ?, CPFUsuario = ?, email = ? WHERE IdUsuario = ?;";
+		String sql = "UPDATE usuario SET nome = ?, CPFUsuario = ?, email = ? WHERE CPFUsuario = ?;";
 
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
 			pst.setString(1, u.getNome());
 			pst.setString(2, u.getCPFUsuario());
 			pst.setString(3, u.getEmail());
-			pst.setInt(4, u.getIdUsuario());
+			pst.setString(4, u.getCPFUsuario());
 
 			pst.execute();
 
@@ -71,7 +71,7 @@ public class UsuariaDao {
 
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
-			pst.setInt(1, u.getIdUsuario());
+			pst.setString(1, u.getCPFUsuario());
 
 			pst.execute();
 
