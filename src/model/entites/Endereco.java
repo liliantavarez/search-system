@@ -2,35 +2,39 @@ package model.entites;
 
 public class Endereco {
 	
-	private String CPFMeliante;
+	private Integer id;
 	private String cidade;
+	private String estado;
 	private String bairro;
 	private String rua;
-	private String estado;
 	private String numero;
 	
 	public Endereco() {
 		
 	}
 	
-	public Endereco(String cPFMeliante, String cidade, String bairro, String rua, String estado, String numero) {
-		super();
-		CPFMeliante = cPFMeliante;
+	public Endereco(String cidade, String estado, String bairro, String rua, String numero) {
 		this.cidade = cidade;
+		this.estado = estado;
 		this.bairro = bairro;
 		this.rua = rua;
+		this.numero = numero;
+	}
+	public Endereco(Integer id, String cidade, String estado, String bairro, String rua, String numero) {
+		this.id = id;
+		this.cidade = cidade;
 		this.estado = estado;
+		this.bairro = bairro;
+		this.rua = rua;
 		this.numero = numero;
 	}
 
-
-
-	public String getCPFMeliante() {
-		return CPFMeliante;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setCPFMeliante(String cPFMeliante) {
-		CPFMeliante = cPFMeliante;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getCidade() {

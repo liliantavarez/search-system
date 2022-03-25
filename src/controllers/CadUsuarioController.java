@@ -57,7 +57,7 @@ public class CadUsuarioController {
 				email = txtEmail.getText(), fNivel = radio.getText();
 
 		if (confereSenha(txtSenha, txtConfsenha)) {
-			Usuario u = new Usuario(CPFUsuario, nome, senha, email, fNivel);
+			Usuario u = new Usuario(nome, CPFUsuario, senha, email, fNivel);
 			UsuariaDao dao = new UsuariaDao();
 			if (dao.add(u)) {
 				limparCampos();

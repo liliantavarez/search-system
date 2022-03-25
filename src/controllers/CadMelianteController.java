@@ -20,6 +20,7 @@ import model.entites.Endereco;
 import model.entites.Meliante;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
+import validation.Validate;
 
 public class CadMelianteController {
 
@@ -34,6 +35,10 @@ public class CadMelianteController {
 	@FXML
 	private TextField txtTelefone;
 	@FXML
+	private TextField txtDelitos;
+	@FXML
+	private TextField txtFaccao;
+	@FXML
 	private TextField txtCidade;
 	@FXML
 	private TextField txtUF;
@@ -43,10 +48,6 @@ public class CadMelianteController {
 	private TextField txtRua;
 	@FXML
 	private TextField txtNumero;
-	@FXML
-	private TextField txtDelitos;
-	@FXML
-	private TextField txtFaccao;
 	@FXML
 	private Button btVoltar;
 	@FXML
@@ -62,7 +63,7 @@ public class CadMelianteController {
 	private File file;
 	private Image image;
 	private Image imagePadrao;
-	private FileInputStream fis;
+	private FileInputStream imagem;
 	String caminhoFoto = null;
 
 	Load lv = new Load();
@@ -85,6 +86,8 @@ public class CadMelianteController {
 	}
 
 	private void salvarDados() {
+		Validate.validarMeliante(txtNome, txtApelido, txtCPF, txtCaracFisicas, txtTelefone, txtDelitos, txtFaccao);
+		Validate.validaEndereco(txtCidade, txtUF, txtBairro, txtRua, txtNumero);
 
 		String nome = txtNome.getText(), CPFMeliante = txtCPF.getText(), apelido = txtApelido.getText(),
 				caracteristicasFisicas = txtCaracFisicas.getText(), delitos = txtDelitos.getText(),
@@ -94,10 +97,10 @@ public class CadMelianteController {
 
 		try {
 
-			fis = new FileInputStream(file);
+			imagem = new FileInputStream(file);
 
-			Meliante m = new Meliante(nome, CPFMeliante, apelido, caracteristicasFisicas, delitos, faccao, fis, telefone);
-			Endereco en = new Endereco(CPFMeliante, cidade, bairro, rua, estado, numero);
+			Meliante m = new Meliante(nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, imagem, delitos, faccao);
+			Endereco en = new Endereco(cidade, estado, bairro, rua, numero);
 
 			MelianteDao dao = new MelianteDao();
 			EnderecoDao daoEn = new EnderecoDao();
@@ -145,15 +148,18 @@ public class CadMelianteController {
 
 		if (file != null) {
 			caminhoFoto = file.getAbsolutePath();
+			
 			image = new Image(file.toURI().toString());
 			
 			imgviewFoto.setImage(image);
 			try {
-				fis = new FileInputStream(file);
+				imagem = new FileInputStream(file);
 
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
+		}else {
+			imgviewFoto.setImage(new Image("/views/SeekPng.com_personas-png_1305038.png"));			
 		}
 	}
 

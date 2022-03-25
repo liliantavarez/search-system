@@ -37,6 +37,7 @@ public class UsuariaDao {
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			
 			return false;
 		}
 
@@ -86,8 +87,8 @@ public class UsuariaDao {
 
 	}
 
-	public List<Usuario> getList(String busca) {
-		List<Usuario> usuarios = new ArrayList<Usuario>();
+	public Usuario  buscaUsuario(String busca) {
+		Usuario usuario = new Usuario();
 		String sql = "SELECT * FROM usuario where CPFUsuario = ? or email = ?";
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
@@ -96,9 +97,9 @@ public class UsuariaDao {
 			ResultSet rs = pst.executeQuery();
 
 			while (rs.next()) {
-				Usuario u = new Usuario(rs.getString("nome"), rs.getString("CPFUsuario"), rs.getString("senha"),
+				Usuario u = new Usuario(rs.getInt("id"), rs.getString("nome"), rs.getString("CPFUsuario"), rs.getString("senha"),
 						rs.getString("email"), rs.getString("fnivel"));
-				usuarios.add(u);
+				usuario = u;
 			}
 
 			pst.close();
@@ -110,7 +111,35 @@ public class UsuariaDao {
 			return null;
 		}
 
+		return usuario;
+	}
+	
+	public List<Usuario> getList() {
+		List<Usuario> usuarios = new ArrayList<Usuario>();
+		String sql = "SELECT * FROM usuario";
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+		
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				Usuario u = new Usuario(rs.getInt("id"), rs.getString("nome"), rs.getString("CPFUsuario"), rs.getString("senha"),
+						rs.getString("email"), rs.getString("fnivel"));
+				usuarios.add(u);
+			}
+			
+			pst.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Erro, lista não retornada");
+			return null;
+		}
+		
 		return usuarios;
 	}
+	
+	
 
 }

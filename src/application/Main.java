@@ -12,9 +12,10 @@ public class Main extends Application {
 	
 	private static Scene mainScene;
 	@Override
-	public void start(Stage stage) {
+	public void start(Stage stage) throws IllegalArgumentException, IllegalAccessException {
+
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/views/Busca.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("/views/Login.fxml"));
 			mainScene = new Scene(parent);
 			
 			stage.setTitle("Search System");

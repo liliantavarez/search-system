@@ -1,59 +1,121 @@
 package controllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import DAO.EnderecoDao;
 import DAO.MelianteDao;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import model.entites.Endereco;
 import model.entites.Meliante;
+import model.entites.Usuario;
 import model.utils.Load;
 
-public class BuscaController {
+public class BuscaController implements Initializable{
 
+	@FXML private Button btVoltar;
 	@FXML
 	private TextField txtMelianteBusca;
 	@FXML
 	private Label lblStatus;
-	public static Meliante m;
+	@FXML
+	private HBox hBoxResultado;
+	@FXML
+	private ImageView imageView;
+
+	@FXML
+	private Label lbApelido;
+
+	@FXML
+	private Label lbCPF;
+
+	@FXML
+	private Label lbNome;
+
+	public static Meliante m ;
+	public static Endereco e ;
+
 	Load lv = new Load();
 
 	@FXML
 	public void onBtConfirmarAction() {
+
 		try {
-			buscaMeliante();
-			if(m!=null) {
-				lv.loadview("/views/ResultadoPesquisa.fxml");
-			} 
-		}catch (RuntimeException e) {
-				//e.printStackTrace();
+			if (buscaBD()) {
+
+				exibir();
+			}else {
 				lblStatus.setTextFill(Color.TOMATO);
-				lblStatus.setText("Usuário não cadastrado!");
+				lblStatus.setText("Meliante não cadastrado do sistema!");
 			}
+		} catch (IndexOutOfBoundsException e) {
+			// e.printStackTrace();
+			lblStatus.setTextFill(Color.TOMATO);
+			lblStatus.setText("Erro ao realizar busca, tente novamente!");
+		}
+
 	}
 
-	public boolean buscaMeliante() {
+	public boolean buscaBD() {
+
 		String busca = txtMelianteBusca.getText();
-
 		if (busca.isEmpty()) {
-			System.out.println("ssss");
 			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText("Insira um valor para realizar a busca!");
+			lblStatus.setText("Campo de pesquisa vazio!");
 			return false;
-
 		} else {
 			MelianteDao dao = new MelianteDao();
 			m = dao.buscaMeliante(busca);
-			return true;
+			EnderecoDao daoEnd = new EnderecoDao();
+			e = daoEnd.buscaEndereco(m.getId());
+			if(m.getId()!=null) {
+				return true;
+			}
+			return false;
 		}
+		
+	}
+
+	private void exibir() {
+		MelianteDao dao = new MelianteDao();
+		lblStatus.setText("");
+		hBoxResultado.setStyle("visibility: true;");
+		lbNome.setText(m.getNome());
+		lbApelido.setText(m.getApelido());
+		lbCPF.setText(m.getCPFMeliante());
+		imageView.setImage(dao.visualizar(m));
+	}
+
+	@FXML
+	public void onHBoxResultadoClicked() {
+		System.out.println("click");
+		lv.loadview("/views/Meliante.fxml");
 	}
 
 	@FXML
 	public void onBtSairAction() {
 		lv.loadview("/views/Login.fxml");
 	}
-	@FXML
-	public void onBtVoltarAction() {
-		lv.loadview("/views/Login.fxml");
+	
+	@FXML 
+	public void ontBtVoltarAction() {
+		lv.loadview("/views/Administrador.fxml");
+	}
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		Usuario u = LoginController.getU();
+		if(u.getfNivel().equals("Administrador")) {
+			btVoltar.setVisible(true);
+		}
+		// TODO Auto-generated method stub
+		
 	}
 
 }
