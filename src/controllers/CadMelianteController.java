@@ -70,56 +70,66 @@ public class CadMelianteController {
 
 	@FXML
 	public void onBtSalvarAction() {
-
-		if (!txtCPF.getText().isEmpty()) {
-			try {
-				salvarDados();
-			} catch (DbException e) {
-				System.out.println(e.getMessage());
+		lblStatus.setText("");
+		try {
+			if (txtCPF.getText().isEmpty()) {
 				lblStatus.setTextFill(Color.TOMATO);
-				lblStatus.setText(e.getMessage());
+				lblStatus.setText("Erro da realização do cadastro... Informe o CPF do meliante!");
+			} else {
+				salvarDados();
 			}
-		} else {
+		} catch (DbException e) {
+			System.out.println(e.getMessage());
 			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText("Erro da realização do cadastro... Informe o CPF do meliante!");
+			lblStatus.setText(e.getMessage());
 		}
+
 	}
 
 	private void salvarDados() {
-		Validate.validarMeliante(txtNome, txtApelido, txtCPF, txtCaracFisicas, txtTelefone, txtDelitos, txtFaccao);
-		Validate.validaEndereco(txtCidade, txtUF, txtBairro, txtRua, txtNumero);
 
-		String nome = txtNome.getText(), CPFMeliante = txtCPF.getText(), apelido = txtApelido.getText(),
-				caracteristicasFisicas = txtCaracFisicas.getText(), delitos = txtDelitos.getText(),
-				faccao = txtFaccao.getText(), telefone = txtTelefone.getText(), cidade = txtCidade.getText(),
-				bairro = txtBairro.getText(), rua = txtRua.getText(), estado = txtUF.getText(),
-				numero = txtNumero.getText();
-
-		try {
-
-			imagem = new FileInputStream(file);
-
-			Meliante m = new Meliante(nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, imagem, delitos, faccao);
-			Endereco en = new Endereco(cidade, estado, bairro, rua, numero);
-
-			MelianteDao dao = new MelianteDao();
-			EnderecoDao daoEn = new EnderecoDao();
-
-			if (dao.add(m) && daoEn.add(en)) {
-				lblStatus.setTextFill(Color.GREEN);
-				lblStatus.setText("Cadastro realizado com sucesso!");
-				limparCampos();
-
-			} else {
-				lblStatus.setTextFill(Color.TOMATO);
-				lblStatus.setText("Erro da realização do cadastro...");
-			}
-
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
+		if (file == null) {
 			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText(ex.getMessage());
+			lblStatus.setText("Selecione uma foto");
+		} else {
+			try {
+
+				Validate.validarMeliante(txtNome, txtApelido, txtCPF, txtCaracFisicas, txtTelefone, txtDelitos,
+						txtFaccao);
+				Validate.validaEndereco(txtCidade, txtUF, txtBairro, txtRua, txtNumero);
+
+				String nome = txtNome.getText(), CPFMeliante = txtCPF.getText(), apelido = txtApelido.getText(),
+						caracteristicasFisicas = txtCaracFisicas.getText(), delitos = txtDelitos.getText(),
+						faccao = txtFaccao.getText(), telefone = txtTelefone.getText(), cidade = txtCidade.getText(),
+						bairro = txtBairro.getText(), rua = txtRua.getText(), estado = txtUF.getText(),
+						numero = txtNumero.getText();
+
+				imagem = new FileInputStream(file);
+
+				Meliante m = new Meliante(nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, imagem, delitos,
+						faccao);
+				Endereco en = new Endereco(m.getId(), cidade, estado, bairro, rua, numero);
+
+				MelianteDao dao = new MelianteDao();
+				EnderecoDao daoEn = new EnderecoDao();
+
+				if (dao.add(m) && daoEn.add(en)) {
+					lblStatus.setTextFill(Color.GREEN);
+					lblStatus.setText("Cadastro realizado com sucesso!");
+					limparCampos();
+
+				} else {
+					lblStatus.setTextFill(Color.TOMATO);
+					lblStatus.setText("Erro da realização do cadastro...");
+				}
+
+			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
+				lblStatus.setTextFill(Color.TOMATO);
+				lblStatus.setText(ex.getMessage());
+			}
 		}
+
 	}
 
 	private void limparCampos() {
@@ -132,6 +142,7 @@ public class CadMelianteController {
 		txtBairro.clear();
 		txtRua.clear();
 		txtNumero.clear();
+		txtTelefone.clear();
 		txtDelitos.clear();
 		txtFaccao.clear();
 		imgviewFoto.setImage(imagePadrao);
@@ -148,9 +159,9 @@ public class CadMelianteController {
 
 		if (file != null) {
 			caminhoFoto = file.getAbsolutePath();
-			
+
 			image = new Image(file.toURI().toString());
-			
+
 			imgviewFoto.setImage(image);
 			try {
 				imagem = new FileInputStream(file);
@@ -158,8 +169,6 @@ public class CadMelianteController {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-		}else {
-			imgviewFoto.setImage(new Image("/views/SeekPng.com_personas-png_1305038.png"));			
 		}
 	}
 

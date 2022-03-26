@@ -41,11 +41,16 @@ public class CadUsuarioController {
 
 	@FXML
 	public void onBtSalvarAction() {
-		if (Validate.validaUsuario(txtNome, txtUsuario, txtSenha, txtConfsenha, txtEmail)) {
-			salvarDados();
+		if (!verificaBD()) {
+			if (Validate.validaUsuario(txtNome, txtUsuario, txtSenha, txtConfsenha, txtEmail)) {
+				salvarDados();
+			} else {
+				lblStatus.setTextFill(Color.TOMATO);
+				lblStatus.setText("Insira todos os dados!");
+			}
 		} else {
 			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText("Insira todos os dados!");
+			lblStatus.setText("Usuario já cadastrado no sistema!");
 		}
 	}
 
@@ -89,6 +94,14 @@ public class CadUsuarioController {
 		txtSenha.clear();
 		txtConfsenha.clear();
 		txtEmail.clear();
+	}
+
+	private boolean verificaBD() {
+		UsuariaDao dao = new UsuariaDao();
+		if (!dao.varifica(txtEmail, txtUsuario)) {
+			return false;
+		}
+		return true;
 	}
 
 	@FXML

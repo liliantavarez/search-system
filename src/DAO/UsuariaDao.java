@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import db.ConnectionFactory;
+import javafx.scene.control.TextField;
 import model.entites.Usuario;
 
 public class UsuariaDao {
@@ -112,6 +113,32 @@ public class UsuariaDao {
 		}
 
 		return usuario;
+	}
+
+	public boolean varifica(TextField txtEmail, TextField txtUsuario) {
+		
+		String sql = "SELECT * FROM usuario where CPFUsuario = ? or email = ?";
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, txtUsuario.getText());
+			pst.setString(2, txtEmail.getText());
+			
+			ResultSet rs = pst.executeQuery();
+			
+			if (!rs.next()) {
+				return false;
+			}
+			
+			pst.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Erro, lista não retornada");
+			return false;
+		}
+		
+		return true;
 	}
 	
 	public List<Usuario> getList() {

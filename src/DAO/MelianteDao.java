@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import db.ConnectionFactory;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import model.entites.Meliante;
 
@@ -102,15 +103,11 @@ public class MelianteDao {
 
 	}
 	
-	public List<Meliante> getList(String busca) {
+	public List<Meliante> getList() {
 		List<Meliante> meliantes = new ArrayList<Meliante>();
-		String sql = "SELECT * FROM meliante where nome = ? or apelido = ? or CPFMeliante = ? or telefone = ?";
+		String sql = "SELECT * FROM meliante";
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
-			pst.setString(1, busca);
-			pst.setString(2, busca);
-			pst.setString(3, busca);
-			pst.setString(4, busca);
 			ResultSet rs = pst.executeQuery();
 
 			while (rs.next()) {
@@ -142,10 +139,12 @@ public class MelianteDao {
 			pst.setString(4, busca);
 			ResultSet rs = pst.executeQuery();
 			
-			while (rs.next()) {
+			if (rs.next()) {
 				Meliante m = new Meliante(rs.getInt("id"),rs.getString("nome"),rs.getString("apelido"), rs.getString("CPFMeliante"),
 						rs.getString("caracteristicasFisicas"), rs.getString("telefone"), rs.getBinaryStream("imagem"), rs.getString("delitos"), rs.getString("faccao"));
 				meliante = m;
+			}else{
+				return null;
 			}
 			
 			
@@ -159,6 +158,32 @@ public class MelianteDao {
 		}
 		
 		return meliante;
+	}
+	
+	public boolean verifica(TextField txtNome, TextField txtApelido, TextField txtCPF) {
+
+		String sql = "SELECT * FROM meliante where nome = ? or apelido = ? or CPFMeliante = ?";
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, txtNome.getText());
+			pst.setString(2, txtApelido.getText());
+			pst.setString(3, txtCPF.getText());
+			
+			ResultSet rs = pst.executeQuery();
+			
+			if (rs.next()) {
+			return true;
+			}
+			
+			pst.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Erro, lista não retornada");
+			return false;
+		}
+		return false;
 	}
 	
 	public Image visualizar(Meliante m) {

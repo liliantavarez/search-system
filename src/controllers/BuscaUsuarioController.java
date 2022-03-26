@@ -52,9 +52,12 @@ public class BuscaUsuarioController {
 		} else {
 			UsuariaDao dao = new UsuariaDao();
 			user = dao.buscaUsuario(busca);
-			return true;
+			if(user.getId()>0) {
+				return true;
+			}
+			return false;
 		}
-
+		
 	}
 
 	private void exibir() {

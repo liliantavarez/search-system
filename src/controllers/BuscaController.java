@@ -18,9 +18,10 @@ import model.entites.Meliante;
 import model.entites.Usuario;
 import model.utils.Load;
 
-public class BuscaController implements Initializable{
+public class BuscaController implements Initializable {
 
-	@FXML private Button btVoltar;
+	@FXML
+	private Button btVoltar;
 	@FXML
 	private TextField txtMelianteBusca;
 	@FXML
@@ -39,22 +40,18 @@ public class BuscaController implements Initializable{
 	@FXML
 	private Label lbNome;
 
-	public static Meliante m ;
-	public static Endereco e ;
+	public static Meliante m;
+	public static Endereco e;
 
 	Load lv = new Load();
 
 	@FXML
 	public void onBtConfirmarAction() {
-
 		try {
 			if (buscaBD()) {
 
 				exibir();
-			}else {
-				lblStatus.setTextFill(Color.TOMATO);
-				lblStatus.setText("Meliante não cadastrado do sistema!");
-			}
+			} 
 		} catch (IndexOutOfBoundsException e) {
 			// e.printStackTrace();
 			lblStatus.setTextFill(Color.TOMATO);
@@ -73,15 +70,20 @@ public class BuscaController implements Initializable{
 		} else {
 			MelianteDao dao = new MelianteDao();
 			m = dao.buscaMeliante(busca);
-			EnderecoDao daoEnd = new EnderecoDao();
-			e = daoEnd.buscaEndereco(m.getId());
-			if(m.getId()!=null) {
-				return true;
+			if(m==null) {
+				lblStatus.setTextFill(Color.TOMATO);
+				lblStatus.setText("Meliante não cadastrado do sistema!");
+				return false;
+			}else {
+				System.out.println(m);
+				EnderecoDao daoEnd = new EnderecoDao();
+				e = daoEnd.buscaEndereco(m.getId());				
 			}
-			return false;
+			return true;
 		}
-		
+	
 	}
+	 
 
 	private void exibir() {
 		MelianteDao dao = new MelianteDao();
@@ -95,7 +97,6 @@ public class BuscaController implements Initializable{
 
 	@FXML
 	public void onHBoxResultadoClicked() {
-		System.out.println("click");
 		lv.loadview("/views/Meliante.fxml");
 	}
 
@@ -103,19 +104,20 @@ public class BuscaController implements Initializable{
 	public void onBtSairAction() {
 		lv.loadview("/views/Login.fxml");
 	}
-	
-	@FXML 
+
+	@FXML
 	public void ontBtVoltarAction() {
 		lv.loadview("/views/Administrador.fxml");
 	}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		Usuario u = LoginController.getU();
-		if(u.getfNivel().equals("Administrador")) {
+		if (u.getfNivel().equals("Administrador")) {
 			btVoltar.setVisible(true);
 		}
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -66,12 +66,12 @@ public class EnderecoDao {
 
 	}
 
-	public boolean delete(Endereco m) {
+	public boolean delete(Endereco e) {
 		String sql = "DELETE FROM endereco WHERE id = ?";
 
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
-			pst.setInt(1, m.getId());
+			pst.setInt(1, e.getId());
 
 			pst.execute();
 
@@ -79,8 +79,8 @@ public class EnderecoDao {
 			con.close();
 
 			return true;
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
 			return false;
 		}
 
