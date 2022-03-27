@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CadMelianteController">
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FichaMelianteAdmController">
    <children>
       <Label style="-fx-font-size: 40; -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080); -fx-background-radius: 5;" text="Search System ">
          <padding>
@@ -22,7 +22,7 @@
             <Insets top="50.0" />
          </VBox.margin>
       </Label>
-      <Label style="-fx-font-size: 18; -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080); -fx-border-radius: 5;" text="Cadastro Meliante">
+      <Label style="-fx-font-size: 18; -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080); -fx-border-radius: 5;" text="Ficha Meliante">
          <VBox.margin>
             <Insets top="23.0" />
          </VBox.margin>
@@ -30,7 +30,7 @@
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
          </padding>
       </Label>
-      <ScrollPane maxWidth="650.0" prefWidth="650.0" style="-fx-background-radius: 5; -fx-background-color: gainsboro; -fx-padding: 10;">
+      <ScrollPane maxWidth="650.0" prefHeight="350.0" style="-fx-background-radius: 5; -fx-background-color: gainsboro; -fx-padding: 10;">
          <VBox.margin>
             <Insets top="5.0" />
          </VBox.margin>
@@ -58,7 +58,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtNome" alignment="BOTTOM_LEFT" prefWidth="290.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0 0 0 5; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                          <TextField fx:id="txtNome" alignment="BOTTOM_LEFT" editable="false" prefWidth="290.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0 0 0 5; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font></TextField>
@@ -74,7 +74,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtApelido" prefWidth="281.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                          <TextField fx:id="txtApelido" editable="false" prefWidth="281.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -93,7 +93,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtCPF" onKeyReleased="#txtCPFKeyReleased" prefWidth="299.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                          <TextField fx:id="txtCPF" editable="false" onKeyReleased="#txtCPFKeyReleased" prefWidth="299.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -112,7 +112,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtCaracFisicas" prefWidth="177.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                          <TextField fx:id="txtCaracFisicas" editable="false" prefWidth="177.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -131,7 +131,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtTelefone" onKeyReleased="#txtTelefoneKeyReleased" prefWidth="270.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                          <TextField fx:id="txtTelefone" editable="false" onKeyReleased="#txtTelefoneKeyReleased" prefWidth="270.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -147,12 +147,12 @@
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fx:id="imgviewFoto" accessibleRole="BUTTON" fitHeight="133.0" fitWidth="133.0" pickOnBounds="true">
+                                    <ImageView fx:id="imageView" accessibleRole="BUTTON" fitHeight="133.0" fitWidth="133.0" pickOnBounds="true">
                                        <image>
                                           <Image url="@sem-foto.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="btSelecionarFoto" mnemonicParsing="false" onAction="#onBtSelecionarFotoAction" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Selecionar Foto">
+                                    <Button fx:id="btSelecionarFoto" mnemonicParsing="false" onAction="#onBtSelecionarFotoAction" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Selecionar Foto" visible="false">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
@@ -181,7 +181,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtCidade" prefWidth="296.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                    <TextField fx:id="txtCidade" editable="false" prefWidth="296.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -193,7 +193,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtUF" prefWidth="50.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                    <TextField fx:id="txtUF" editable="false" prefWidth="50.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -212,7 +212,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtBairro" prefWidth="373.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                    <TextField fx:id="txtBairro" editable="false" prefWidth="373.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -231,7 +231,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtRua" prefWidth="296.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                    <TextField fx:id="txtRua" editable="false" prefWidth="296.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -243,7 +243,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtNumero" onKeyReleased="#txtNumeroKeyReleased" prefWidth="77.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                    <TextField fx:id="txtNumero" editable="false" onKeyReleased="#txtNumeroKeyReleased" prefWidth="77.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -274,7 +274,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtDelitos" prefWidth="368.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                    <TextField fx:id="txtDelitos" editable="false" prefWidth="368.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -293,7 +293,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtFaccao" prefWidth="367.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                    <TextField fx:id="txtFaccao" editable="false" prefWidth="367.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -327,11 +327,38 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar">
+      <HBox alignment="TOP_CENTER">
+         <children>
+            <Button fx:id="btGerarPDF" mnemonicParsing="false" onAction="#onBtGerarPDFAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Gerar PDF">
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btEditar" mnemonicParsing="false" onAction="#onBtEditarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Editar">
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar" visible="false">
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btExcluir" mnemonicParsing="false" onAction="#onBtExcluirAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Excluir">
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btImprimir" mnemonicParsing="false" onAction="#onBtImprimirAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Imprimir">
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Button>
+         </children>
          <VBox.margin>
             <Insets bottom="30.0" top="30.0" />
          </VBox.margin>
-      </Button>
+      </HBox>
       <HBox alignment="TOP_CENTER">
          <children>
             <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">

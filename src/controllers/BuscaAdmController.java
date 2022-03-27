@@ -3,6 +3,7 @@ package controllers;
 import DAO.EnderecoDao;
 import DAO.MelianteDao;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -12,8 +13,10 @@ import model.entites.Endereco;
 import model.entites.Meliante;
 import model.utils.Load;
 
-public class BuscaController {
+public class BuscaAdmController {
 
+	@FXML
+	private Button btVoltar;
 	@FXML
 	private TextField txtMelianteBusca;
 	@FXML
@@ -87,7 +90,7 @@ public class BuscaController {
 
 	@FXML
 	public void onHBoxResultadoClicked() {
-		lv.loadview("/views/FichaMeliante.fxml");
+		lv.loadview("/views/FichaMelianteAdm.fxml");
 	}
 
 	@FXML
@@ -95,4 +98,8 @@ public class BuscaController {
 		lv.loadview("/views/Login.fxml");
 	}
 
+	@FXML
+	public void ontBtVoltarAction() {
+		lv.loadview("/views/Administrador.fxml");
+	}
 }

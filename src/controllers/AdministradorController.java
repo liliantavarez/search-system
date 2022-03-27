@@ -31,7 +31,7 @@ public class AdministradorController {
 	
 	@FXML
 	public void onBtBuscMelianteAction() {
-		lv.loadview("/views/Busca.fxml");
+		lv.loadview("/views/BuscaAdm.fxml");
 	}
 	
 	@FXML

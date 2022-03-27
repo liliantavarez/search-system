@@ -149,7 +149,7 @@
                                  <children>
                                     <ImageView fx:id="imageView" accessibleRole="BUTTON" fitHeight="133.0" fitWidth="133.0" pickOnBounds="true">
                                        <image>
-                                          <Image url="@SeekPng.com_personas-png_1305038.png" />
+                                          <Image url="@sem-foto.png" />
                                        </image>
                                     </ImageView>
                                     <Button fx:id="btSelecionarFoto" mnemonicParsing="false" onAction="#onBtSelecionarFotoAction" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Selecionar Foto" visible="false">
@@ -334,21 +334,6 @@
                   <Insets right="30.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btEditar" mnemonicParsing="false" onAction="#onBtEditarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Editar" visible="false">
-               <HBox.margin>
-                  <Insets right="30.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="btSalvar" mnemonicParsing="false" onAction="#onBtSalvarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Salvar" visible="false">
-               <HBox.margin>
-                  <Insets right="30.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="btExcluir" mnemonicParsing="false" onAction="#onBtExcluirAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Excluir" visible="false">
-               <HBox.margin>
-                  <Insets right="30.0" />
-               </HBox.margin>
-            </Button>
             <Button fx:id="btImprimir" mnemonicParsing="false" onAction="#onBtImprimirAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Imprimir">
                <HBox.margin>
                   <Insets right="30.0" />
@@ -385,4 +370,7 @@
          </VBox.margin>
       </HBox>
    </children>
+   <padding>
+      <Insets bottom="50.0" top="50.0" />
+   </padding>
 </VBox>

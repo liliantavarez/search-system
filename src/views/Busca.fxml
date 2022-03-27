@@ -19,7 +19,7 @@
             <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
          </padding>
          <VBox.margin>
-            <Insets top="50.0" />
+            <Insets bottom="50.0" top="50.0" />
          </VBox.margin>
       </Label>
       <Label style="-fx-font-size: 20;" text="Busca">
@@ -51,7 +51,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
                <image>
-                  <Image url="@SeekPng.com_personas-png_1305038.png" />
+                  <Image url="@sem-foto.png" />
                </image>
             </ImageView>
             <AnchorPane style="-fx-background-color: gainsboro; -fx-background-radius: 5; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5;">
@@ -133,27 +133,20 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </HBox>
-      <HBox alignment="BASELINE_CENTER">
+      <HBox alignment="BOTTOM_RIGHT" prefWidth="540.0">
          <children>
-            <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">
-               <children>
-                  <Button fx:id="btVoltar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ontBtVoltarAction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar" visible="false">
-                     <HBox.margin>
-                        <Insets left="45.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox alignment="BOTTOM_RIGHT" prefWidth="540.0">
-               <children>
-                  <Button fx:id="btSair" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
-                     <HBox.margin>
-                        <Insets right="45.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
+            <Button fx:id="btSair" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="74.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">
+               <HBox.margin>
+                  <Insets right="45.0" />
+               </HBox.margin>
+            </Button>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </HBox>
    </children>
+   <padding>
+      <Insets bottom="50.0" top="50.0" />
+   </padding>
 </VBox>

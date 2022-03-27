@@ -15,16 +15,9 @@ import model.utils.Load;
 
 public class FichaUsuarioController implements Initializable {
 
-	@FXML
-	private TextField txtUsuario;
-	@FXML
-	private TextField txtEmail;
-	@FXML
-	private TextField txtNome;
-	@FXML
-	private Button btSalvar;
-	@FXML
-	private Label lbStatus;
+	@FXML private TextField txtUsuario, txtEmail, txtNome;
+	@FXML private Button btSalvar;
+	@FXML private Label lbStatus;
 	Load lv = new Load();
 
 	Usuario u = BuscaUsuarioController.user;
@@ -41,29 +34,30 @@ public class FichaUsuarioController implements Initializable {
 		desativaTxt();
 		atualiza();
 	}
-	
+
 	public void atualiza() {
 		UsuariaDao dao = new UsuariaDao();
 		int id = u.getId();
 		String CPFUsuario = txtUsuario.getText(), nome = txtNome.getText(), email = txtEmail.getText();
-		Usuario upUsuario = new Usuario(id,CPFUsuario,nome,email);
-		if(dao.update(upUsuario)) {
+		Usuario upUsuario = new Usuario(id, CPFUsuario, nome, email);
+		if (dao.update(upUsuario)) {
 			lbStatus.setTextFill(Color.GREEN);
 			lbStatus.setText("Usuário atualizado com sucesso!");
-		}else {
+		} else {
 			lbStatus.setTextFill(Color.TOMATO);
 			lbStatus.setText("Erro na atualização de usuário!");
 		}
-	
+
 	}
+
 	public void ativaTxt() {
 		txtNome.setEditable(true);
 		txtUsuario.setEditable(true);
 		txtEmail.setEditable(true);
 	}
-	
+
 	public void desativaTxt() {
-		txtNome.setEditable(false);		
+		txtNome.setEditable(false);
 		txtUsuario.setEditable(false);
 		txtEmail.setEditable(false);
 	}

@@ -39,7 +39,7 @@ import model.utils.Impressao;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
 
-public class FichaMelianteController implements Initializable {
+public class FichaMelianteAdmController implements Initializable {
 
 	@FXML
 	private Button btEditar;
