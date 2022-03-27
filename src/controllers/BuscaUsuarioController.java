@@ -20,6 +20,8 @@ public class BuscaUsuarioController {
 
 	@FXML
 	public void onBtBuscarAction() {
+		lblStatus.setText("");
+
 		try {
 			if (buscarBD()) {
 				exibir();
@@ -61,7 +63,7 @@ public class BuscaUsuarioController {
 	}
 
 	@FXML
-	private void OnHBoxResultadoMouseClicked() {
+	private void onHBoxResultadoMouseClicked() {
 		lv.loadview("/views/FichaUsuario.fxml");
 	}
 

@@ -23,6 +23,8 @@ public class CadUsuarioController {
 
 	@FXML
 	public void onBtSalvarAction() {
+		lblStatus.setText("");
+
 		if (!buscaBD()) {
 			if (Validate.validaUsuario(txtNome, txtUsuario, txtSenha, txtConfsenha, txtEmail)) {
 				salvarDados();

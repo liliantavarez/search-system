@@ -71,33 +71,6 @@ public class FichaMelianteController implements Initializable {
 		lv.loadview("/views/Login.fxml");
 	}
 
-	@FXML
-	void txtCPFKeyReleased(KeyEvent event) {
-		TextFieldFormatter tff = new TextFieldFormatter();
-		tff.setMask("###.###.###-##");
-		tff.setCaracteresValidos("0123456789");
-		tff.setTf(txtCPF);
-		tff.formatter();
-	}
-
-	@FXML
-	void txtNumeroKeyReleased(KeyEvent event) {
-		TextFieldFormatter tff = new TextFieldFormatter();
-		tff.setMask("#######");
-		tff.setCaracteresValidos("0123456789");
-		tff.setTf(txtNumero);
-		tff.formatter();
-	}
-
-	@FXML
-	void txtTelefoneKeyReleased(KeyEvent event) {
-		TextFieldFormatter tff = new TextFieldFormatter();
-		tff.setMask("(##)#####-####");
-		tff.setCaracteresValidos("0123456789");
-		tff.setTf(txtTelefone);
-		tff.formatter();
-	}
-		
 	public void gerarPDF() {
 		MelianteDao dao = new MelianteDao();
 		EnderecoDao daoEnd = new EnderecoDao();
@@ -162,6 +135,11 @@ public class FichaMelianteController implements Initializable {
 	}
 
 	public void exibir() {
+		Endereco e = BuscaController.e;
+		Meliante m = BuscaController.m;
+		MelianteDao dao = new MelianteDao();
+		
+		Image img = dao.visualizar(m);
 
 		txtNome.setText(m.getNome());
 		txtCPF.setText(m.getCPFMeliante());

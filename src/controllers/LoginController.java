@@ -32,6 +32,8 @@ public class LoginController {
 
 	@FXML
 	public void onBtEntrarAcction() {
+		lblErrors.setText("");
+
     	if (!txtSenha.getText().isEmpty() && !txtUsuario.getText().isEmpty()) {
     		logIn();    		
     	}else {

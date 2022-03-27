@@ -26,6 +26,8 @@ public class BuscaController {
 
 	@FXML
 	public void onBtConfirmarAction() {
+		lblStatus.setText("");
+
 		try {
 			if (buscaBD()) {
 

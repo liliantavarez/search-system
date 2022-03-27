@@ -108,6 +108,8 @@ public class FichaMelianteAdmController implements Initializable {
 
 	@FXML
 	void onBtSalvarAction(ActionEvent event) {
+		lblStatus.setText("");
+
 		btSalvar.setVisible(false);
 		atualiza();
 		desativaTxt();

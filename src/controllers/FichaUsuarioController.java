@@ -30,6 +30,8 @@ public class FichaUsuarioController implements Initializable {
 
 	@FXML
 	public void onBtSalvarAction() {
+		lbStatus.setText("");
+
 		btSalvar.setVisible(false);
 		desativaTxt();
 		atualiza();
