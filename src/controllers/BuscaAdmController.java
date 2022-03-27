@@ -3,7 +3,6 @@ package controllers;
 import DAO.EnderecoDao;
 import DAO.MelianteDao;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -15,25 +14,10 @@ import model.utils.Load;
 
 public class BuscaAdmController {
 
-	@FXML
-	private Button btVoltar;
-	@FXML
-	private TextField txtMelianteBusca;
-	@FXML
-	private Label lblStatus;
-	@FXML
-	private HBox hBoxResultado;
-	@FXML
-	private ImageView imageView;
-
-	@FXML
-	private Label lbApelido;
-
-	@FXML
-	private Label lbCPF;
-
-	@FXML
-	private Label lbNome;
+	@FXML private TextField txtMelianteBusca;
+	@FXML private Label lblStatus, lbApelido, lbCPF, lbNome;
+	@FXML private HBox hBoxResultado;
+	@FXML private ImageView imageView;
 
 	public static Meliante m;
 	public static Endereco e;
@@ -69,7 +53,6 @@ public class BuscaAdmController {
 				lblStatus.setText("Meliante não cadastrado do sistema!");
 				return false;
 			} else {
-				System.out.println(m);
 				EnderecoDao daoEnd = new EnderecoDao();
 				e = daoEnd.buscaEndereco(m.getId());
 			}

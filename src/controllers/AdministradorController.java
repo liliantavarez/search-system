@@ -1,22 +1,10 @@
 package controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import model.utils.Load;
 
 public class AdministradorController {
-	
-	@FXML
-	private Button btCadMeliante;
-	@FXML
-	private Button btCadUsuario;
-	@FXML
-	private Button btBuscMeliante;
-	@FXML
-	private Button btBuscUsuario;
-	@FXML
-	private Button btSair;
-	
+		
 	Load lv = new Load();
 	
 	@FXML

@@ -2,7 +2,6 @@ package controllers;
 
 import DAO.UsuariaDao;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -16,32 +15,15 @@ import validation.Validate;
 
 public class CadUsuarioController {
 
-	@FXML
-	private TextField txtNome;
-	@FXML
-	private TextField txtUsuario;
-	@FXML
-	private TextField txtSenha;
-	@FXML
-	private TextField txtConfsenha;
-	@FXML
-	private TextField txtEmail;
-	@FXML
-	private ToggleGroup tipousuario;
-	@FXML
-	private Button btSalvar;
-	@FXML
-	private Button btVoltar;
-	@FXML
-	private Button btSair;
-	@FXML
-	private Label lblStatus;
+	@FXML private TextField txtNome, txtUsuario, txtSenha, txtConfsenha, txtEmail;
+	@FXML private ToggleGroup tipousuario;
+	@FXML private Label lblStatus;
 
 	Load lv = new Load();
 
 	@FXML
 	public void onBtSalvarAction() {
-		if (!verificaBD()) {
+		if (!buscaBD()) {
 			if (Validate.validaUsuario(txtNome, txtUsuario, txtSenha, txtConfsenha, txtEmail)) {
 				salvarDados();
 			} else {
@@ -96,12 +78,12 @@ public class CadUsuarioController {
 		txtEmail.clear();
 	}
 
-	private boolean verificaBD() {
+	private boolean buscaBD() {
 		UsuariaDao dao = new UsuariaDao();
-		if (!dao.varifica(txtEmail, txtUsuario)) {
-			return false;
+		if (dao.buscaUsuario(txtUsuario.getText()) != null) {
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	@FXML

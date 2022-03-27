@@ -97,10 +97,12 @@ public class UsuariaDao {
 			pst.setString(2, busca);
 			ResultSet rs = pst.executeQuery();
 
-			while (rs.next()) {
+			if(rs.next()) {
 				Usuario u = new Usuario(rs.getInt("id"), rs.getString("nome"), rs.getString("CPFUsuario"), rs.getString("senha"),
 						rs.getString("email"), rs.getString("fnivel"));
 				usuario = u;
+			}else {
+				return null;
 			}
 
 			pst.close();
@@ -115,7 +117,8 @@ public class UsuariaDao {
 		return usuario;
 	}
 
-	public boolean varifica(TextField txtEmail, TextField txtUsuario) {
+	/*
+	 * public boolean varifica(TextField txtEmail, TextField txtUsuario) {
 		
 		String sql = "SELECT * FROM usuario where CPFUsuario = ? or email = ?";
 		try {
@@ -139,7 +142,7 @@ public class UsuariaDao {
 		}
 		
 		return true;
-	}
+	}*/
 	
 	public List<Usuario> getList() {
 		List<Usuario> usuarios = new ArrayList<Usuario>();

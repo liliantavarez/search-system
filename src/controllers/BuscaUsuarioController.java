@@ -11,18 +11,9 @@ import model.utils.Load;
 
 public class BuscaUsuarioController {
 
-	@FXML
-	private TextField txtEmailOuUsu;
-	@FXML
-	private Label lblUsuario;
-	@FXML
-	private Label lblEmail;
-	@FXML
-	private Label lbResultado;
-	@FXML
-	private Label lblStatus;
-	@FXML
-	private Node HBoxResultado;
+	@FXML private TextField txtEmailOuUsu;
+	@FXML private Label lblUsuario, lblEmail, lbResultado, lblStatus;
+	@FXML private Node HBoxResultado;
 
 	public static Usuario user;
 	Load lv = new Load();

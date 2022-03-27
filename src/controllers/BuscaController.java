@@ -14,23 +14,10 @@ import model.utils.Load;
 
 public class BuscaController {
 
-	@FXML
-	private TextField txtMelianteBusca;
-	@FXML
-	private Label lblStatus;
-	@FXML
-	private HBox hBoxResultado;
-	@FXML
-	private ImageView imageView;
-
-	@FXML
-	private Label lbApelido;
-
-	@FXML
-	private Label lbCPF;
-
-	@FXML
-	private Label lbNome;
+	@FXML private TextField txtMelianteBusca;
+	@FXML private HBox hBoxResultado;
+	@FXML private ImageView imageView;
+	@FXML private Label lbApelido, lbCPF, lbNome, lblStatus;
 
 	public static Meliante m;
 	public static Endereco e;

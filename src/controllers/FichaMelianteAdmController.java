@@ -41,71 +41,12 @@ import model.utils.TextFieldFormatter;
 
 public class FichaMelianteAdmController implements Initializable {
 
-	@FXML
-	private Button btEditar;
 
-	@FXML
-	private Button btExcluir;
-
-	@FXML
-	private Button btGerarPDF;
-
-	@FXML
-	private Button btImprimir;
-
-	@FXML
-	private Button btSair;
-
-	@FXML
-	private Button btSalvar;
-
-	@FXML
-	private Button btSelecionarFoto;
-
-	@FXML
-	private Button btVoltar;
-
-	@FXML
-	private ImageView imageView;
-
-	@FXML
-	private Label lblStatus;
-
-	@FXML
-	private TextField txtApelido;
-
-	@FXML
-	private TextField txtBairro;
-
-	@FXML
-	private TextField txtCPF;
-
-	@FXML
-	private TextField txtCaracFisicas;
-
-	@FXML
-	private TextField txtCidade;
-
-	@FXML
-	private TextField txtDelitos;
-
-	@FXML
-	private TextField txtFaccao;
-
-	@FXML
-	private TextField txtNome;
-
-	@FXML
-	private TextField txtNumero;
-
-	@FXML
-	private TextField txtRua;
-
-	@FXML
-	private TextField txtTelefone;
-
-	@FXML
-	private TextField txtUF;
+	@FXML private Button btSalvar;
+	@FXML private Button btSelecionarFoto;
+	@FXML private ImageView imageView;
+	@FXML private Label lblStatus;
+	@FXML private TextField txtApelido, txtBairro, txtCPF, txtCaracFisicas, txtCidade, txtDelitos, txtFaccao, txtNome, txtNumero, txtRua, txtTelefone, txtUF;
 
 	Load lv = new Load();
 
@@ -114,10 +55,10 @@ public class FichaMelianteAdmController implements Initializable {
 	Usuario u = LoginController.getU();
 	MelianteDao dao = new MelianteDao();
 	Image img = dao.visualizar(m);
+	Document doc = new Document(PageSize.A4);
 
 	private FileChooser fileChooser;
 	private File file;
-	private File fileAnt;
 	private Image image;
 	private Image imagePadrao;
 	private FileInputStream imagem;
@@ -127,7 +68,6 @@ public class FichaMelianteAdmController implements Initializable {
 		btSelecionarFoto.setVisible(true);
 		btSalvar.setVisible(true);
 		ativaTxt();
-
 	}
 
 	@FXML
@@ -153,8 +93,9 @@ public class FichaMelianteAdmController implements Initializable {
 	@FXML
 	void onBtImprimirAction(ActionEvent event) {
 		Impressao imp = new Impressao();
+		gerarPDF();
 		imp.detectaImpressoras();
-		if (!imp.imprime("")) {
+		if (!imp.imprime(doc)) {
 			lblStatus.setText(
 					"Nennhuma impressora foi encontrada. Instale uma impressora padrão e reinicie o programa.");
 		}
@@ -174,24 +115,23 @@ public class FichaMelianteAdmController implements Initializable {
 
 	@FXML
 	void onBtSelecionarFotoAction(ActionEvent event) {
-System.out.println(imageView.getImage().toString());
+
 		fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().add(new ExtensionFilter("Imagens", "*.jpg", "*.png"));
 
 		file = fileChooser.showOpenDialog(null);
 
 		if (file != null) {
-
+	
 			image = new Image(file.toURI().toString());
-
+		
 			try {
+				
 				imagem = new FileInputStream(file);
 
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-		}else {
-			File imgPadrao = new File(imageView.getImage().toString());
 		}
 
 	}
@@ -231,24 +171,21 @@ System.out.println(imageView.getImage().toString());
 	private void atualiza() {
 		imagePadrao = imageView.getImage();
 		
-
-		int idM = m.getId();
-
 		String nome = txtNome.getText(), CPFMeliante = txtCPF.getText(), apelido = txtApelido.getText(),
 				caracteristicasFisicas = txtCaracFisicas.getText(), delitos = txtDelitos.getText(),
 				faccao = txtFaccao.getText(), telefone = txtTelefone.getText(), cidade = txtCidade.getText(),
 				bairro = txtBairro.getText(), rua = txtRua.getText(), estado = txtUF.getText(),
 				numero = txtNumero.getText();
 
-		if (file != null) {
-			try {
-				imagem = new FileInputStream(file);
-			} catch (FileNotFoundException e) {
 
-				e.printStackTrace();
-			}
-		}
-		Meliante mUp = new Meliante(idM, nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, imagem, delitos,
+		if (file == null) {
+			lblStatus.setTextFill(Color.TOMATO);
+			lblStatus.setText("Selecione uma foto");
+		} else {
+
+		int idM = m.getId();
+		
+		Meliante mUp = new Meliante(idM,nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, imagem, delitos,
 				faccao);
 		Endereco enUp = new Endereco(idM, cidade, estado, bairro, rua, numero);
 
@@ -264,7 +201,7 @@ System.out.println(imageView.getImage().toString());
 			lblStatus.setTextFill(Color.TOMATO);
 			lblStatus.setText("Erro da atualização do cadastro...");
 		}
-
+		}
 	}
 
 	private void limparCampos() {
@@ -317,19 +254,12 @@ System.out.println(imageView.getImage().toString());
 		txtNumero.setEditable(false);
 	}
 
-	public void mostraBtsAdm() {
-		btEditar.setVisible(true);
-		btExcluir.setVisible(true);
-
-	}
-
 	public void gerarPDF() {
 		MelianteDao dao = new MelianteDao();
 		EnderecoDao daoEnd = new EnderecoDao();
 		Meliante mImp = dao.buscaMeliante(m.getCPFMeliante());
 		Endereco eImp = daoEnd.buscaEndereco(m.getId());
 
-		Document doc = new Document(PageSize.A4);
 		doc.setMargins(40f, 40f, 40f, 40f);
 
 		FileChooser fc = new FileChooser();
@@ -408,10 +338,6 @@ System.out.println(imageView.getImage().toString());
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		exibir();
-		if (u.getfNivel().equals("Administrador")) {
-			mostraBtsAdm();
-
-		}
 	}
 
 }

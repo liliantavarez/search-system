@@ -8,7 +8,6 @@ import DAO.EnderecoDao;
 import DAO.MelianteDao;
 import db.DbException;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -24,40 +23,10 @@ import validation.Validate;
 
 public class CadMelianteController {
 
-	@FXML
-	private TextField txtNome;
-	@FXML
-	private TextField txtApelido;
-	@FXML
-	private TextField txtCPF;
-	@FXML
-	private TextField txtCaracFisicas;
-	@FXML
-	private TextField txtTelefone;
-	@FXML
-	private TextField txtDelitos;
-	@FXML
-	private TextField txtFaccao;
-	@FXML
-	private TextField txtCidade;
-	@FXML
-	private TextField txtUF;
-	@FXML
-	private TextField txtBairro;
-	@FXML
-	private TextField txtRua;
-	@FXML
-	private TextField txtNumero;
-	@FXML
-	private Button btVoltar;
-	@FXML
-	private Button btSalvar;
-	@FXML
-	private Button btSair;
-	@FXML
-	private Label lblStatus;
-	@FXML
-	private ImageView imgviewFoto;
+	@FXML private TextField txtNome, txtApelido, txtCPF, txtCaracFisicas, txtTelefone, txtDelitos;
+	@FXML private TextField txtFaccao, txtCidade, txtUF, txtBairro, txtRua, txtNumero;
+	@FXML private Label lblStatus;
+	@FXML private ImageView imgviewFoto;
 
 	private FileChooser fileChooser;
 	private File file;
@@ -94,16 +63,15 @@ public class CadMelianteController {
 		} else {
 			try {
 
-				Validate.validarMeliante(txtNome, txtApelido, txtCPF, txtCaracFisicas, txtTelefone, txtDelitos,
-						txtFaccao);
-				Validate.validaEndereco(txtCidade, txtUF, txtBairro, txtRua, txtNumero);
-
 				String nome = txtNome.getText(), CPFMeliante = txtCPF.getText(), apelido = txtApelido.getText(),
 						caracteristicasFisicas = txtCaracFisicas.getText(), delitos = txtDelitos.getText(),
 						faccao = txtFaccao.getText(), telefone = txtTelefone.getText(), cidade = txtCidade.getText(),
 						bairro = txtBairro.getText(), rua = txtRua.getText(), estado = txtUF.getText(),
 						numero = txtNumero.getText();
 
+				Validate.validarMeliante(nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, delitos, faccao);
+				Validate.validaEndereco(cidade, estado, bairro, rua, numero);
+				
 				imagem = new FileInputStream(file);
 
 				Meliante m = new Meliante(nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, imagem, delitos,
@@ -150,6 +118,7 @@ public class CadMelianteController {
 
 	@FXML
 	private void onBtSelecionarFotoAction() {
+		
 		imagePadrao = imgviewFoto.getImage();
 		fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().add(new ExtensionFilter("Imagens", "*.jpg", "*.png"));
@@ -169,13 +138,7 @@ public class CadMelianteController {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-		} else {
-			file = new File("/search-system/src/views/sem-foto.png");
-			image = new Image(file.toURI().toString());
-			imgviewFoto.setImage(image);
-			image = new Image(file.toURI().toString());
-
-		}
+		} 
 	}
 
 	@FXML

@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import DAO.UsuariaDao;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -17,14 +16,8 @@ import model.utils.TextFieldFormatter;
 
 public class LoginController {
 
-	@FXML
-	private TextField txtUsuario;
-	@FXML
-	private TextField txtSenha;
-	@FXML
-	private Button btEntrar;
-	@FXML
-	private Label lblErrors;
+	@FXML private TextField txtUsuario, txtSenha;
+	@FXML private Label lblErrors;
 	
 	Load lv = new Load();
 	private static Usuario u = new Usuario();

@@ -1,21 +1,16 @@
 package model.utils;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-
 import javax.print.Doc;
 import javax.print.DocFlavor;
 import javax.print.DocPrintJob;
 import javax.print.PrintException;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
-import javax.print.SimpleDoc;  
-  
-// Essa classe é a responsavel pela impressao. Ela detecta a impressora  
-// instalada, recebe o texto e o imprime.  
+
+import com.lowagie.text.Document;  
+
 public class Impressao {  
- 
-   // variavel estatica porque será utilizada por inumeras threads  
+
    private static PrintService impressora;  
  
    public Impressao() {  
@@ -23,9 +18,7 @@ public class Impressao {
        detectaImpressoras();  
  
    }  
- 
-   // O metodo verifica se existe impressora conectada e a  
-   // define como padrao.  
+  
    public void detectaImpressoras() {  
  
        try {  
@@ -54,10 +47,8 @@ public class Impressao {
  
    }  
  
-   public synchronized boolean imprime(String texto) {  
+   public synchronized boolean imprime(Document doc) {  
  
-       // se nao existir impressora, entao avisa usuario  
-       // senao imprime texto  
        if (impressora == null) {  
  
            String msg = "Nennhuma impressora foi encontrada. Instale uma impressora padrão e reinicie o programa.";  
@@ -68,11 +59,12 @@ public class Impressao {
            try {  
  
                DocPrintJob dpj = impressora.createPrintJob();  
-               InputStream stream = new ByteArrayInputStream(texto.getBytes());  
+               //InputStream stream = new ByteArrayInputStream(texto.getBytes());  
  
-               DocFlavor flavor = DocFlavor.INPUT_STREAM.AUTOSENSE;  
-               Doc doc = new SimpleDoc(stream, flavor, null);  
-               dpj.print(doc, null);  
+               //DocFlavor flavor = DocFlavor.INPUT_STREAM.AUTOSENSE;  
+               
+               //Doc doc = new SimpleDoc(stream, flavor, null);  
+               dpj.print((Doc) doc, null);  
  
                return true;  
  
