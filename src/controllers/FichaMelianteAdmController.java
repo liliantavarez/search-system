@@ -120,8 +120,8 @@ public class FichaMelianteAdmController{
 	private Image imagePadrao;
 	private FileInputStream imagem;
 	
-    Endereco e = BuscaController.e;
-    Meliante m = BuscaController.m;
+    Endereco e = BuscaAdmController.e;
+    Meliante m = BuscaAdmController.m;
 	MelianteDao dao = new MelianteDao();
 	Document doc = new Document(PageSize.A4);
 
@@ -232,6 +232,26 @@ public class FichaMelianteAdmController{
 		tff.setTf(txtTelefone);
 		tff.formatter();
 	}
+	
+    public void exibir() {
+    	Image img = dao.visualizar(m);
+
+    	txtNome.setText(m.getNome());
+    	txtCPF.setText(m.getCPFMeliante());
+    	txtApelido.setText(m.getApelido());
+    	txtCaracFisicas.setText(m.getCaracteristicasFisicas());
+    	txtDelitos.setText(m.getDelitos());
+    	txtFaccao.setText(m.getFaccao());
+    	imageView.setImage(img);
+    	txtTelefone.setText(m.getTelefone());
+
+    	txtCidade.setText(e.getCidade());
+    	txtUF.setText(e.getEstado());
+    	txtBairro.setText(e.getBairro());
+    	txtRua.setText(e.getRua());
+    	txtNumero.setText(e.getNumero());
+    }
+
 	
 	private void atualiza() {
 
@@ -387,30 +407,10 @@ public class FichaMelianteAdmController{
 			}
 		}
 	}
-
-	public void exibir() {
-
-    	Image img = dao.visualizar(m);
-
-		txtNome.setText(m.getNome());
-		txtCPF.setText(m.getCPFMeliante());
-		txtApelido.setText(m.getApelido());
-		txtCaracFisicas.setText(m.getCaracteristicasFisicas());
-		txtDelitos.setText(m.getDelitos());
-		txtFaccao.setText(m.getFaccao());
-		//imageView.setImage(img);
-		txtTelefone.setText(m.getTelefone());
-
-		txtCidade.setText(e.getCidade());
-		txtUF.setText(e.getEstado());
-		txtBairro.setText(e.getBairro());
-		txtRua.setText(e.getRua());
-		txtNumero.setText(e.getNumero());
-	}
-	
    
 	@FXML
 	void initialize() {
+		exibir();
 	}
 
 }
