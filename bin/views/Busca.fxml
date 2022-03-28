@@ -44,7 +44,7 @@
             <Insets top="20.0" />
          </VBox.margin>
       </Label>
-      <HBox fx:id="hBoxResultado" alignment="CENTER" maxWidth="300.0" minWidth="-Infinity" onMouseClicked="#onHBoxResultadoClicked" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080); -fx-background-radius: 5;" visible="false">
+      <HBox fx:id="hBoxResultado" alignment="CENTER" maxWidth="300.0" minWidth="-Infinity" onMouseClicked="#onHBoxResultadoMouseClicked" style="-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #dcdcdc, #808080); -fx-background-radius: 5;" visible="false">
          <children>
             <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>

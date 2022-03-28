@@ -15,7 +15,7 @@ public class Main extends Application {
 	public void start(Stage stage) throws IllegalArgumentException, IllegalAccessException {
 
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/views/Login.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("/views/BuscaAdm.fxml"));
 			mainScene = new Scene(parent);
 			
 			stage.setTitle("Search System");

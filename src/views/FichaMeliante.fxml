@@ -93,7 +93,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtCPF" editable="false" onKeyReleased="#txtCPFKeyReleased" prefWidth="299.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                          <TextField fx:id="txtCPF" editable="false" prefWidth="299.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -131,7 +131,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtTelefone" editable="false" onKeyReleased="#txtTelefoneKeyReleased" prefWidth="270.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                          <TextField fx:id="txtTelefone" editable="false" prefWidth="270.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -152,11 +152,6 @@
                                           <Image url="@sem-foto.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="btSelecionarFoto" mnemonicParsing="false" onAction="#onBtSelecionarFotoAction" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Selecionar Foto" visible="false">
-                                       <VBox.margin>
-                                          <Insets top="20.0" />
-                                       </VBox.margin>
-                                    </Button>
                                  </children>
                                  <HBox.margin>
                                     <Insets left="100.0" />
@@ -243,7 +238,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="txtNumero" editable="false" onKeyReleased="#txtNumeroKeyReleased" prefWidth="77.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
+                                    <TextField fx:id="txtNumero" editable="false" prefWidth="77.0" style="-fx-background-color: gainsboro; -fx-font-size: 14; -fx-padding: 0; -fx-border-style: solid; -fx-border-width: 0 0 1 0; -fx-border-color: b0b0b0;">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -346,15 +341,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER">
          <children>
-            <HBox alignment="BOTTOM_LEFT" prefWidth="540.0">
-               <children>
-                  <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#onBtVoltarAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Voltar">
-                     <HBox.margin>
-                        <Insets left="45.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
+            <HBox alignment="BOTTOM_LEFT" prefWidth="540.0" />
             <HBox alignment="BOTTOM_RIGHT" prefWidth="540.0">
                <children>
                   <Button fx:id="btSair" mnemonicParsing="false" onAction="#onBtSairAction" prefWidth="100.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 5;" text="Sair">

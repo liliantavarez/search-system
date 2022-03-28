@@ -75,6 +75,7 @@ public class BuscaAdmController {
 
 	@FXML
 	public void onHBoxResultadoClicked() {
+		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		lv.loadview("/views/FichaMelianteAdm.fxml");
 	}
 

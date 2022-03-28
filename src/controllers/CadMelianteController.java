@@ -119,22 +119,19 @@ public class CadMelianteController {
 	@FXML
 	private void onBtSelecionarFotoAction() {
 		
-		imagePadrao = imgviewFoto.getImage();
 		fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().add(new ExtensionFilter("Imagens", "*.jpg", "*.png"));
 
 		file = fileChooser.showOpenDialog(null);
 		if (file != null) {
 			System.out.println(file);
-			System.out.println(imagePadrao.toString());
-
+			
 			caminhoFoto = file.getAbsolutePath();
 			image = new Image(file.toURI().toString());
 			imgviewFoto.setImage(image);
 
 			try {
 				imagem = new FileInputStream(file);
-
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
