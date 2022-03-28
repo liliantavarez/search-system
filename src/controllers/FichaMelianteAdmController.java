@@ -37,7 +37,7 @@ import model.utils.Impressao;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
 
-public class FichaMelianteAdmController{
+public class FichaMelianteAdmController {
 
 	@FXML
 	private ResourceBundle resources;
@@ -110,18 +110,16 @@ public class FichaMelianteAdmController{
 
 	@FXML
 	private TextField txtUF;
-    
-	
+
 	Load lv = new Load();
-	
+
 	private FileChooser fileChooser;
 	private File file;
 	private Image image;
-	private Image imagePadrao;
 	private FileInputStream imagem;
-	
-    Endereco e = BuscaAdmController.e;
-    Meliante m = BuscaAdmController.m;
+
+	Endereco e = BuscaAdmController.e;
+	Meliante m = BuscaAdmController.m;
 	MelianteDao dao = new MelianteDao();
 	Document doc = new Document(PageSize.A4);
 
@@ -138,6 +136,7 @@ public class FichaMelianteAdmController{
 		EnderecoDao daoEnd = new EnderecoDao();
 		if (dao.delete(m) && daoEnd.delete(e)) {
 			limparCampos();
+			desativaBts();
 			lblStatus.setTextFill(Color.GREEN);
 			lblStatus.setText("Meliante removido do sistema!");
 		} else {
@@ -153,15 +152,15 @@ public class FichaMelianteAdmController{
 
 	@FXML
 	void onBtImprimirAction(ActionEvent event) {
-    	Impressao imp = new Impressao();
+		Impressao imp = new Impressao();
 		imp.detectaImpressoras();
-		if(doc==null) {
+		if (doc == null) {
 			lblStatus.setText("Gere um PDF para impressão");
-		}else {			
-		if (!imp.imprime(doc)) {
-			lblStatus.setText(
-					"Nennhuma impressora foi encontrada. Instale uma impressora padrão e reinicie o programa.");
-		}
+		} else {
+			if (!imp.imprime(doc)) {
+				lblStatus.setText(
+						"Nennhuma impressora foi encontrada. Instale uma impressora padrão e reinicie o programa.");
+			}
 		}
 	}
 
@@ -188,7 +187,7 @@ public class FichaMelianteAdmController{
 		file = fileChooser.showOpenDialog(null);
 		if (file != null) {
 			System.out.println(file);
-			
+
 			image = new Image(file.toURI().toString());
 			imageView.setImage(image);
 
@@ -199,7 +198,7 @@ public class FichaMelianteAdmController{
 			}
 		}
 	}
-		
+
 	@FXML
 	void onBtVoltarAction(ActionEvent event) {
 		lv.loadview("/views/Busca.fxml");
@@ -232,27 +231,26 @@ public class FichaMelianteAdmController{
 		tff.setTf(txtTelefone);
 		tff.formatter();
 	}
-	
-    public void exibir() {
-    	Image img = dao.visualizar(m);
 
-    	txtNome.setText(m.getNome());
-    	txtCPF.setText(m.getCPFMeliante());
-    	txtApelido.setText(m.getApelido());
-    	txtCaracFisicas.setText(m.getCaracteristicasFisicas());
-    	txtDelitos.setText(m.getDelitos());
-    	txtFaccao.setText(m.getFaccao());
-    	imageView.setImage(img);
-    	txtTelefone.setText(m.getTelefone());
+	public void exibir() {
+		Image img = dao.visualizar(m);
 
-    	txtCidade.setText(e.getCidade());
-    	txtUF.setText(e.getEstado());
-    	txtBairro.setText(e.getBairro());
-    	txtRua.setText(e.getRua());
-    	txtNumero.setText(e.getNumero());
-    }
+		txtNome.setText(m.getNome());
+		txtCPF.setText(m.getCPFMeliante());
+		txtApelido.setText(m.getApelido());
+		txtCaracFisicas.setText(m.getCaracteristicasFisicas());
+		txtDelitos.setText(m.getDelitos());
+		txtFaccao.setText(m.getFaccao());
+		imageView.setImage(img);
+		txtTelefone.setText(m.getTelefone());
 
-	
+		txtCidade.setText(e.getCidade());
+		txtUF.setText(e.getEstado());
+		txtBairro.setText(e.getBairro());
+		txtRua.setText(e.getRua());
+		txtNumero.setText(e.getNumero());
+	}
+
 	private void atualiza() {
 
 		String nome = txtNome.getText(), CPFMeliante = txtCPF.getText(), apelido = txtApelido.getText(),
@@ -261,36 +259,39 @@ public class FichaMelianteAdmController{
 				bairro = txtBairro.getText(), rua = txtRua.getText(), estado = txtUF.getText(),
 				numero = txtNumero.getText();
 
-		if (file == null) {
-			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText("Selecione uma foto");
-		} else {
-			try {
-				imagem = new FileInputStream(file);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			int idM = m.getId();
-
-			Meliante mUp = new Meliante(idM, nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, imagem,
-					delitos, faccao);
-			Endereco enUp = new Endereco(idM, cidade, estado, bairro, rua, numero);
-
-			MelianteDao dao = new MelianteDao();
-			EnderecoDao daoEn = new EnderecoDao();
-
-			if (dao.update(mUp) && daoEn.update(enUp)) {
-				lblStatus.setTextFill(Color.GREEN);
-				lblStatus.setText("Cadastro atualizado com sucesso!");
-				limparCampos();
-
-			} else {
-				lblStatus.setTextFill(Color.TOMATO);
-				lblStatus.setText("Erro da atualização do cadastro...");
-			}
+		try {
+			imagem = new FileInputStream(file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+
+		int idM = m.getId();
+
+		Meliante mUp = new Meliante(idM, nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, imagem, delitos,
+				faccao);
+		Endereco enUp = new Endereco(idM, cidade, estado, bairro, rua, numero);
+
+		MelianteDao dao = new MelianteDao();
+		EnderecoDao daoEn = new EnderecoDao();
+
+		if (dao.update(mUp) && daoEn.update(enUp)) {
+			lblStatus.setTextFill(Color.GREEN);
+			lblStatus.setText("Cadastro atualizado com sucesso!");
+			limparCampos();
+
+		} else {
+			lblStatus.setTextFill(Color.TOMATO);
+			lblStatus.setText("Erro da atualização do cadastro...");
+		}
+	}
+
+	private void desativaBts() {
+		btEditar.setVisible(false);
+		btExcluir.setVisible(false);
+		btGerarPDF.setVisible(false);
+		btImprimir.setVisible(false);
+		btSalvar.setVisible(false);
 	}
 
 	private void limparCampos() {
@@ -305,7 +306,8 @@ public class FichaMelianteAdmController{
 		txtNumero.clear();
 		txtDelitos.clear();
 		txtFaccao.clear();
-		imageView.setImage(new Image("/views/SeekPng.com_personas-png_1305038.png"));
+		txtTelefone.clear();
+		imageView.setImage(new Image("/views/sem-foto.png"));
 		txtTelefone.clear();
 	}
 
@@ -357,8 +359,7 @@ public class FichaMelianteAdmController{
 		if (file != null) {
 
 			try {
-		    	Image img = dao.visualizar(m);
-
+				Image img = dao.visualizar(m);
 
 				com.lowagie.text.Image imagem = com.lowagie.text.Image.getInstance(img.getUrl());
 				imagem.setAlignment(com.lowagie.text.Image.ALIGN_CENTER);
@@ -407,7 +408,7 @@ public class FichaMelianteAdmController{
 			}
 		}
 	}
-   
+
 	@FXML
 	void initialize() {
 		exibir();

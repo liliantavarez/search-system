@@ -1,25 +1,66 @@
 package controllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import DAO.UsuariaDao;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import model.entites.Usuario;
 import model.utils.Load;
 
 public class BuscaUsuarioController {
 
-	@FXML private TextField txtEmailOuUsu;
-	@FXML private Label lblUsuario, lblEmail, lbResultado, lblStatus;
-	@FXML private Node HBoxResultado;
+	@FXML
+	private ResourceBundle resources;
+
+	@FXML
+	private URL location;
+
+	@FXML
+	private Button BtVoltar;
+
+	@FXML
+	private HBox HBoxResultado;
+
+	@FXML
+	private Button btBuscar;
+
+	@FXML
+	private Button btSair;
+
+	@FXML
+	private Label lbResultado;
+
+	@FXML
+	private Label lblEmail;
+
+	@FXML
+	private Label lblStatus;
+
+	@FXML
+	private Label lblUsuario;
+
+	@FXML
+	private TextField txtEmailOuUsu;
 
 	public static Usuario user;
 	Load lv = new Load();
 
 	@FXML
-	public void onBtBuscarAction() {
+	void OnHBoxResultadoMouseClicked(MouseEvent event) {
+		lv.loadview("/views/FichaUsuario.fxml");
+	}
+
+	@FXML
+	void onBtBuscarAction(ActionEvent event) {
+
 		lblStatus.setText("");
 
 		try {
@@ -28,15 +69,23 @@ public class BuscaUsuarioController {
 			}
 
 		} catch (RuntimeException e) {
-			// e.printStackTrace();
 			lblStatus.setTextFill(Color.TOMATO);
 			lblStatus.setText("Usuário não cadastrado!");
 		}
+	}
 
+	@FXML
+	void onBtSairAction(ActionEvent event) {
+		lv.loadview("/views/Login.fxml");
+	}
+
+	@FXML
+	void onBtVoltarAction(ActionEvent event) {
+		lv.loadview("/views/Administrador.fxml");
 	}
 
 	public boolean buscarBD() {
-	
+
 		String busca = txtEmailOuUsu.getText();
 		if (busca.isEmpty()) {
 			lblStatus.setTextFill(Color.TOMATO);
@@ -45,36 +94,20 @@ public class BuscaUsuarioController {
 		} else {
 			UsuariaDao dao = new UsuariaDao();
 			user = dao.buscaUsuario(busca);
-			if(user.getId()>0) {
+			if (user.getId() > 0) {
 				return true;
 			}
 			return false;
 		}
-		
-	}
 
+	}
+	
 	private void exibir() {
 		lblStatus.setText("");
 		HBoxResultado.setStyle("visibility: true;");
 		lbResultado.setStyle("visibility: true;");
 		lblUsuario.setText(user.getCPFUsuario());
 		lblEmail.setText(user.getEmail());
-		
-	}
-
-	@FXML
-	private void onHBoxResultadoMouseClicked() {
-		lv.loadview("/views/FichaUsuario.fxml");
-	}
-
-	@FXML
-	public void onBtVoltarAction() {
-		lv.loadview("/views/Administrador.fxml");
-	}
-
-	@FXML
-	public void onBtSairAction() {
-		lv.loadview("/views/Login.fxml");
 	}
 
 }

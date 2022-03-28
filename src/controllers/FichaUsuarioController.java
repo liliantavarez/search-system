@@ -71,6 +71,7 @@ public class FichaUsuarioController implements Initializable {
 			limpar();
 			lbStatus.setTextFill(Color.GREEN);
 			lbStatus.setText("Usuário removido do sistema!");
+			
 		} else {
 			lbStatus.setTextFill(Color.TOMATO);
 			lbStatus.setText("Erro ao excluir usuário!");
