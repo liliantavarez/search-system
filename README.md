@@ -1,5 +1,5 @@
 # Search System 🔎
- Projeto desenvolvido na disciplina de Engenharia de Software em contribuição com [Kelve Nunes](https://github.com/KelveNunes), Romualdo Freitas e Sarah de Araujo.
+ Projeto desenvolvido na disciplina de Engenharia de Software em contribuição com [Kelve Nunes](https://github.com/KelveNunes).
 
 
 ### **Descrição do Sistema:** 
