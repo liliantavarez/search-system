@@ -41,7 +41,7 @@ public class FichaUsuarioController implements Initializable {
 		UsuariaDao dao = new UsuariaDao();
 		int id = u.getId();
 		String CPFUsuario = txtUsuario.getText(), nome = txtNome.getText(), email = txtEmail.getText();
-		Usuario upUsuario = new Usuario(id, CPFUsuario, nome, email);
+		Usuario upUsuario = new Usuario(id, nome, CPFUsuario, email);
 		if (dao.update(upUsuario)) {
 			lbStatus.setTextFill(Color.GREEN);
 			lbStatus.setText("Usuário atualizado com sucesso!");

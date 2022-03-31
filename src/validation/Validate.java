@@ -13,49 +13,49 @@ public class Validate {
 		return true;
 	}
 
-	public static void validarMeliante(String nome,String apelido,String CPFMeliante,
-			String caracteristicasFisicas,String telefone,String delitos,String faccao){
+	public static void validarMeliante(TextField txtNome,TextField txtApelido,TextField txtCPFMeliante,
+			TextField txtCaracteristicasFisicas,TextField txtTelefone,TextField txtDelitos,TextField txtFaccao){
 		
-		if (nome.isEmpty()) {
-			nome = "Não cadastrado";
+		if (txtNome.getText().isEmpty()) {
+			txtNome.setText("Não cadastrado");
 		}
-		if (apelido.isEmpty()) {
-			apelido = "Não cadastrado";
+		if (txtApelido.getText().isEmpty()) {
+			txtApelido.setText("Não cadastrado");
 		}
-		if (CPFMeliante.isEmpty()) {
-			CPFMeliante = "xxx.xxx.xxx-xxx";
+		if (txtCPFMeliante.getText().isEmpty()) {
+			txtCPFMeliante.setText("xxx.xxx.xxx-xx");
 		}
-		if (caracteristicasFisicas.isEmpty()) {
-			caracteristicasFisicas = "Não cadastrado";
+		if (txtCaracteristicasFisicas.getText().isEmpty()) {
+			txtCaracteristicasFisicas.setText("Não cadastrado");
 		}
-		if (telefone.isEmpty()) {
-			telefone = "(xx)xxxxx-xxxx";
+		if (txtTelefone.getText().isEmpty()) {
+			txtTelefone.setText("(xx)xxxxx-xxxx");
 		}
-		if (delitos.isEmpty()) {
-			delitos = "Não cadastrado";
+		if (txtDelitos.getText().isEmpty()) {
+			txtDelitos.setText("Não cadastrado");
 		}
-		if (faccao.isEmpty()) {
-			faccao = "Não cadastrado";
-		}
-	}
-	
-	public static void validaEndereco(String cidade,String estado,String bairro,String rua,String numero) {
-		if (cidade.isEmpty()) {
-			cidade = "Não cadastrado";
-		}
-		if (estado.isEmpty()) {
-			estado = "N/C";
-		}
-		if (bairro.isEmpty()) {
-			bairro = "Não cadastrado";
-		}
-		if (rua.isEmpty()) {
-			rua = "Não cadastrado";
-		}
-		if (numero.isEmpty()) {
-			numero = "N/C";
+		if (txtFaccao.getText().isEmpty()) {
+			txtFaccao.setText("Não cadastrado");
 		}
 
+	}
+	
+	public static void validaEndereco(TextField txtCidade,TextField txtEstado,TextField txtBairro,TextField txtRua,TextField txtNumero) {
+		if (txtCidade.getText().isEmpty()) {
+			txtCidade.setText("Não cadastrado");
+		}
+		if (txtEstado.getText().isEmpty()) {
+			txtEstado.setText("N/C");
+		}
+		if (txtBairro.getText().isEmpty()) {
+			txtBairro.setText("Não cadastrado");
+		}
+		if (txtRua.getText().isEmpty()) {
+			txtRua.setText("Não cadastrado");
+		}
+		if (txtNumero.getText().isEmpty()) {
+			txtNumero.setText("N/C");
+		}
 
 	}
 	

@@ -36,6 +36,7 @@ import model.entites.Meliante;
 import model.utils.Impressao;
 import model.utils.Load;
 import model.utils.TextFieldFormatter;
+import validation.Validate;
 
 public class FichaMelianteAdmController {
 
@@ -186,8 +187,6 @@ public class FichaMelianteAdmController {
 
 		file = fileChooser.showOpenDialog(null);
 		if (file != null) {
-			System.out.println(file);
-
 			image = new Image(file.toURI().toString());
 			imageView.setImage(image);
 
@@ -234,7 +233,7 @@ public class FichaMelianteAdmController {
 
 	public void exibir() {
 		Image img = dao.visualizar(m);
-
+	
 		txtNome.setText(m.getNome());
 		txtCPF.setText(m.getCPFMeliante());
 		txtApelido.setText(m.getApelido());
@@ -253,21 +252,32 @@ public class FichaMelianteAdmController {
 
 	private void atualiza() {
 
+		if (file != null) {
+			try {
+				imagem = new FileInputStream(file);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		} else {
+			try {
+				
+				imagem = new FileInputStream(m.getImagem().toString());
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
+		}
+		
+		Validate.validarMeliante(txtNome, txtApelido, txtCPF, txtCaracFisicas, txtTelefone, txtDelitos, txtFaccao);
+		Validate.validaEndereco(txtCidade, txtUF, txtBairro, txtRua, txtNumero);
+		
 		String nome = txtNome.getText(), CPFMeliante = txtCPF.getText(), apelido = txtApelido.getText(),
 				caracteristicasFisicas = txtCaracFisicas.getText(), delitos = txtDelitos.getText(),
 				faccao = txtFaccao.getText(), telefone = txtTelefone.getText(), cidade = txtCidade.getText(),
 				bairro = txtBairro.getText(), rua = txtRua.getText(), estado = txtUF.getText(),
 				numero = txtNumero.getText();
 
-		try {
-			imagem = new FileInputStream(file);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 		int idM = m.getId();
-
+				
 		Meliante mUp = new Meliante(idM, nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, imagem, delitos,
 				faccao);
 		Endereco enUp = new Endereco(idM, cidade, estado, bairro, rua, numero);

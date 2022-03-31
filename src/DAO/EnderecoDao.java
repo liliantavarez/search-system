@@ -17,7 +17,7 @@ public class EnderecoDao {
 	}
 
 	public boolean add(Endereco e) {
-		String sql = "INSERT INTO endereco ( cidade, estado, bairro, rua, numero) VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO endereco (cidade, estado, bairro, rua, numero) VALUES (?,?,?,?,?)";
 
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
