@@ -24,7 +24,7 @@ public class Meliante {
 		this.id = id;
 		this.nome = nome;
 		this.apelido = apelido;
-		CPFMeliante = cPFMeliante;
+		this.CPFMeliante = cPFMeliante;
 		this.caracteristicasFisicas = caracteristicasFisicas;
 		this.telefone = telefone;
 		this.imagem = imagem;

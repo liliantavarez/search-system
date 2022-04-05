@@ -226,4 +226,34 @@ public class MelianteDao {
 		return image;
 	}
 
+	public InputStream file(Meliante m) {
+		InputStream is = null;
+		String sql = "select * from meliante where id = ?";
+		
+		try {
+			
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setInt(1, m.getId());
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				
+				is = rs.getBinaryStream("imagem");
+				is.close();
+			}
+			
+			pst.close();
+			rs.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return is;
+	}
+
 }

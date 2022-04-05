@@ -9,10 +9,10 @@ public class ConnectionFactory {
 	public Connection getConnection() {
 
 		try {
-		String nomeUsuario = "lilian";
-		String senhaUsuario = "12345678";
-		String enderecoServidor = "search-system.ch2i953gu7o2.us-east-1.rds.amazonaws.com";
-		String nomeBanco = "SS";
+		String nomeUsuario = "root";
+		String senhaUsuario = "1234567";
+		String enderecoServidor = "localhost";
+		String nomeBanco = "search-system";
 		
 			return DriverManager.getConnection("jdbc:mysql://"+enderecoServidor+"/"+nomeBanco, nomeUsuario, senhaUsuario);
 		} catch (SQLException e) {

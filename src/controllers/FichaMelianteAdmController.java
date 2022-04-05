@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -118,7 +119,7 @@ public class FichaMelianteAdmController {
 	private File file;
 	private Image image;
 	private FileInputStream imagem;
-
+	
 	Endereco e = BuscaAdmController.e;
 	Meliante m = BuscaAdmController.m;
 	MelianteDao dao = new MelianteDao();
@@ -189,12 +190,6 @@ public class FichaMelianteAdmController {
 		if (file != null) {
 			image = new Image(file.toURI().toString());
 			imageView.setImage(image);
-
-			try {
-				imagem = new FileInputStream(file);
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 
@@ -233,7 +228,7 @@ public class FichaMelianteAdmController {
 
 	public void exibir() {
 		Image img = dao.visualizar(m);
-	
+
 		txtNome.setText(m.getNome());
 		txtCPF.setText(m.getCPFMeliante());
 		txtApelido.setText(m.getApelido());
@@ -251,49 +246,49 @@ public class FichaMelianteAdmController {
 	}
 
 	private void atualiza() {
-
+		MelianteDao daoimg = new MelianteDao();
+		daoimg.file(m);
 		if (file != null) {
 			try {
 				imagem = new FileInputStream(file);
+				Validate.validarMeliante(txtNome, txtApelido, txtCPF, txtCaracFisicas, txtTelefone, txtDelitos, txtFaccao);
+				Validate.validaEndereco(txtCidade, txtUF, txtBairro, txtRua, txtNumero);
+
+				String nome = txtNome.getText(), CPFMeliante = txtCPF.getText(), apelido = txtApelido.getText(),
+						caracteristicasFisicas = txtCaracFisicas.getText(), delitos = txtDelitos.getText(),
+						faccao = txtFaccao.getText(), telefone = txtTelefone.getText(), cidade = txtCidade.getText(),
+						bairro = txtBairro.getText(), rua = txtRua.getText(), estado = txtUF.getText(),
+						numero = txtNumero.getText();
+
+				int idM = m.getId();
+
+				Meliante mUp = new Meliante(idM, nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, imagem, delitos,
+						faccao);
+				Endereco enUp = new Endereco(idM, cidade, estado, bairro, rua, numero);
+				
+				MelianteDao dao = new MelianteDao();
+				EnderecoDao daoEn = new EnderecoDao();
+
+				if (dao.update(mUp) && daoEn.update(enUp)) {
+					lblStatus.setTextFill(Color.GREEN);
+					lblStatus.setText("Cadastro atualizado com sucesso!");
+					limparCampos();
+
+				} else {
+					lblStatus.setTextFill(Color.TOMATO);
+					lblStatus.setText("Erro da atualização do cadastro...");
+				}
+
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
 		} else {
-			try {
-				
-				imagem = new FileInputStream(m.getImagem().toString());
-			} catch (FileNotFoundException e1) {
-				e1.printStackTrace();
-			}
+			InputStream imagemRec = m.getImagem();
+
 		}
+
 		
-		Validate.validarMeliante(txtNome, txtApelido, txtCPF, txtCaracFisicas, txtTelefone, txtDelitos, txtFaccao);
-		Validate.validaEndereco(txtCidade, txtUF, txtBairro, txtRua, txtNumero);
-		
-		String nome = txtNome.getText(), CPFMeliante = txtCPF.getText(), apelido = txtApelido.getText(),
-				caracteristicasFisicas = txtCaracFisicas.getText(), delitos = txtDelitos.getText(),
-				faccao = txtFaccao.getText(), telefone = txtTelefone.getText(), cidade = txtCidade.getText(),
-				bairro = txtBairro.getText(), rua = txtRua.getText(), estado = txtUF.getText(),
-				numero = txtNumero.getText();
 
-		int idM = m.getId();
-				
-		Meliante mUp = new Meliante(idM, nome, apelido, CPFMeliante, caracteristicasFisicas, telefone, imagem, delitos,
-				faccao);
-		Endereco enUp = new Endereco(idM, cidade, estado, bairro, rua, numero);
-
-		MelianteDao dao = new MelianteDao();
-		EnderecoDao daoEn = new EnderecoDao();
-
-		if (dao.update(mUp) && daoEn.update(enUp)) {
-			lblStatus.setTextFill(Color.GREEN);
-			lblStatus.setText("Cadastro atualizado com sucesso!");
-			limparCampos();
-
-		} else {
-			lblStatus.setTextFill(Color.TOMATO);
-			lblStatus.setText("Erro da atualização do cadastro...");
-		}
 	}
 
 	private void desativaBts() {
